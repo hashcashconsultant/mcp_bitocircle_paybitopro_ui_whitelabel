@@ -58,8 +58,15 @@ The app calls two live services (see `src/utils/apiHosts.ts`):
 
 **Start here:** **`src/config/whitelabel.ts`** is the single brand-control file — set your name,
 tagline, description, keywords, production domain, social handle, support email, and primary/secondary
-colors in ONE place. The theme (`src/lib/theme.ts`) and the site metadata (`src/app/layout.tsx`)
-both read from it, so most re-branding is this one file + swapping the logo images.
+colors in ONE place. The theme (`src/lib/theme.ts`), the site metadata (`src/app/layout.tsx`), and the
+**on-screen wordmark** in the top navigation + login screen all read from it, so most re-branding is
+this one file + swapping the logo images.
+
+> This snapshot ships with the sample brand **"Circlo"** (violet theme) to demonstrate white-labeling
+> — change it in `whitelabel.ts`. The header and login wordmarks render as **text** from the config,
+> so they rebrand automatically. A few inner surfaces still use **logo PNGs** (the login feature
+> illustration and the Finance Hub / Terms headers, from `src/app/Assets/img/`) — swap those image
+> files to finish the rebrand.
 
 | You want to change | Edit | Notes |
 |---|---|---|

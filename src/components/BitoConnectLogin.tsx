@@ -24,7 +24,7 @@ import {
 } from '@mui/icons-material';
 import Image from 'next/image';
 import BitoConnect from '../app/Assets/img/BitoConnect.png';
-import bitoHubTextLogo from '../app/Assets/img/bitoHubTextLogo.png';
+import { WHITELABEL } from '@/config/whitelabel';
 import { tokenCookie } from '../hooks/useAuthRedirect';
 
 // Safe localStorage helper
@@ -221,7 +221,7 @@ const BitoConnectLogin = () => {
                     <Box
                       component="img"
                       src={BitoConnect.src}
-                      alt="BitoCircle Platform Features"
+                      alt="Circlo Platform Features"
                       sx={{
                         width: '100%',
                         maxWidth: '450px',
@@ -260,18 +260,20 @@ const BitoConnectLogin = () => {
                   >
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                       <Box
-                        component="img"
-                        src={bitoHubTextLogo.src}
-                        alt="BitoConnect Logo"
+                        component="span"
                         sx={{
-                          width: { xs: '150px', md: '200px' },
-                          height: 'auto',
+                          fontWeight: 800,
+                          fontSize: { xs: '2rem', md: '2.6rem' },
+                          letterSpacing: '-0.02em',
+                          color: WHITELABEL.colors.primary.main,
                           transition: 'transform 0.3s ease',
                           '&:hover': {
                             transform: 'scale(1.05)',
                           },
                         }}
-                      />
+                      >
+                        {WHITELABEL.brandName}
+                      </Box>
                     </Box>
                   </Box>
 

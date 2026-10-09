@@ -30,7 +30,7 @@ import { useBroker } from '../../contexts/BrokerContext'
 import { useThemeMode } from '../../contexts/ThemeContext'
 import { useSearch } from '../../contexts/SearchContext'
 import { useUserProfile } from '../../contexts/UserProfileContext'
-import logo from '../../app/Assets/img/bitoHubTextLogo.png'
+import { WHITELABEL } from '@/config/whitelabel'
 import SnackbarAlert from '../common/SnackbarAlert'
 import Sidebar from './Sidebar'
 import SidebarComponent from '@/components/SidebarComponent'
@@ -1153,8 +1153,8 @@ const { unreadMessageCount, isConnected } = useMessaging()
             >
               <MenuIcon />
             </IconButton>
-            <Link href="/feeds" style={{ display: 'flex', alignItems: 'center' }}>
-              <img src={logo.src} alt="BitoCircle" style={{ height: 32 }} />
+            <Link href="/feeds" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+              <span style={{ fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', color: WHITELABEL.colors.primary.main }}>{WHITELABEL.brandName}</span>
             </Link>
             <Box sx={{ display: { xs: 'none', md: 'block' }, ml: 1 }}>
               {renderSearchContent(false)}
