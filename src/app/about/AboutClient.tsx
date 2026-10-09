@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { WHITELABEL } from '@/config/whitelabel';
 import {
   Box,
   Container,
@@ -499,7 +500,7 @@ const AboutClient = () => {
               </Typography>
               <Button
                 component="a"
-                href="https://myaccount.paybito.com/signin?continue=https://www.bitocircle.com&app=BitoCircle"
+                href={`https://myaccount.paybito.com/signin?continue=${WHITELABEL.siteUrl}&app=BitoCircle`}
                 sx={{
                   background: 'rgba(255, 255, 255, 0.2)',
                   backdropFilter: 'blur(10px)',

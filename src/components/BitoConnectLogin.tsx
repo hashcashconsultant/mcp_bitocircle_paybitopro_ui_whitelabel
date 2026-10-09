@@ -63,8 +63,8 @@ const BitoConnectLogin = () => {
         );
 
         if (response.ok) {
-          // Token is valid, redirect to bitoconnect.com
-          window.location.href = 'https://www.bitocircle.com';
+          // Token is valid — go to the app's feed on THIS (white-label) domain, NOT the mothership.
+          window.location.href = '/feeds';
           return;
         }
 
@@ -86,6 +86,12 @@ const BitoConnectLogin = () => {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
+
+  // White-label: after sign-in/sign-up on the central PayBito account, return to THIS deployment's
+  // own origin (not the hardcoded mothership). `app=BitoCircle` stays — it's the SSO app id (wiring).
+  const continueUrl = typeof window !== 'undefined' ? window.location.origin : WHITELABEL.siteUrl;
+  const signinHref = `https://myaccount.paybito.com/signin?continue=${continueUrl}&app=BitoCircle`;
+  const signupHref = `https://myaccount.paybito.com/signup?continue=${continueUrl}&app=BitoCircle`;
 
   const marketplaceItems = [
     { label: 'App Store', url: 'https://apps.paybito.com/', icon: '📱' },
@@ -315,7 +321,7 @@ const BitoConnectLogin = () => {
                         variant="contained"
                         fullWidth
                         component="a"
-                        href="https://myaccount.paybito.com/signin?continue=https://www.bitocircle.com&app=BitoCircle"
+                        href={signinHref}
                         endIcon={<ArrowForward />}
                         sx={{
                           py: 1,
@@ -385,7 +391,7 @@ const BitoConnectLogin = () => {
                         <Typography sx={{ color: '#6b7280', fontSize: '0.875rem' }}>
                           Don&apos;t have an account?{' '}
                           <Link
-                            href="https://myaccount.paybito.com/signup?continue=https://www.bitocircle.com&app=BitoCircle"
+                            href={signupHref}
                             target="_blank"
                             sx={{
                               color: '#dc2626',

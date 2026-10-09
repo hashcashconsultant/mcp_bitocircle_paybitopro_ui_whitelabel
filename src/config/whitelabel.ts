@@ -26,7 +26,7 @@ export const WHITELABEL = {
 
   // --- Your production domain (SEO metadataBase + canonical/OpenGraph URLs) --
   // Set this to the domain you deploy on.
-  siteUrl: 'https://circlo.example.com',
+  siteUrl: 'https://circle.paybito.com',
 
   // --- Social / support -----------------------------------------------------
   twitterHandle: '@circlo',
