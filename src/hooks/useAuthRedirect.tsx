@@ -8,7 +8,9 @@ import CryptoJS from "crypto-js";
 import { isOwnApi, isPaybitoApi, localApiUrl } from '../utils/apiHosts';
 import { takePendingAuthorize } from '../utils/pendingAuthorize';
 
-const LOGIN_REDIRECT_URL = 'https://www.bitocircle.com/login';
+// White-label: send unauthenticated users to THIS deployment's own /login (same origin),
+// never the hardcoded mothership. Relative path keeps it domain-agnostic.
+const LOGIN_REDIRECT_URL = '/login';
 
 const SECRETKEY = '4f8e1c9a7b3d22e5a6f3c4d2b8a7e1f0c9d8a2b1c4e5f6d7a8b9c0d1e2f3a4b5';
 
