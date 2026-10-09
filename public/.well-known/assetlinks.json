@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bito.circle",
+      "sha256_cert_fingerprints": [
+        "C3:62:DA:CC:0D:92:D7:C1:3C:03:F4:D3:11:32:6E:B7:71:94:0F:68:57:4E:10:68:7D:E7:68:B7:2F:8B:2E:37",
+        "24:D9:D0:DB:D2:E8:8E:A7:73:7C:A8:1B:60:31:01:15:BF:79:43:71:33:01:CB:EC:44:1E:4F:06:6C:CA:1D:97"
+      ]
+    }
+  }
+]

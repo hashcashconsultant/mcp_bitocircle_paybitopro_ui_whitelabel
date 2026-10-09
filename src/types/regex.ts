@@ -1,0 +1,1 @@
+export const AMOUNTREGEX = /^[0-9]+(\.[0-9]+)?$/gm;
