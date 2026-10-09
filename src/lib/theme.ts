@@ -1,6 +1,8 @@
 // theme/theme.ts
 'use client'
 import { createTheme, ThemeOptions, PaletteMode } from '@mui/material/styles'
+// White-label brand colors — edit src/config/whitelabel.ts, not this file.
+import { WHITELABEL } from '@/config/whitelabel'
 
 // Define custom theme interface
 declare module '@mui/material/styles' {
@@ -22,18 +24,8 @@ export const createAppTheme = (mode: PaletteMode) => {
   const themeOptions: ThemeOptions = {
     palette: {
       mode,
-      primary: {
-        main: '#1e40af',
-        light: '#42a5f5',
-        dark: '#1e40af',
-        contrastText: '#ffffff',
-      },
-      secondary: {
-        main: '#dc004e',
-        light: '#f5325b',
-        dark: '#9a0036',
-        contrastText: '#ffffff',
-      },
+      primary: { ...WHITELABEL.colors.primary },
+      secondary: { ...WHITELABEL.colors.secondary },
       background: {
         default: mode === 'light' ? '#f5f5f5' : '#121212',
         paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
@@ -154,7 +146,7 @@ export const createAppTheme = (mode: PaletteMode) => {
       },
     },
     status: {
-      danger: '#e53e3e',
+      danger: WHITELABEL.colors.status.danger,
     },
   }
 

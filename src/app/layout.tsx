@@ -8,6 +8,8 @@ import { SearchProvider } from '@/contexts/SearchContext'
 import { MessagingProvider } from '@/contexts/MessagingContext'
 import { AuthProvider } from '@/contexts/AuthContext'  // ADD THIS IMPORT
 import { UserProfileProvider } from '@/contexts/UserProfileContext'
+// White-label identity/SEO — edit src/config/whitelabel.ts, not this file.
+import { WHITELABEL } from '@/config/whitelabel'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -17,42 +19,42 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: {
-    default: 'BitoCircle - Social Finance Platform',
-    template: '%s | BitoCircle'
+    default: `${WHITELABEL.brandName} - ${WHITELABEL.tagline}`,
+    template: `%s | ${WHITELABEL.brandName}`
   },
-  description: 'Connect, trade, and grow with BitoCircle - A modern social finance platform',
-  keywords: ['BitoCircle', 'Social Finance', 'Cryptocurrency', 'Trading', 'Finance Hub'],
-  authors: [{ name: 'BitoCircle' }],
-  creator: 'BitoCircle',
-  publisher: 'BitoCircle',
+  description: WHITELABEL.description,
+  keywords: [...WHITELABEL.keywords],
+  authors: [{ name: WHITELABEL.brandName }],
+  creator: WHITELABEL.brandName,
+  publisher: WHITELABEL.brandName,
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.bitocircle.com'),
+  metadataBase: new URL(WHITELABEL.siteUrl),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.bitocircle.com',
-    siteName: 'BitoCircle',
-    title: 'BitoCircle - Social Finance Platform',
-    description: 'Connect, trade, and grow with BitoCircle',
+    url: WHITELABEL.siteUrl,
+    siteName: WHITELABEL.brandName,
+    title: `${WHITELABEL.brandName} - ${WHITELABEL.tagline}`,
+    description: WHITELABEL.description,
     images: [
       {
-        url: '/og-image.jpg',
+        url: WHITELABEL.ogImage,
         width: 1200,
         height: 630,
-        alt: 'BitoCircle',
+        alt: WHITELABEL.brandName,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BitoCircle',
-    description: 'Connect, trade, and grow with BitoHub',
-    images: ['/og-image.jpg'],
-    creator: '@bitohub',
+    title: WHITELABEL.brandName,
+    description: WHITELABEL.description,
+    images: [WHITELABEL.ogImage],
+    creator: WHITELABEL.twitterHandle,
   },
   robots: {
     index: true,

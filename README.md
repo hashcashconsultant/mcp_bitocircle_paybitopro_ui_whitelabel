@@ -56,12 +56,18 @@ The app calls two live services (see `src/utils/apiHosts.ts`):
 
 ## What to customize (the look)
 
+**Start here:** **`src/config/whitelabel.ts`** is the single brand-control file — set your name,
+tagline, description, keywords, production domain, social handle, support email, and primary/secondary
+colors in ONE place. The theme (`src/lib/theme.ts`) and the site metadata (`src/app/layout.tsx`)
+both read from it, so most re-branding is this one file + swapping the logo images.
+
 | You want to change | Edit | Notes |
 |---|---|---|
-| Colors / light + dark palette | `src/lib/theme.ts` (`createAppTheme`) | `palette.primary.main` etc. — start here |
+| **Brand name, tagline, colors, domain, SEO** | **`src/config/whitelabel.ts`** | the one-stop control; feeds theme + metadata |
+| Deeper theme (typography, radius, component styles) | `src/lib/theme.ts` (`createAppTheme`) | colors already come from `whitelabel.ts`; tweak the rest here |
 | Logos & wordmark | `src/app/Assets/img/` (e.g. `bitoHubLogo.png`, `bitoHubTextLogo.png`) | swap the files, keep the names, or update the imports |
 | App icons / favicons / PWA | `public/` | replace the icon set + `manifest.json` |
-| App name, SEO, social preview | `src/app/layout.tsx` metadata | `title`, `description`, `metadataBase`, `openGraph` — set to **your** brand + domain |
+| Open Graph preview image | `public/og-image.jpg` | referenced by `whitelabel.ts` → `ogImage` |
 | Per-community branding at runtime | `src/contexts/BrokerContext.tsx` | company name / referral / logo resolved per community |
 | PayPal checkout | `.env.local` → `NEXT_PUBLIC_PAYPAL_CLIENT_ID` | your own PayPal app's public client id |
 
