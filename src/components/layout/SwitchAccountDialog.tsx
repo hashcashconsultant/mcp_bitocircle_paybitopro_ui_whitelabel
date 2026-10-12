@@ -69,7 +69,7 @@ const SwitchAccountDialog: React.FC<SwitchAccountDialogProps> = ({
             <Avatar
               src={profilePicture || undefined}
               sx={{
-                bgcolor: pageAvatarBgColor || '#1877f2',
+                bgcolor: pageAvatarBgColor || '#0d9488',
                 width: 64,
                 height: 64,
                 fontSize: 20,
@@ -138,7 +138,7 @@ const SwitchAccountDialog: React.FC<SwitchAccountDialogProps> = ({
           variant="contained"
           sx={{
             textTransform: 'none',
-            bgcolor: '#1877f2',
+            bgcolor: '#0d9488',
             fontWeight: 600,
             minWidth: 100,
             '&:hover': {

@@ -16,7 +16,6 @@ import {
     useMediaQuery,
     Link as MuiLink,
     ThemeProvider,
-    createTheme,
     CssBaseline,
     Card,
     CardContent,
@@ -60,7 +59,6 @@ import {
     ArrowBack,
 } from '@mui/icons-material';
 import Image from 'next/image';
-import bitoHubTextLogo from '../app/Assets/img/bitoHubTextLogo.png';
 import { redirect } from 'next/dist/server/api-utils';
 import Link from 'next/link';
 import { MetaMaskContext, useMetaMask } from '../contexts/MetaMaskContext';
@@ -69,6 +67,7 @@ import axios from 'axios';
 import { MetaMaskInpageProvider } from "@metamask/providers";
 import web3 from "web3";
 import { useRouter } from 'next/navigation';
+import { createBrandTheme } from '@/lib/theme';
 
 
 
@@ -314,38 +313,38 @@ const FinanceHubNftMyNftContent = () => {
     // Create theme based on mode
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#2563eb',
-                        light: '#3b82f6',
-                        dark: '#1d4ed8',
+                        main: '#0d9488',
+                        light: '#14b8a6',
+                        dark: '#0f766e',
                     },
                     secondary: {
-                        main: '#7c3aed',
-                        light: '#8b5cf6',
-                        dark: '#6d28d9',
+                        main: '#0d9488',
+                        light: '#14b8a6',
+                        dark: '#0f766e',
                     },
                     background: {
-                        default: mode === 'light' ? '#f8fafc' : '#0f0f23',
-                        paper: mode === 'light' ? '#ffffff' : '#1a1b3a',
+                        default: mode === 'light' ? '#f8f6f1' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
-                        primary: mode === 'light' ? '#0f172a' : '#f1f5f9',
+                        primary: mode === 'light' ? '#0b1211' : '#efece5',
                         secondary: mode === 'light' ? '#475569' : '#94a3b8',
                     },
                     grey: {
-                        50: '#f8fafc',
-                        100: '#f1f5f9',
+                        50: '#f8f6f1',
+                        100: '#efece5',
                         200: '#e2e8f0',
                         300: '#cbd5e1',
                         400: '#94a3b8',
                         500: '#64748b',
                         600: '#475569',
                         700: '#334155',
-                        800: '#1e293b',
-                        900: '#0f172a',
+                        800: '#16201f',
+                        900: '#0b1211',
                     },
                 },
                 typography: {
@@ -436,7 +435,7 @@ const FinanceHubNftMyNftContent = () => {
     const getStatusColor = (status: string) => {
         switch (status) {
             case 'Owned': return 'linear-gradient(45deg, #10b981, #059669)';
-            case 'Created': return 'linear-gradient(45deg, #3b82f6, #1d4ed8)';
+            case 'Created': return 'linear-gradient(45deg, #14b8a6, #0f766e)';
             case 'OnSale': return 'linear-gradient(45deg, #f59e0b, #d97706)';
             default: return 'linear-gradient(45deg, #6b7280, #4b5563)';
         }
@@ -709,8 +708,8 @@ const FinanceHubNftMyNftContent = () => {
                     py: { xs: 3, sm: 4, md: 6 },
                     minHeight: '100vh',
                     background: mode === 'light'
-                        ? 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #f1f5f9 75%, #ffffff 100%)'
-                        : 'linear-gradient(135deg, #0f0f23 0%, #1a1b3a 25%, #0f172a 75%, #1e293b 100%)',
+                        ? 'linear-gradient(135deg, #f8f6f1 0%, #e2e8f0 25%, #efece5 75%, #ffffff 100%)'
+                        : 'linear-gradient(135deg, #0b1211 0%, #121b1a 25%, #0b1211 75%, #16201f 100%)',
                 }}
             >
                 <Container
@@ -726,21 +725,21 @@ const FinanceHubNftMyNftContent = () => {
                             onClick={handleGoBack}
                             sx={{
                                 backgroundColor: mode === 'light'
-                                    ? 'rgba(37, 99, 235, 0.1)'
-                                    : 'rgba(96, 165, 250, 0.15)',
+                                    ? 'rgba(13, 148, 136, 0.1)'
+                                    : 'rgba(45, 212, 191, 0.15)',
                                 backdropFilter: 'blur(10px)',
                                 border: `1px solid ${mode === 'light'
-                                    ? 'rgba(37, 99, 235, 0.2)'
-                                    : 'rgba(96, 165, 250, 0.2)'}`,
+                                    ? 'rgba(13, 148, 136, 0.2)'
+                                    : 'rgba(45, 212, 191, 0.2)'}`,
                                 color: theme.palette.primary.main,
                                 transition: 'all 0.3s ease',
                                 '&:hover': {
                                     backgroundColor: mode === 'light'
-                                        ? 'rgba(37, 99, 235, 0.15)'
-                                        : 'rgba(96, 165, 250, 0.25)',
+                                        ? 'rgba(13, 148, 136, 0.15)'
+                                        : 'rgba(45, 212, 191, 0.25)',
                                     transform: 'translateX(-4px)',
                                     boxShadow: mode === 'light'
-                                        ? '0 8px 16px rgba(37, 99, 235, 0.2)'
+                                        ? '0 8px 16px rgba(13, 148, 136, 0.2)'
                                         : '0 8px 16px rgba(0, 0, 0, 0.3)',
                                 },
                             }}
@@ -765,7 +764,7 @@ const FinanceHubNftMyNftContent = () => {
                             backdropFilter: 'blur(20px)',
                             background: mode === 'light'
                                 ? 'rgba(255, 255, 255, 0.95)'
-                                : 'rgba(26, 27, 58, 0.95)',
+                                : 'rgba(18, 27, 26, 0.95)',
                         }}
                     >
                         {/* Header Section */}
@@ -786,8 +785,8 @@ const FinanceHubNftMyNftContent = () => {
                                         fontWeight: 700,
                                         fontSize: { xs: '1.875rem', sm: '2.25rem', md: '2.5rem' },
                                         background: mode === 'light'
-                                            ? 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #2563eb 100%)'
-                                            : 'linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #60a5fa 100%)',
+                                            ? 'linear-gradient(135deg, #0d9488 0%, #0d9488 50%, #0d9488 100%)'
+                                            : 'linear-gradient(135deg, #2dd4bf 0%, #2dd4bf 50%, #2dd4bf 100%)',
                                         backgroundClip: 'text',
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
@@ -819,20 +818,20 @@ const FinanceHubNftMyNftContent = () => {
                                     variant="contained"
                                     startIcon={<Analytics />}
                                     sx={{
-                                        background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+                                        background: 'linear-gradient(135deg, #0d9488 0%, #0d9488 100%)',
                                         borderRadius: { xs: 2.5, sm: 3 },
                                         px: { xs: 2.5, sm: 3, md: 4 },
                                         py: { xs: 1.25, sm: 1.5 },
                                         textTransform: 'none',
                                         fontSize: { xs: '0.875rem', sm: '1rem' },
                                         fontWeight: 600,
-                                        boxShadow: '0 8px 25px rgba(37, 99, 235, 0.25)',
+                                        boxShadow: '0 8px 25px rgba(13, 148, 136, 0.25)',
                                         border: '1px solid rgba(255, 255, 255, 0.1)',
                                         minWidth: { xs: '140px', sm: '160px' },
                                         '&:hover': {
-                                            background: 'linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%)',
+                                            background: 'linear-gradient(135deg, #0f766e 0%, #0f766e 100%)',
                                             transform: 'translateY(-2px)',
-                                            boxShadow: '0 12px 35px rgba(37, 99, 235, 0.35)',
+                                            boxShadow: '0 12px 35px rgba(13, 148, 136, 0.35)',
                                         },
                                         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                     }}
@@ -878,13 +877,13 @@ const FinanceHubNftMyNftContent = () => {
                                         overflow: 'hidden',
                                         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                         ...(activeFilter === filter ? {
-                                            background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+                                            background: 'linear-gradient(135deg, #0d9488 0%, #0d9488 100%)',
                                             color: 'white',
-                                            boxShadow: '0 4px 20px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                                            boxShadow: '0 4px 20px rgba(13, 148, 136, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                                             '&:hover': {
-                                                background: 'linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%)',
+                                                background: 'linear-gradient(135deg, #0f766e 0%, #0f766e 100%)',
                                                 transform: 'translateY(-1px)',
-                                                boxShadow: '0 6px 25px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                                                boxShadow: '0 6px 25px rgba(13, 148, 136, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                                             },
                                             '&::before': {
                                                 content: '""',
@@ -904,8 +903,8 @@ const FinanceHubNftMyNftContent = () => {
                                             backgroundColor: 'transparent',
                                             '&:hover': {
                                                 backgroundColor: mode === 'light'
-                                                    ? 'rgba(37, 99, 235, 0.08)'
-                                                    : 'rgba(96, 165, 250, 0.15)',
+                                                    ? 'rgba(13, 148, 136, 0.08)'
+                                                    : 'rgba(45, 212, 191, 0.15)',
                                                 transform: 'translateY(-1px)',
                                                 color: theme.palette.primary.main,
                                             },
@@ -940,8 +939,8 @@ const FinanceHubNftMyNftContent = () => {
                                             borderRadius: { xs: 3, sm: 4 },
                                             overflow: 'hidden',
                                             background: mode === 'light'
-                                                ? 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)'
-                                                : 'linear-gradient(145deg, #1e293b 0%, #0f172a 100%)',
+                                                ? 'linear-gradient(145deg, #ffffff 0%, #f8f6f1 100%)'
+                                                : 'linear-gradient(145deg, #16201f 0%, #0b1211 100%)',
                                             border: mode === 'dark'
                                                 ? '1px solid rgba(148, 163, 184, 0.1)'
                                                 : '1px solid rgba(226, 232, 240, 0.8)',
@@ -956,8 +955,8 @@ const FinanceHubNftMyNftContent = () => {
                                                 right: 0,
                                                 bottom: 0,
                                                 background: mode === 'light'
-                                                    ? 'linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%)'
-                                                    : 'linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%)',
+                                                    ? 'linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, rgba(13, 148, 136, 0.05) 100%)'
+                                                    : 'linear-gradient(135deg, rgba(45, 212, 191, 0.1) 0%, rgba(45, 212, 191, 0.1) 100%)',
                                                 opacity: 0,
                                                 transition: 'opacity 0.3s ease',
                                                 zIndex: 1,
@@ -965,11 +964,11 @@ const FinanceHubNftMyNftContent = () => {
                                             '&:hover': {
                                                 transform: 'translateY(-12px) scale(1.02)',
                                                 boxShadow: mode === 'light'
-                                                    ? '0 25px 50px rgba(0, 0, 0, 0.1), 0 15px 35px rgba(37, 99, 235, 0.15)'
-                                                    : '0 25px 50px rgba(0, 0, 0, 0.4), 0 15px 35px rgba(37, 99, 235, 0.3)',
+                                                    ? '0 25px 50px rgba(0, 0, 0, 0.1), 0 15px 35px rgba(13, 148, 136, 0.15)'
+                                                    : '0 25px 50px rgba(0, 0, 0, 0.4), 0 15px 35px rgba(13, 148, 136, 0.3)',
                                                 border: mode === 'dark'
-                                                    ? '1px solid rgba(37, 99, 235, 0.3)'
-                                                    : '1px solid rgba(37, 99, 235, 0.2)',
+                                                    ? '1px solid rgba(13, 148, 136, 0.3)'
+                                                    : '1px solid rgba(13, 148, 136, 0.2)',
                                                 '&::before': {
                                                     opacity: 1,
                                                 },
@@ -984,8 +983,8 @@ const FinanceHubNftMyNftContent = () => {
                                                 width: '100%',
                                                 aspectRatio: '1/1', // This ensures the container is always square
                                                 background: mode === 'light'
-                                                    ? 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)'
-                                                    : 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+                                                    ? 'linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #f093fb 100%)'
+                                                    : 'linear-gradient(135deg, #121b1a 0%, #16201f 50%, #0f3460 100%)',
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
@@ -1125,11 +1124,11 @@ const FinanceHubNftMyNftContent = () => {
                                                         py: { xs: 0.75, sm: 1 },
                                                         borderRadius: 2,
                                                         background: mode === 'light'
-                                                            ? 'rgba(37, 99, 235, 0.05)'
-                                                            : 'rgba(96, 165, 250, 0.1)',
+                                                            ? 'rgba(13, 148, 136, 0.05)'
+                                                            : 'rgba(45, 212, 191, 0.1)',
                                                         border: mode === 'light'
-                                                            ? '1px solid rgba(37, 99, 235, 0.1)'
-                                                            : '1px solid rgba(96, 165, 250, 0.2)',
+                                                            ? '1px solid rgba(13, 148, 136, 0.1)'
+                                                            : '1px solid rgba(45, 212, 191, 0.2)',
                                                         flexShrink: 0, // Prevent price container from shrinking
                                                     }}
                                                 >
@@ -1165,8 +1164,8 @@ const FinanceHubNftMyNftContent = () => {
                                         p: 3,
                                         borderRadius: '50%',
                                         background: mode === 'light'
-                                            ? 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)'
-                                            : 'linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(167, 139, 250, 0.15) 100%)',
+                                            ? 'linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(13, 148, 136, 0.1) 100%)'
+                                            : 'linear-gradient(135deg, rgba(45, 212, 191, 0.15) 0%, rgba(45, 212, 191, 0.15) 100%)',
                                         display: 'inline-flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
@@ -1215,18 +1214,18 @@ const FinanceHubNftMyNftContent = () => {
                                     variant="contained"
                                     startIcon={<Analytics />}
                                     sx={{
-                                        background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+                                        background: 'linear-gradient(135deg, #0d9488 0%, #0d9488 100%)',
                                         borderRadius: 3,
                                         px: { xs: 3, sm: 4 },
                                         py: { xs: 1.25, sm: 1.5 },
                                         textTransform: 'none',
                                         fontWeight: 600,
                                         fontSize: { xs: '0.875rem', sm: '1rem' },
-                                        boxShadow: '0 8px 25px rgba(37, 99, 235, 0.25)',
+                                        boxShadow: '0 8px 25px rgba(13, 148, 136, 0.25)',
                                         '&:hover': {
-                                            background: 'linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%)',
+                                            background: 'linear-gradient(135deg, #0f766e 0%, #0f766e 100%)',
                                             transform: 'translateY(-2px)',
-                                            boxShadow: '0 12px 35px rgba(37, 99, 235, 0.35)',
+                                            boxShadow: '0 12px 35px rgba(13, 148, 136, 0.35)',
                                         },
                                         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                     }}

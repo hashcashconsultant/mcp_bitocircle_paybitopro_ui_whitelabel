@@ -262,7 +262,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         {/* Header with gradient */}
         <Box
           sx={{
-            background: 'linear-gradient(135deg, #1e40af 0%, #7c3aed 100%)',
+            background: 'linear-gradient(135deg, #0f766e 0%, #0d9488 100%)',
             py: 3,
             px: 3,
             position: 'relative',
@@ -289,7 +289,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             color="white"
             textAlign="center"
           >
-            Join BitoCircle
+            Join Circle
           </Typography>
           <Typography
             variant="body2"
@@ -306,7 +306,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           {actionMessage && (
             <Box
               sx={{
-                bgcolor: 'rgba(30, 64, 175, 0.08)',
+                bgcolor: 'rgba(15, 118, 110, 0.08)',
                 borderRadius: 2,
                 p: 2,
                 mb: 3,
@@ -333,9 +333,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
               textTransform: 'none',
               fontSize: '1rem',
               fontWeight: 600,
-              bgcolor: '#1e40af',
+              bgcolor: '#0f766e',
               '&:hover': {
-                bgcolor: '#1e3a8a',
+                bgcolor: '#115e59',
               },
             }}
           >
@@ -355,11 +355,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
               textTransform: 'none',
               fontSize: '1rem',
               fontWeight: 600,
-              borderColor: '#1e40af',
-              color: '#1e40af',
+              borderColor: '#0f766e',
+              color: '#0f766e',
               '&:hover': {
-                borderColor: '#1e3a8a',
-                bgcolor: 'rgba(30, 64, 175, 0.04)',
+                borderColor: '#115e59',
+                bgcolor: 'rgba(15, 118, 110, 0.04)',
               },
             }}
           >

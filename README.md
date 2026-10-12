@@ -12,7 +12,7 @@ presentation only; the integration is done.
 
 **Stack:** Next.js 15 (App Router) · React 19 · TypeScript · MUI 7 · default port **3043**.
 
-This snapshot ships pre-branded as a sample community, **"Circlo"** (violet theme), purely to
+This snapshot ships pre-branded as a sample community, **"Circle"** (teal and coral on dark ink, its own logo, fonts and landing page), purely to
 demonstrate white-labeling — replace it with your own brand (see [Customize](#customize-the-look)).
 
 ---
@@ -62,15 +62,18 @@ most re-branding is this one file plus swapping the logo images.
 |---|---|---|
 | **Brand name, tagline, colors, domain, SEO** | **`src/config/whitelabel.ts`** | the one-stop control; feeds theme + metadata + wordmark |
 | Deeper theme (typography, radius, components) | `src/lib/theme.ts` (`createAppTheme`) | colors already come from `whitelabel.ts`; tweak the rest here |
-| Logos & wordmark images | `src/app/Assets/img/` | swap the files (keep the names) — used on the login illustration, Finance Hub, Terms |
-| App icons / favicons / PWA | `public/` + `public/manifest.json` | replace the icon set |
-| Open Graph preview image | `public/og-image.jpg` | referenced by `whitelabel.ts → ogImage` |
+| Logo (mark + wordmark) | `src/components/brand/BrandLogo.tsx` | drawn in code from the brand name and colors; replace the SVG mark with yours |
+| Fonts | `src/app/layout.tsx` | two `next/font` fonts (body and headings) exposed as `--font-body` and `--font-display` |
+| Landing / sign-in page | `src/components/BitoConnectLogin.tsx` | headline, feature list and the product preview |
+| Name on the PayBito sign-in page | `src/config/whitelabel.ts → ssoAppName` | read the note there before changing it on a domain outside paybito.com |
+| App icons / favicons / PWA | `node scripts/brand-icons.mjs` | regenerates every icon and the share image from the mark and colors in that script |
+| Open Graph preview image | `public/og-image.png` | referenced by `whitelabel.ts → ogImage` |
 | Per-community branding at runtime | `src/contexts/BrokerContext.tsx` | company name / referral / logo resolved per community |
 | PayPal checkout | `.env.local → NEXT_PUBLIC_PAYPAL_CLIENT_ID` | your own PayPal app's public client id |
 
-> The header and login wordmarks render as **text** from `whitelabel.ts`, so they rebrand
-> automatically. A few inner surfaces still use **logo PNGs** in `src/app/Assets/img/` (the login
-> illustration, Finance Hub and Terms headers) — swap those image files to finish the rebrand.
+> Every logo in the app is the `BrandLogo` component and every illustration is drawn in code
+> (`src/components/brand/`), so no BitoCircle artwork ships with the template. On-screen wording uses
+> the sample name "Circle"; search the `src` folder for it when you rename.
 
 ## What not to touch (the wiring)
 

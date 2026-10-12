@@ -643,7 +643,7 @@ const ReelPostComponent: React.FC<ReelPostProps> = ({
                     {user.name}
                   </Typography>
                   {user.isVerified && (
-                    <VerifiedIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: '#1d9bf0' }} />
+                    <VerifiedIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: '#14b8a6' }} />
                   )}
                   {/* Tagged users indicator */}
                   {formattedTaggedText && (
@@ -682,8 +682,8 @@ const ReelPostComponent: React.FC<ReelPostProps> = ({
                       sx={{
                         ml: 0.5, minWidth: 'auto', borderRadius: 1, textTransform: 'none',
                         px: { xs: 0.75, sm: 1 }, py: 0.25, fontSize: { xs: '0.7rem', sm: '0.75rem' },
-                        fontWeight: 600, color: '#1e40af',
-                        '&:hover': { bgcolor: 'rgba(99, 102, 241, 0.08)' },
+                        fontWeight: 600, color: '#0f766e',
+                        '&:hover': { bgcolor: 'rgba(13, 148, 136, 0.08)' },
                         '&:disabled': { color: '#9ca3af' }
                       }}
                     >
@@ -720,8 +720,8 @@ const ReelPostComponent: React.FC<ReelPostProps> = ({
                     size="small"
                     sx={{
                       height: 18, fontSize: '0.65rem', fontWeight: 600,
-                      bgcolor: 'rgba(139, 92, 246, 0.1)', color: '#8B5CF6',
-                      '& .MuiChip-icon': { fontSize: 14, color: '#8B5CF6' }
+                      bgcolor: 'rgba(20, 184, 166, 0.1)', color: '#14b8a6',
+                      '& .MuiChip-icon': { fontSize: 14, color: '#14b8a6' }
                     }}
                   />
                   {location && (

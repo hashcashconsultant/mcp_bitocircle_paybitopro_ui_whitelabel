@@ -66,7 +66,7 @@ const QuickReactions: React.FC<QuickReactionsProps> = ({
             position: 'relative',
             transition: 'all 0.3s ease',
             '&:hover': {
-              bgcolor: 'rgba(30, 64, 175, 0.1)',
+              bgcolor: 'rgba(15, 118, 110, 0.1)',
               transform: 'scale(1.1)'
             }
           }}
@@ -77,7 +77,7 @@ const QuickReactions: React.FC<QuickReactionsProps> = ({
               position: 'absolute',
               top: -8,
               right: -8,
-              bgcolor: '#1e40af',
+              bgcolor: '#0f766e',
               color: 'white',
               fontSize: '0.65rem',
               fontWeight: 600,

@@ -1887,7 +1887,7 @@ export default function AIPanel() {
                       mb: 1,
                     }}
                   >
-                    Generate text, images, or videos for your BitoCircle posts. Just type your prompt below.
+                    Generate text, images, or videos for your Circle posts. Just type your prompt below.
                   </Typography>
                   {!sessionData && (
                     <Typography

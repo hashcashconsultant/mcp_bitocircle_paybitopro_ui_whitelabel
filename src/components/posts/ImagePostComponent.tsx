@@ -738,7 +738,7 @@ const ImagePostComponent: React.FC<ImagePostProps> = ({
                     <VerifiedIcon
                       sx={{
                         fontSize: { xs: 16, sm: 18 },
-                        color: '#1d9bf0'
+                        color: '#14b8a6'
                       }}
                     />
                   )}
@@ -799,9 +799,9 @@ const ImagePostComponent: React.FC<ImagePostProps> = ({
                         py: 0.25,
                         fontSize: { xs: '0.7rem', sm: '0.75rem' },
                         fontWeight: 600,
-                        color: '#1e40af',
+                        color: '#0f766e',
                         '&:hover': {
-                          bgcolor: 'rgba(99, 102, 241, 0.08)',
+                          bgcolor: 'rgba(13, 148, 136, 0.08)',
                         },
                         '&:disabled': {
                           color: '#9ca3af',
@@ -1119,7 +1119,7 @@ const ImagePostComponent: React.FC<ImagePostProps> = ({
                       e.stopPropagation()
                       onSave?.()
                     }}
-                    sx={{ color: '#4267b2' }}
+                    sx={{ color: '#0d9488' }}
                   >
                     <BookmarkIcon fontSize={isMobile ? 'small' : 'medium'} />
                   </IconButton>

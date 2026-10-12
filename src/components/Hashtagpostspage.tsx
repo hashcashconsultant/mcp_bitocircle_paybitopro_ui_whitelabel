@@ -251,7 +251,7 @@ const HashtagPostsPage: React.FC<HashtagPostsPageProps> = ({ hashtag }) => {
 
   const getAvatarColor = (userId: number) => {
     const colors = [
-      '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3',
+      '#e91e63', '#0d9488', '#0f766e', '#0f766e', '#14b8a6',
       '#00bcd4', '#009688', '#4caf50', '#ff9800', '#ff5722'
     ]
     return colors[userId % colors.length]
@@ -654,8 +654,8 @@ const HashtagPostsPage: React.FC<HashtagPostsPageProps> = ({ hashtag }) => {
                             sx={{
                               height: 20,
                               fontSize: '0.7rem',
-                              bgcolor: 'rgba(66, 103, 178, 0.1)',
-                              color: '#4267b2',
+                              bgcolor: 'rgba(13, 148, 136, 0.1)',
+                              color: '#0d9488',
                               '& .MuiChip-icon': { fontSize: 14 }
                             }}
                           />
@@ -859,7 +859,7 @@ const HashtagPostsPage: React.FC<HashtagPostsPageProps> = ({ hashtag }) => {
               gap: 1
             }}
           >
-            <TrendingIcon sx={{ color: '#4267b2' }} />
+            <TrendingIcon sx={{ color: '#0d9488' }} />
             #{hashtag}
           </Typography>
           <Typography 

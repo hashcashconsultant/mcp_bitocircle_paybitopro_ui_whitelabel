@@ -7,7 +7,6 @@ import {
     useMediaQuery,
     useTheme,
     ThemeProvider,
-    createTheme,
     CssBaseline,
     Card,
     CardContent,
@@ -47,6 +46,7 @@ import axios from 'axios';
 import { MetaMaskInpageProvider } from "@metamask/providers";
 import web3 from "web3";
 import { useRouter } from 'next/navigation';
+import { createBrandTheme } from '@/lib/theme';
 
 
 
@@ -144,38 +144,38 @@ const FinanceHubNftCollectionPage: React.FC<FinanceHubNftCollectionPageProps> = 
     // Create theme based on mode
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#2563eb',
-                        light: '#3b82f6',
-                        dark: '#1d4ed8',
+                        main: '#0d9488',
+                        light: '#14b8a6',
+                        dark: '#0f766e',
                     },
                     secondary: {
-                        main: '#7c3aed',
-                        light: '#8b5cf6',
-                        dark: '#6d28d9',
+                        main: '#0d9488',
+                        light: '#14b8a6',
+                        dark: '#0f766e',
                     },
                     background: {
-                        default: mode === 'light' ? '#f8fafc' : '#0f0f23',
-                        paper: mode === 'light' ? '#ffffff' : '#1a1b3a',
+                        default: mode === 'light' ? '#f8f6f1' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
-                        primary: mode === 'light' ? '#0f172a' : '#f1f5f9',
+                        primary: mode === 'light' ? '#0b1211' : '#efece5',
                         secondary: mode === 'light' ? '#475569' : '#94a3b8',
                     },
                     grey: {
-                        50: '#f8fafc',
-                        100: '#f1f5f9',
+                        50: '#f8f6f1',
+                        100: '#efece5',
                         200: '#e2e8f0',
                         300: '#cbd5e1',
                         400: '#94a3b8',
                         500: '#64748b',
                         600: '#475569',
                         700: '#334155',
-                        800: '#1e293b',
-                        900: '#0f172a',
+                        800: '#16201f',
+                        900: '#0b1211',
                     },
                 },
                 typography: {
@@ -401,8 +401,8 @@ const FinanceHubNftCollectionPage: React.FC<FinanceHubNftCollectionPageProps> = 
                     sx={{
                         position: 'relative',
                         background: theme.palette.mode === 'light'
-                            ? 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)'
-                            : 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+                            ? 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)'
+                            : 'linear-gradient(135deg, #121b1a 0%, #16201f 50%, #0f3460 100%)',
                         minHeight: { xs: '200px', sm: '300px', md: '350px' },
                         display: 'flex',
                         alignItems: 'flex-end',
@@ -668,8 +668,8 @@ const FinanceHubNftCollectionPage: React.FC<FinanceHubNftCollectionPageProps> = 
                                         borderRadius: { xs: 3, sm: 4 },
                                         overflow: 'hidden',
                                         background: mode === 'light'
-                                            ? 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)'
-                                            : 'linear-gradient(145deg, #1e293b 0%, #0f172a 100%)',
+                                            ? 'linear-gradient(145deg, #ffffff 0%, #f8f6f1 100%)'
+                                            : 'linear-gradient(145deg, #16201f 0%, #0b1211 100%)',
                                         border: mode === 'dark'
                                             ? '1px solid rgba(148, 163, 184, 0.1)'
                                             : '1px solid rgba(226, 232, 240, 0.8)',
@@ -684,8 +684,8 @@ const FinanceHubNftCollectionPage: React.FC<FinanceHubNftCollectionPageProps> = 
                                             right: 0,
                                             bottom: 0,
                                             background: mode === 'light'
-                                                ? 'linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%)'
-                                                : 'linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%)',
+                                                ? 'linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, rgba(13, 148, 136, 0.05) 100%)'
+                                                : 'linear-gradient(135deg, rgba(45, 212, 191, 0.1) 0%, rgba(45, 212, 191, 0.1) 100%)',
                                             opacity: 0,
                                             transition: 'opacity 0.3s ease',
                                             zIndex: 1,
@@ -693,11 +693,11 @@ const FinanceHubNftCollectionPage: React.FC<FinanceHubNftCollectionPageProps> = 
                                         '&:hover': {
                                             transform: 'translateY(-12px) scale(1.02)',
                                             boxShadow: mode === 'light'
-                                                ? '0 25px 50px rgba(0, 0, 0, 0.1), 0 15px 35px rgba(37, 99, 235, 0.15)'
-                                                : '0 25px 50px rgba(0, 0, 0, 0.4), 0 15px 35px rgba(37, 99, 235, 0.3)',
+                                                ? '0 25px 50px rgba(0, 0, 0, 0.1), 0 15px 35px rgba(13, 148, 136, 0.15)'
+                                                : '0 25px 50px rgba(0, 0, 0, 0.4), 0 15px 35px rgba(13, 148, 136, 0.3)',
                                             border: mode === 'dark'
-                                                ? '1px solid rgba(37, 99, 235, 0.3)'
-                                                : '1px solid rgba(37, 99, 235, 0.2)',
+                                                ? '1px solid rgba(13, 148, 136, 0.3)'
+                                                : '1px solid rgba(13, 148, 136, 0.2)',
                                             '&::before': {
                                                 opacity: 1,
                                             },
@@ -712,8 +712,8 @@ const FinanceHubNftCollectionPage: React.FC<FinanceHubNftCollectionPageProps> = 
                                             width: '100%',
                                             aspectRatio: '1/1', // This ensures the container is always square
                                             background: mode === 'light'
-                                                ? 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)'
-                                                : 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+                                                ? 'linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #f093fb 100%)'
+                                                : 'linear-gradient(135deg, #121b1a 0%, #16201f 50%, #0f3460 100%)',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -853,11 +853,11 @@ const FinanceHubNftCollectionPage: React.FC<FinanceHubNftCollectionPageProps> = 
                                                     py: { xs: 0.75, sm: 1 },
                                                     borderRadius: 2,
                                                     background: mode === 'light'
-                                                        ? 'rgba(37, 99, 235, 0.05)'
-                                                        : 'rgba(96, 165, 250, 0.1)',
+                                                        ? 'rgba(13, 148, 136, 0.05)'
+                                                        : 'rgba(45, 212, 191, 0.1)',
                                                     border: mode === 'light'
-                                                        ? '1px solid rgba(37, 99, 235, 0.1)'
-                                                        : '1px solid rgba(96, 165, 250, 0.2)',
+                                                        ? '1px solid rgba(13, 148, 136, 0.1)'
+                                                        : '1px solid rgba(45, 212, 191, 0.2)',
                                                     flexShrink: 0, // Prevent price container from shrinking
                                                 }}
                                             >

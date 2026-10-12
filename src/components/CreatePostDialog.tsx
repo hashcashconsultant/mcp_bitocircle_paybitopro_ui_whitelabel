@@ -2611,7 +2611,7 @@ const postPayload: CreatePostPayload = {
             <Paper sx={{
               p: 2,
               mb: 2,
-              bgcolor: theme.palette.mode === 'dark' ? 'rgba(156, 39, 176, 0.1)' : '#f3e5f5',
+              bgcolor: theme.palette.mode === 'dark' ? 'rgba(13, 148, 136, 0.1)' : '#f3e5f5',
               border: '2px solid',
               borderColor: 'secondary.main',
               borderRadius: 2
@@ -2758,14 +2758,14 @@ const postPayload: CreatePostPayload = {
             <Paper sx={{
               p: 2,
               mb: 2,
-              bgcolor: theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.1)' : '#eff6ff',
+              bgcolor: theme.palette.mode === 'dark' ? 'rgba(20, 184, 166, 0.1)' : '#f0fdfa',
               border: '2px solid',
-              borderColor: '#3b82f6',
+              borderColor: '#14b8a6',
               borderRadius: 2
             }}>
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <AIIcon sx={{ fontSize: 18, color: '#3b82f6' }} />
+                  <AIIcon sx={{ fontSize: 18, color: '#14b8a6' }} />
                   <Typography variant="body2" fontWeight={600} color="primary">
                     AI-Generated {aiMediaType === 'image' ? 'Image' : 'Video'}
                   </Typography>
@@ -2812,7 +2812,7 @@ const postPayload: CreatePostPayload = {
             <Paper sx={{
               p: 2,
               mb: 2,
-              bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#f5f5f5',
+              bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#f5f3ee',
               border: '1px solid',
               borderColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#e0e0e0',
               borderRadius: 2
@@ -3058,9 +3058,9 @@ const postPayload: CreatePostPayload = {
                   severity="info"
                   sx={{
                     mt: 2,
-                    bgcolor: isDarkMode ? 'rgba(33, 150, 243, 0.1)' : undefined,
+                    bgcolor: isDarkMode ? 'rgba(20, 184, 166, 0.1)' : undefined,
                     '& .MuiAlert-icon': {
-                      color: isDarkMode ? '#90caf9' : undefined,
+                      color: isDarkMode ? '#5eead4' : undefined,
                     }
                   }}
                 >
@@ -3124,7 +3124,7 @@ const postPayload: CreatePostPayload = {
                 p: 2,
                 bgcolor: isLiveRecording
                   ? (theme.palette.mode === 'dark' ? 'rgba(244, 67, 54, 0.1)' : '#ffebee')
-                  : (theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#f5f5f5'),
+                  : (theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : '#f5f3ee'),
                 borderRadius: 1,
                 border: '1px solid',
                 borderColor: isLiveRecording ? '#f44336' : (theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : '#e0e0e0')
@@ -3177,7 +3177,7 @@ const postPayload: CreatePostPayload = {
                         border: '1px solid #ccc',
                         boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
                         '&:hover': {
-                          bgcolor: '#f5f5f5',
+                          bgcolor: '#f5f3ee',
                           transform: 'scale(1.1)'
                         },
                         transition: 'all 0.2s',
@@ -3218,7 +3218,7 @@ const postPayload: CreatePostPayload = {
                           position: 'absolute',
                           top: 4,
                           left: 4,
-                          bgcolor: '#1976d2',
+                          bgcolor: '#0d9488',
                           color: 'white',
                           px: 1,
                           py: 0.5,
@@ -3534,11 +3534,11 @@ const postPayload: CreatePostPayload = {
                   size={isMobile ? "small" : "medium"}
                   sx={{
                     bgcolor: showLocationInput
-                      ? (isDarkMode ? 'rgba(33, 150, 243, 0.2)' : '#E3F2FD')
+                      ? (isDarkMode ? 'rgba(20, 184, 166, 0.2)' : '#e6fffb')
                       : 'transparent',
                     '&:hover': {
                       bgcolor: showLocationInput
-                        ? (isDarkMode ? 'rgba(33, 150, 243, 0.3)' : '#BBDEFB')
+                        ? (isDarkMode ? 'rgba(20, 184, 166, 0.3)' : '#BBDEFB')
                         : 'action.hover'
                     }
                   }}
@@ -3704,11 +3704,11 @@ const postPayload: CreatePostPayload = {
                   size={isMobile ? "small" : "medium"}
                   sx={{
                     bgcolor: showLocationInput
-                      ? (isDarkMode ? 'rgba(33, 150, 243, 0.2)' : '#E3F2FD')
+                      ? (isDarkMode ? 'rgba(20, 184, 166, 0.2)' : '#e6fffb')
                       : 'transparent',
                     '&:hover': {
                       bgcolor: showLocationInput
-                        ? (isDarkMode ? 'rgba(33, 150, 243, 0.3)' : '#BBDEFB')
+                        ? (isDarkMode ? 'rgba(20, 184, 166, 0.3)' : '#BBDEFB')
                         : 'action.hover'
                     }
                   }}
@@ -4027,7 +4027,7 @@ const postPayload: CreatePostPayload = {
                         width: 64,
                         height: 64,
                         border: '4px solid rgba(255, 255, 255, 0.5)',
-                        '&:hover': { bgcolor: '#f5f5f5' },
+                        '&:hover': { bgcolor: '#f5f3ee' },
                         '&:disabled': {
                           bgcolor: 'rgba(255, 255, 255, 0.3)',
                           color: 'rgba(255, 255, 255, 0.5)'
@@ -4131,16 +4131,16 @@ const postPayload: CreatePostPayload = {
             }
             disabled={isLoading || (isSharing ? false : (!canPost || !!scheduleError))}
             sx={{
-              bgcolor: isSharing ? '#1976d2' :
-                isReelEdit ? '#9c27b0' :
+              bgcolor: isSharing ? '#0d9488' :
+                isReelEdit ? '#0d9488' :
                   showScheduler ? '#F57C00' :
-                    aiMediaUrl ? '#3b82f6' :
+                    aiMediaUrl ? '#14b8a6' :
                       isLiveRecording ? '#f44336' : undefined,
               '&:hover': {
-                bgcolor: isSharing ? '#1565c0' :
+                bgcolor: isSharing ? '#0f766e' :
                   isReelEdit ? '#7b1fa2' :
                     showScheduler ? '#E65100' :
-                      aiMediaUrl ? '#2563eb' :
+                      aiMediaUrl ? '#0d9488' :
                         isLiveRecording ? '#d32f2f' : undefined,
               }
             }}

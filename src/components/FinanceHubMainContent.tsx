@@ -16,7 +16,6 @@ import {
     useMediaQuery,
     Link as MuiLink,
     ThemeProvider,
-    createTheme,
     CssBaseline,
     Card,
     CardContent,
@@ -50,11 +49,11 @@ import {
 
 } from '@mui/icons-material';
 import Image from 'next/image';
-import bitoHubTextLogo from '../app/Assets/img/bitoHubTextLogo.png';
 import { redirect } from 'next/dist/server/api-utils';
 import Link from 'next/link';
 import axios from 'axios';
 import { getBitoHubUserInfo } from '../services/CoreDataService';
+import { createBrandTheme } from '@/lib/theme';
 
 
 
@@ -137,18 +136,18 @@ const FinanceHubMainPage = () => {
     // Create theme based on mode
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#1e40af',
+                        main: '#0f766e',
                     },
                     secondary: {
                         main: '#dc2626',
                     },
                     background: {
-                        default: mode === 'light' ? '#f8f9fa' : '#0a0a0a',
-                        paper: mode === 'light' ? '#ffffff' : '#1a1a1a',
+                        default: mode === 'light' ? '#f8f6f1' : '#080d0c',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
                         primary: mode === 'light' ? '#2c3e50' : '#e5e5e5',
@@ -256,7 +255,7 @@ const FinanceHubMainPage = () => {
     const backgroundGradient = useMemo(() => {
         return mode === 'light'
             ? 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
-            : 'linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%)';
+            : 'linear-gradient(135deg, #0c0c0c 0%, #121b1a 100%)';
     }, [mode]);
 
     // Loading component for business owner mapping
@@ -302,8 +301,8 @@ const FinanceHubMainPage = () => {
                                     p: 2,
                                     borderRadius: '50%',
                                     backgroundColor: theme.palette.mode === 'light'
-                                        ? 'rgba(30, 64, 175, 0.1)'
-                                        : 'rgba(66, 165, 245, 0.1)',
+                                        ? 'rgba(15, 118, 110, 0.1)'
+                                        : 'rgba(45, 212, 191, 0.1)',
                                     marginLeft: '9px',
                                     marginTop: '3px',
                                     position: 'relative',
@@ -412,7 +411,7 @@ const FinanceHubMainPage = () => {
                                 sx={{
                                     mb: 2,
                                     fontWeight: 700,
-                                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                                    background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
                                     backgroundClip: 'text',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',

@@ -16,7 +16,6 @@ import {
     Snackbar,
     Alert,
     Backdrop,
-    createTheme,
     Divider,
     Avatar,
     IconButton,
@@ -56,6 +55,7 @@ import { MetaMaskInpageProvider } from "@metamask/providers";
 import web3 from "web3";
 import { useRouter } from 'next/navigation';
 import { ethers } from "ethers";
+import { createBrandTheme } from '@/lib/theme';
 
 // Interfaces
 interface NFTDetailProps {
@@ -249,38 +249,38 @@ const FinanceHubNftDetailPage: React.FC<NFTDetailProps> = ({ nftId }) => {
     // Create theme based on mode
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#2563eb',
-                        light: '#3b82f6',
-                        dark: '#1d4ed8',
+                        main: '#0d9488',
+                        light: '#14b8a6',
+                        dark: '#0f766e',
                     },
                     secondary: {
-                        main: '#7c3aed',
-                        light: '#8b5cf6',
-                        dark: '#6d28d9',
+                        main: '#0d9488',
+                        light: '#14b8a6',
+                        dark: '#0f766e',
                     },
                     background: {
-                        default: mode === 'light' ? '#f8fafc' : '#0f0f23',
-                        paper: mode === 'light' ? '#ffffff' : '#1a1b3a',
+                        default: mode === 'light' ? '#f8f6f1' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
-                        primary: mode === 'light' ? '#0f172a' : '#f1f5f9',
+                        primary: mode === 'light' ? '#0b1211' : '#efece5',
                         secondary: mode === 'light' ? '#475569' : '#94a3b8',
                     },
                     grey: {
-                        50: '#f8fafc',
-                        100: '#f1f5f9',
+                        50: '#f8f6f1',
+                        100: '#efece5',
                         200: '#e2e8f0',
                         300: '#cbd5e1',
                         400: '#94a3b8',
                         500: '#64748b',
                         600: '#475569',
                         700: '#334155',
-                        800: '#1e293b',
-                        900: '#0f172a',
+                        800: '#16201f',
+                        900: '#0b1211',
                     },
                 },
                 typography: {
@@ -1064,21 +1064,21 @@ const FinanceHubNftDetailPage: React.FC<NFTDetailProps> = ({ nftId }) => {
                             onClick={handleGoBack}
                             sx={{
                                 backgroundColor: theme.palette.mode === 'light'
-                                    ? 'rgba(37, 99, 235, 0.1)'
-                                    : 'rgba(96, 165, 250, 0.15)',
+                                    ? 'rgba(13, 148, 136, 0.1)'
+                                    : 'rgba(45, 212, 191, 0.15)',
                                 backdropFilter: 'blur(10px)',
                                 border: `1px solid ${theme.palette.mode === 'light'
-                                    ? 'rgba(37, 99, 235, 0.2)'
-                                    : 'rgba(96, 165, 250, 0.2)'}`,
+                                    ? 'rgba(13, 148, 136, 0.2)'
+                                    : 'rgba(45, 212, 191, 0.2)'}`,
                                 color: theme.palette.primary.main,
                                 transition: 'all 0.3s ease',
                                 '&:hover': {
                                     backgroundColor: theme.palette.mode === 'light'
-                                        ? 'rgba(37, 99, 235, 0.15)'
-                                        : 'rgba(96, 165, 250, 0.25)',
+                                        ? 'rgba(13, 148, 136, 0.15)'
+                                        : 'rgba(45, 212, 191, 0.25)',
                                     transform: 'translateX(-4px)',
                                     boxShadow: theme.palette.mode === 'light'
-                                        ? '0 8px 16px rgba(37, 99, 235, 0.2)'
+                                        ? '0 8px 16px rgba(13, 148, 136, 0.2)'
                                         : '0 8px 16px rgba(0, 0, 0, 0.3)',
                                 },
                             }}
@@ -1116,8 +1116,8 @@ const FinanceHubNftDetailPage: React.FC<NFTDetailProps> = ({ nftId }) => {
                                         borderRadius: 3,
                                         overflow: 'hidden',
                                         background: theme.palette.mode === 'light'
-                                            ? 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #42a5f5 100%)'
-                                            : 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+                                            ? 'linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #2dd4bf 100%)'
+                                            : 'linear-gradient(135deg, #121b1a 0%, #16201f 50%, #0f3460 100%)',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
@@ -1237,8 +1237,8 @@ const FinanceHubNftDetailPage: React.FC<NFTDetailProps> = ({ nftId }) => {
                                                 p: 3,
                                                 borderRadius: 3,
                                                 background: theme.palette.mode === 'light'
-                                                    ? 'linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%)'
-                                                    : 'linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)',
+                                                    ? 'linear-gradient(135deg, rgba(15, 118, 110, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%)'
+                                                    : 'linear-gradient(135deg, rgba(15, 118, 110, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%)',
                                                 border: `1px solid ${theme.palette.primary.main}20`,
                                                 mb: 3,
                                             }}
@@ -1305,7 +1305,7 @@ const FinanceHubNftDetailPage: React.FC<NFTDetailProps> = ({ nftId }) => {
                                             startIcon={<ShoppingCart />}
                                             onClick={handleBuyNow}
                                             sx={{
-                                                background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                                background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                                 textTransform: 'none',
                                                 fontWeight: 600,
                                                 borderRadius: 2,

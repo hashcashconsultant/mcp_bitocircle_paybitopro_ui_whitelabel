@@ -30,7 +30,7 @@ import { useBroker } from '../../contexts/BrokerContext'
 import { useThemeMode } from '../../contexts/ThemeContext'
 import { useSearch } from '../../contexts/SearchContext'
 import { useUserProfile } from '../../contexts/UserProfileContext'
-import { WHITELABEL } from '@/config/whitelabel'
+import BrandLogo from '@/components/brand/BrandLogo'
 import SnackbarAlert from '../common/SnackbarAlert'
 import Sidebar from './Sidebar'
 import SidebarComponent from '@/components/SidebarComponent'
@@ -629,12 +629,12 @@ const { unreadMessageCount, isConnected } = useMessaging()
     const styles: Record<string, { icon: React.ReactNode; color: string }> = {
       LIKE: { icon: <LikeIcon sx={{ fontSize: 11 }} />, color: '#ed4956' },
       COMMENT: { icon: <CommentIcon sx={{ fontSize: 11 }} />, color: '#5b5fc7' },
-      FOLLOW: { icon: <PersonAddIcon sx={{ fontSize: 11 }} />, color: '#1877f2' },
+      FOLLOW: { icon: <PersonAddIcon sx={{ fontSize: 11 }} />, color: '#0d9488' },
       FOLLOW_REQUEST: { icon: <PersonAddIcon sx={{ fontSize: 11 }} />, color: '#f5a623' },
       MENTION: { icon: <MentionIcon sx={{ fontSize: 11 }} />, color: '#f5a623' },
       SHARE: { icon: <ShareIcon sx={{ fontSize: 11 }} />, color: '#17a2b8' },
       REPLY: { icon: <ReplyIcon sx={{ fontSize: 11 }} />, color: '#28a745' },
-      TAG: { icon: <TagIcon sx={{ fontSize: 11 }} />, color: '#9c27b0' },
+      TAG: { icon: <TagIcon sx={{ fontSize: 11 }} />, color: '#0d9488' },
     }
     return styles[notificationType] || { icon: <NotificationIcon sx={{ fontSize: 11 }} />, color: '#6c757d' }
   }
@@ -681,7 +681,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
             <SearchIcon sx={{ color: 'text.secondary', fontSize: 18 }} />
           </Box>
           <InputBase 
-            placeholder={isListening ? "Listening..." : "Search BitoCircle"} 
+            placeholder={isListening ? "Listening..." : "Search Circle"} 
             value={searchQuery} 
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => { if (searchResults.length > 0) setShowSearchResults(true) }} 
@@ -780,7 +780,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
               </Typography>
             </Box>
             <Typography variant="caption" color="text.secondary" textAlign="center">
-              Speak now to search BitoCircle
+              Speak now to search Circle
             </Typography>
             <Box sx={{ display: 'flex', gap: 0.5 }}>
               {[1, 2, 3, 4, 5].map((i) => (
@@ -855,7 +855,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
                           )}
                         </IconButton>
                       }>
-                        <ListItemButton onClick={() => handleUserClick(user)} sx={{ py: 1.5, pr: 6, '&:hover': { bgcolor: mode === 'light' ? '#f5f5f5' : alpha('#fff', 0.05) } }}>
+                        <ListItemButton onClick={() => handleUserClick(user)} sx={{ py: 1.5, pr: 6, '&:hover': { bgcolor: mode === 'light' ? '#f5f3ee' : alpha('#fff', 0.05) } }}>
                           <ListItemAvatar>
                             <Avatar
                               src={user.profilePicture || undefined}
@@ -866,7 +866,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
                                 isMobile && setMobileSearchOpen(false)
                               }}
                               sx={{
-                                bgcolor: '#4267b2',
+                                bgcolor: '#0d9488',
                                 width: 40,
                                 height: 40,
                                 fontSize: 14,
@@ -930,7 +930,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
           my: 0.5,
           borderRadius: 2,
           cursor: isFollowRequest ? 'default' : 'pointer',
-          bgcolor: isUnread ? alpha('#1877f2', 0.06) : 'transparent',
+          bgcolor: isUnread ? alpha('#0d9488', 0.06) : 'transparent',
           '&:hover': { bgcolor: alpha('#000', 0.04) },
           ...(isFollowRequest && {
             borderLeft: '3px solid',
@@ -944,7 +944,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
             <Avatar
               src={notification.actorProfilePicture || undefined}
               onClick={(e) => handleActorClick(e, notification)}
-              sx={{ width: 44, height: 44, bgcolor: '#4267b2', cursor: 'pointer' }}
+              sx={{ width: 44, height: 44, bgcolor: '#0d9488', cursor: 'pointer' }}
             >
               {getInitials(notification.actorFullName)}
             </Avatar>
@@ -1094,7 +1094,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
                 fontSize: '0.75rem',
                 py: 0.5,
                 px: 1.5,
-                bgcolor: '#1877f2',
+                bgcolor: '#0d9488',
                 '&:hover': { bgcolor: '#166fe5' },
                 minWidth: 90
               }}
@@ -1154,7 +1154,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
               <MenuIcon />
             </IconButton>
             <Link href="/feeds" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <span style={{ fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', color: WHITELABEL.colors.primary.main }}>{WHITELABEL.brandName}</span>
+              <Box component="span" sx={{ color: 'text.primary', display: 'flex' }}><BrandLogo size={28} /></Box>
             </Link>
             <Box sx={{ display: { xs: 'none', md: 'block' }, ml: 1 }}>
               {renderSearchContent(false)}
@@ -1231,12 +1231,12 @@ const { unreadMessageCount, isConnected } = useMessaging()
             {isAuthenticated ? (
               <IconButton onClick={handleProfileMenuOpen} sx={{ p: 0.5, position: 'relative' }}>
                 <DotIcon sx={{ position: 'absolute', bottom: 0, right: 2, zIndex: 1, fontSize: 14, color: '#44b700', bgcolor: 'background.paper', borderRadius: '50%' }} />
-                <Avatar src={userProfile.profilePicture || undefined} sx={{ bgcolor: '#4267b2', width: 32, height: 32, fontSize: 12 }}>
+                <Avatar src={userProfile.profilePicture || undefined} sx={{ bgcolor: '#0d9488', width: 32, height: 32, fontSize: 12 }}>
                   {(userProfile.fullName?.[0] || brokerDetails?.firstName?.[0] || 'U').toUpperCase()}
                 </Avatar>
               </IconButton>
             ) : (
-              <Button variant="contained" size="small" onClick={handleLogin} sx={{ textTransform: 'none', fontWeight: 600, borderRadius: 2, px: { xs: 1, sm: 2 }, bgcolor: '#1e40af', fontSize: { xs: 11, sm: 14 }, ml: 0.5 }}>
+              <Button variant="contained" size="small" onClick={handleLogin} sx={{ textTransform: 'none', fontWeight: 600, borderRadius: 2, px: { xs: 1, sm: 2 }, bgcolor: '#0f766e', fontSize: { xs: 11, sm: 14 }, ml: 0.5 }}>
                 <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>Sign In</Box>
                 <LoginIcon sx={{ display: { xs: 'inline', sm: 'none' }, fontSize: 18 }} />
               </Button>
@@ -1289,9 +1289,9 @@ const { unreadMessageCount, isConnected } = useMessaging()
         <Menu anchorEl={profileMenuAnchor} open={Boolean(profileMenuAnchor)} onClose={handleProfileMenuClose}
           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} transformOrigin={{ vertical: 'top', horizontal: 'right' }}
           sx={{ mt: 1.5, '& .MuiPaper-root': { minWidth: 280, borderRadius: 2 } }}>
-          <Box sx={{ px: 2, py: 1.5, bgcolor: mode === 'light' ? '#f8f9fa' : alpha('#fff', 0.05) }}>
+          <Box sx={{ px: 2, py: 1.5, bgcolor: mode === 'light' ? '#f8f6f1' : alpha('#fff', 0.05) }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-              <Avatar src={userProfile.profilePicture || undefined} sx={{ bgcolor: '#4267b2', width: 48, height: 48 }}>
+              <Avatar src={userProfile.profilePicture || undefined} sx={{ bgcolor: '#0d9488', width: 48, height: 48 }}>
                 {(userProfile.fullName?.[0] || brokerDetails?.firstName?.[0] || 'U').toUpperCase()}
               </Avatar>
               <Box>
@@ -1425,7 +1425,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
           {!showSearchResults && !searchQuery && !isListening && (
             <Box sx={{ p: 3, textAlign: 'center' }}>
               <SearchIcon sx={{ fontSize: 48, color: 'text.disabled', mb: 2 }} />
-              <Typography color="text.secondary">Search for people on BitoCircle</Typography>
+              <Typography color="text.secondary">Search for people on Circle</Typography>
               {speechSupported && (
                 <Box sx={{ mt: 3 }}>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>

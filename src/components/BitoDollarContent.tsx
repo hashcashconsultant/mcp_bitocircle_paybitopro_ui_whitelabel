@@ -36,7 +36,6 @@ import {
     Snackbar,
     Backdrop,
     CircularProgress,
-    createTheme,
     Pagination,
 } from '@mui/material'
 import {
@@ -55,6 +54,7 @@ import {
 import axios from 'axios';
 import { getBitoHubUserInfo, getUserBankDetails, getUserKycDetails, getBitoDollarTxnCharge, getUserHomeCurrency } from '../services/CoreDataService';
 import { useRouter } from 'next/navigation';
+import { createBrandTheme } from '@/lib/theme';
 
 /**
  * Adding paypal checkout button
@@ -502,13 +502,13 @@ const BitoDollarContent: React.FC = () => {
     // Create theme using the external theme function
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#1e40af',
-                        light: '#42a5f5',
-                        dark: '#1e40af',
+                        main: '#0f766e',
+                        light: '#2dd4bf',
+                        dark: '#0f766e',
                         contrastText: '#ffffff',
                     },
                     secondary: {
@@ -518,8 +518,8 @@ const BitoDollarContent: React.FC = () => {
                         contrastText: '#ffffff',
                     },
                     background: {
-                        default: mode === 'light' ? '#f5f5f5' : '#121212',
-                        paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+                        default: mode === 'light' ? '#f5f3ee' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
                         primary: mode === 'light' ? '#212121' : '#ffffff',
@@ -1719,7 +1719,7 @@ const BitoDollarContent: React.FC = () => {
                             variant={isMobile ? 'h3' : 'h2'}
                             sx={{
                                 fontWeight: 700,
-                                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+                                background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #f093fb 100%)',
                                 backgroundClip: 'text',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
@@ -1830,7 +1830,7 @@ const BitoDollarContent: React.FC = () => {
                                     sx={{
                                         flex: 1,
                                         py: 2,
-                                        background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                                        background: 'linear-gradient(135deg, #0d9488, #0f766e)',
                                         '&:hover': {
                                             background: 'linear-gradient(135deg, #5568d3, #653a8b)',
                                             transform: 'translateY(-2px)',
@@ -1893,7 +1893,7 @@ const BitoDollarContent: React.FC = () => {
                                         sx={{
                                             minWidth: { xs: '100%', sm: 250 },
                                             '& .MuiOutlinedInput-root': {
-                                                bgcolor: theme.palette.mode === 'dark' ? '#0f0f11' : '#f5f5f5',
+                                                bgcolor: theme.palette.mode === 'dark' ? '#0b1211' : '#f5f3ee',
                                                 '& fieldset': {
                                                     borderColor: 'transparent',
                                                 },
@@ -1909,8 +1909,8 @@ const BitoDollarContent: React.FC = () => {
                                         onClick={exportTransactions}
                                         sx={{
                                             whiteSpace: 'nowrap',
-                                            borderColor: theme.palette.mode === 'dark' ? '#667eea' : 'primary.main',
-                                            color: theme.palette.mode === 'dark' ? '#667eea' : 'primary.main',
+                                            borderColor: theme.palette.mode === 'dark' ? '#0d9488' : 'primary.main',
+                                            color: theme.palette.mode === 'dark' ? '#0d9488' : 'primary.main',
                                         }}
                                     >
                                         Export CSV
@@ -1938,11 +1938,11 @@ const BitoDollarContent: React.FC = () => {
                                             fontWeight: 500,
                                             color: 'text.secondary',
                                             '&.Mui-selected': {
-                                                color: theme.palette.mode === 'dark' ? '#667eea' : 'primary.main',
+                                                color: theme.palette.mode === 'dark' ? '#0d9488' : 'primary.main',
                                             },
                                         },
                                         '& .MuiTabs-indicator': {
-                                            backgroundColor: theme.palette.mode === 'dark' ? '#667eea' : 'primary.main',
+                                            backgroundColor: theme.palette.mode === 'dark' ? '#0d9488' : 'primary.main',
                                         },
                                     }}
                                 >
@@ -2188,7 +2188,7 @@ const BitoDollarContent: React.FC = () => {
                                                             <Typography
                                                                 variant="body2"
                                                                 sx={{
-                                                                    color: '#667eea',
+                                                                    color: '#0d9488',
                                                                     cursor: 'pointer',
                                                                     '&:hover': { textDecoration: 'underline' },
                                                                 }}
@@ -2230,7 +2230,7 @@ const BitoDollarContent: React.FC = () => {
                                                     fontWeight: 500,
                                                     borderRadius: 2,
                                                     '&.Mui-selected': {
-                                                        backgroundColor: theme.palette.mode === 'dark' ? '#667eea' : 'primary.main',
+                                                        backgroundColor: theme.palette.mode === 'dark' ? '#0d9488' : 'primary.main',
                                                         color: '#fff',
                                                         '&:hover': {
                                                             backgroundColor: theme.palette.mode === 'dark' ? '#5568d3' : 'primary.dark',
@@ -2300,7 +2300,7 @@ const BitoDollarContent: React.FC = () => {
                                 <Box
                                     onClick={() => handleRedirection('internal', '/finance-hub/buy-and-swap-crypto')}
                                     sx={{
-                                        bgcolor: theme.palette.mode === 'dark' ? '#0f0f11' : '#f5f5f5',
+                                        bgcolor: theme.palette.mode === 'dark' ? '#0b1211' : '#f5f3ee',
                                         borderRadius: 3,
                                         p: 3,
                                         cursor: 'pointer',
@@ -2318,7 +2318,7 @@ const BitoDollarContent: React.FC = () => {
                                             width: 56,
                                             height: 56,
                                             borderRadius: 2,
-                                            bgcolor: '#667eea',
+                                            bgcolor: '#0d9488',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -2339,7 +2339,7 @@ const BitoDollarContent: React.FC = () => {
                                 <Box
                                     onClick={() => handleRedirection('internal', '/finance-hub/payments')}
                                     sx={{
-                                        bgcolor: theme.palette.mode === 'dark' ? '#0f0f11' : '#f5f5f5',
+                                        bgcolor: theme.palette.mode === 'dark' ? '#0b1211' : '#f5f3ee',
                                         borderRadius: 3,
                                         p: 3,
                                         cursor: 'pointer',
@@ -2357,7 +2357,7 @@ const BitoDollarContent: React.FC = () => {
                                             width: 56,
                                             height: 56,
                                             borderRadius: 2,
-                                            bgcolor: '#667eea',
+                                            bgcolor: '#0d9488',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -2383,7 +2383,7 @@ const BitoDollarContent: React.FC = () => {
                                 <Box
                                     onClick={() => handleRedirection('external', 'https://launch-platform.paybito.com/my-settlement')}
                                     sx={{
-                                        bgcolor: theme.palette.mode === 'dark' ? '#0f0f11' : '#f5f5f5',
+                                        bgcolor: theme.palette.mode === 'dark' ? '#0b1211' : '#f5f3ee',
                                         borderRadius: 3,
                                         p: 3,
                                         cursor: 'pointer',
@@ -2401,7 +2401,7 @@ const BitoDollarContent: React.FC = () => {
                                             width: 56,
                                             height: 56,
                                             borderRadius: 2,
-                                            bgcolor: '#667eea',
+                                            bgcolor: '#0d9488',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -2427,7 +2427,7 @@ const BitoDollarContent: React.FC = () => {
                                 <Box
                                     onClick={() => selectDepositMethod('PayPal')}
                                     sx={{
-                                        bgcolor: theme.palette.mode === 'dark' ? '#0f0f11' : '#f5f5f5',
+                                        bgcolor: theme.palette.mode === 'dark' ? '#0b1211' : '#f5f3ee',
                                         borderRadius: 3,
                                         p: 3,
                                         cursor: 'pointer',
@@ -2445,7 +2445,7 @@ const BitoDollarContent: React.FC = () => {
                                             width: 56,
                                             height: 56,
                                             borderRadius: 2,
-                                            bgcolor: '#667eea',
+                                            bgcolor: '#0d9488',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -2659,13 +2659,13 @@ const BitoDollarContent: React.FC = () => {
                                                 borderRadius: 2,
                                                 backgroundColor: (theme) =>
                                                     theme.palette.mode === 'light'
-                                                        ? 'rgba(30, 64, 175, 0.08)'
-                                                        : 'rgba(66, 165, 245, 0.08)',
+                                                        ? 'rgba(15, 118, 110, 0.08)'
+                                                        : 'rgba(45, 212, 191, 0.08)',
                                                 border: '1px solid',
                                                 borderColor: (theme) =>
                                                     theme.palette.mode === 'light'
-                                                        ? 'rgba(30, 64, 175, 0.2)'
-                                                        : 'rgba(66, 165, 245, 0.2)',
+                                                        ? 'rgba(15, 118, 110, 0.2)'
+                                                        : 'rgba(45, 212, 191, 0.2)',
                                                 '& .MuiAlert-message': {
                                                     fontWeight: 500,
                                                     fontSize: { xs: '0.875rem', sm: '1rem' }
@@ -2890,8 +2890,8 @@ const BitoDollarContent: React.FC = () => {
                                                     transform: 'translateY(-2px)',
                                                     boxShadow: (theme) =>
                                                         theme.palette.mode === 'light'
-                                                            ? '0 6px 20px rgba(30, 64, 175, 0.3)'
-                                                            : '0 6px 20px rgba(66, 165, 245, 0.4)',
+                                                            ? '0 6px 20px rgba(15, 118, 110, 0.3)'
+                                                            : '0 6px 20px rgba(45, 212, 191, 0.4)',
                                                 },
                                                 '&:active': {
                                                     transform: 'translateY(0)',
@@ -2984,7 +2984,7 @@ const BitoDollarContent: React.FC = () => {
                                                             width: 8,
                                                             height: 8,
                                                             borderRadius: '50%',
-                                                            background: 'linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%)',
+                                                            background: 'linear-gradient(135deg, #14b8a6 0%, #14b8a6 100%)',
                                                         }}
                                                     />
                                                     <Typography

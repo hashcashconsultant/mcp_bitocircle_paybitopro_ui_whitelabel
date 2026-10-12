@@ -14,7 +14,6 @@ import {
   useMediaQuery,
   Link as MuiLink,
   ThemeProvider,
-  createTheme,
   CssBaseline,
 } from '@mui/material';
 import {
@@ -22,7 +21,8 @@ import {
   DarkMode as DarkModeIcon,
   OpenInNew as OpenInNewIcon,
 } from '@mui/icons-material';
-import bitoHubTextLogo from '../Assets/img/bitoHubTextLogo.png';
+import BrandLogo from '@/components/brand/BrandLogo';
+import { createBrandTheme } from '@/lib/theme';
 
 interface Marketplace {
   id: string;
@@ -64,7 +64,7 @@ const MarketplacesClient = () => {
 
   const theme = useMemo(
     () =>
-      createTheme({
+      createBrandTheme({
         palette: {
           mode,
           primary: {
@@ -77,7 +77,7 @@ const MarketplacesClient = () => {
             default: mode === 'light' 
               ? 'linear-gradient(135deg, #ff002e 0%, #005eff 100%)' 
               : 'linear-gradient(135deg, #1a0a0f 0%, #0a0f1a 100%)',
-            paper: mode === 'light' ? '#ffffff' : '#1a1a1a',
+            paper: mode === 'light' ? '#ffffff' : '#121b1a',
           },
           text: {
             primary: mode === 'light' ? '#2c3e50' : '#ffffff',
@@ -139,15 +139,7 @@ const MarketplacesClient = () => {
                 textDecoration: 'none',
               }}
             >
-              <Box
-                component="img"
-                src={bitoHubTextLogo.src}
-                alt="BitoCircle Logo"
-                sx={{
-                  height: { xs: '32px', sm: '36px', md: '44px' },
-                  width: 'auto',
-                }}
-              />
+              <Box sx={{ color: 'text.primary', display: 'flex' }}><BrandLogo size={34} /></Box>
             </MuiLink>
 
             {/* Title - Responsive Layout */}
@@ -173,7 +165,7 @@ const MarketplacesClient = () => {
                   lineHeight: { xs: 1.2, sm: 1.5 },
                 }}
               >
-                BitoCircle Marketplaces
+                Circle Marketplaces
               </Typography>
             </Box>
 
@@ -197,7 +189,7 @@ const MarketplacesClient = () => {
               textShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
             }}
           >
-            Explore BitoCircle Marketplaces
+            Explore Circle Marketplaces
           </Typography>
 
           {/* Marketplace Cards */}

@@ -212,8 +212,8 @@ const BITOHUBWEBSERVICE = 'https://institutional-bo.paybito.com:8443/BitohubServ
 
 const generateAvatarColor = (userId: number): string => {
   const colors = [
-    '#4267b2', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
-    '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
+    '#0d9488', '#e91e63', '#0d9488', '#0f766e', '#0f766e',
+    '#14b8a6', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
     '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800',
     '#ff5722', '#795548', '#607d8b'
   ]
@@ -449,7 +449,7 @@ const ReelSponsoredSection: React.FC<ReelSponsoredSectionProps> = ({
           <Typography
             variant="body2"
             sx={{
-              color: '#1a1a1a',
+              color: '#121b1a',
               fontWeight: 500,
               fontSize: '0.875rem',
               lineHeight: 1.3,
@@ -472,7 +472,7 @@ const ReelSponsoredSection: React.FC<ReelSponsoredSectionProps> = ({
           size="small"
           onClick={handleCtaClick}
           sx={{
-            bgcolor: '#4267b2',
+            bgcolor: '#0d9488',
             color: 'white',
             textTransform: 'none',
             fontWeight: 600,
@@ -497,7 +497,7 @@ const ReelSponsoredSection: React.FC<ReelSponsoredSectionProps> = ({
           size="small"
           onClick={handleCtaClick}
           sx={{
-            bgcolor: '#4267b2',
+            bgcolor: '#0d9488',
             color: 'white',
             width: 32,
             height: 32,
@@ -604,7 +604,7 @@ const ExpandableCaption: React.FC<ExpandableCaptionProps> = ({
               key={tagIndex}
               variant="body2"
               sx={{
-                color: theme.palette.mode === 'dark' ? '#60A5FA' : '#1D4ED8', 
+                color: theme.palette.mode === 'dark' ? '#2dd4bf' : '#0f766e', 
                 cursor: 'pointer',
                 fontSize: { xs: '0.85rem', sm: '0.875rem' },
                 '&:hover': { textDecoration: 'underline' }
@@ -1586,7 +1586,7 @@ useEffect(() => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              bgcolor: reel.bgColor || (isDarkMode ? '#1a1a1a' : '#f5f5f5'),
+              bgcolor: reel.bgColor || (isDarkMode ? '#121b1a' : '#f5f3ee'),
               transform: `translateY(${(index - currentReelIndex) * 100}%)`,
               transition: 'transform 0.3s ease-out',
               display: 'flex',

@@ -15,7 +15,6 @@ import {
   useMediaQuery,
   Link as MuiLink,
   ThemeProvider,
-  createTheme,
   CssBaseline,
 } from '@mui/material';
 import {
@@ -24,7 +23,8 @@ import {
   LightMode as LightModeIcon,
   DarkMode as DarkModeIcon,
 } from '@mui/icons-material';
-import bitoHubTextLogo from '../Assets/img/bitoHubTextLogo.png';
+import BrandLogo from '@/components/brand/BrandLogo';
+import { createBrandTheme } from '@/lib/theme';
 
 const drawerWidth = 280;
 
@@ -69,18 +69,18 @@ const PrivacyClient = () => {
 
   const theme = useMemo(
     () =>
-      createTheme({
+      createBrandTheme({
         palette: {
           mode,
           primary: {
-            main: '#1e40af',
+            main: '#0f766e',
           },
           secondary: {
             main: '#dc2626',
           },
           background: {
-            default: mode === 'light' ? '#f8f9fa' : '#0a0a0a',
-            paper: mode === 'light' ? '#ffffff' : '#1a1a1a',
+            default: mode === 'light' ? '#f8f6f1' : '#080d0c',
+            paper: mode === 'light' ? '#ffffff' : '#121b1a',
           },
           text: {
             primary: mode === 'light' ? '#2c3e50' : '#e5e5e5',
@@ -179,7 +179,7 @@ const PrivacyClient = () => {
               borderLeft: '3px solid',
               borderLeftColor: activeSection === section.id ? 'primary.main' : 'transparent',
               background: activeSection === section.id
-                ? 'linear-gradient(135deg, #dc2626 0%, #1e40af 100%)'
+                ? 'linear-gradient(135deg, #dc2626 0%, #0f766e 100%)'
                 : 'transparent',
               transition: 'all 0.3s ease',
               mb: 0.5,
@@ -196,7 +196,7 @@ const PrivacyClient = () => {
                 '&:hover': {
                   bgcolor: activeSection === section.id
                     ? 'rgba(255, 255, 255, 0.1)'
-                    : mode === 'light' ? '#f8f9fa' : 'rgba(255, 255, 255, 0.05)',
+                    : mode === 'light' ? '#f8f6f1' : 'rgba(255, 255, 255, 0.05)',
                   color: activeSection === section.id ? 'white' : 'primary.main',
                   transform: 'translateX(5px)',
                 },
@@ -235,16 +235,7 @@ const PrivacyClient = () => {
         >
           <Toolbar>
             <MuiLink href="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <Box
-                component="img"
-                src={bitoHubTextLogo.src}
-                alt="BitoCircle Logo"
-                sx={{
-                  width: { xs: '150px', md: '200px' },
-                  height: 'auto',
-                  filter: mode === 'dark' ? 'brightness(0) invert(1)' : 'none',
-                }}
-              />
+              <Box sx={{ color: 'text.primary', display: 'flex' }}><BrandLogo size={34} /></Box>
             </MuiLink>
 
             <IconButton
@@ -253,9 +244,9 @@ const PrivacyClient = () => {
                 ml: 'auto',
                 mr: isMobile ? 1 : 0,
                 color: 'primary.main',
-                bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.1)' : 'rgba(220, 38, 38, 0.1)',
+                bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.1)' : 'rgba(220, 38, 38, 0.1)',
                 '&:hover': {
-                  bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.2)' : 'rgba(220, 38, 38, 0.2)',
+                  bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.2)' : 'rgba(220, 38, 38, 0.2)',
                 },
               }}
             >
@@ -347,7 +338,7 @@ const PrivacyClient = () => {
                       transform: 'translateX(-50%)',
                       width: '80px',
                       height: '3px',
-                      background: 'linear-gradient(90deg, #1e40af, #e74c3c)',
+                      background: 'linear-gradient(90deg, #0f766e, #e74c3c)',
                       borderRadius: '2px',
                     },
                   }}
@@ -359,9 +350,9 @@ const PrivacyClient = () => {
                 </Typography>
 
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2.5, color: 'text.secondary' }}>
-                  At <strong>BitoCircle</strong>, your privacy is our priority. This Privacy Policy explains how we collect, use,
+                  At <strong>Circle</strong>, your privacy is our priority. This Privacy Policy explains how we collect, use,
                   share, and protect your personal information when you access our website, mobile application, and related
-                  services (&ldquo;Services&rdquo;). By using BitoCircle, you agree to the terms outlined in this Privacy Policy.
+                  services (&ldquo;Services&rdquo;). By using Circle, you agree to the terms outlined in this Privacy Policy.
                 </Typography>
 
                 
@@ -384,7 +375,7 @@ const PrivacyClient = () => {
                   Information We Collect
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  We collect the following types of information when you use BitoCircle:
+                  We collect the following types of information when you use Circle:
                 </Typography>
 
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 1.5, color: 'text.secondary', fontWeight: 600 }}>
@@ -394,7 +385,7 @@ const PrivacyClient = () => {
                   <li><strong>Account Information:</strong> Name, username, email address, password, profile photo, and bio.</li>
                   <li><strong>Professional Details:</strong> Company name, role, expertise, project details, and links to external sites.</li>
                   <li><strong>Content & Communications:</strong> Posts, comments, messages, uploads, and community participation.</li>
-                  <li><strong>Transaction Information:</strong> If you use BitoCircle marketplace features (e.g., paid services, promotions), we may collect billing details and payment confirmations (processed through third-party providers).</li>
+                  <li><strong>Transaction Information:</strong> If you use Circle marketplace features (e.g., paid services, promotions), we may collect billing details and payment confirmations (processed through third-party providers).</li>
                 </Box>
 
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 1.5, color: 'text.secondary', fontWeight: 600 }}>
@@ -411,7 +402,7 @@ const PrivacyClient = () => {
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li><strong>Social Logins & Integrations:</strong> If you sign up using LinkedIn, Google, or other platforms, we may receive profile information.</li>
-                  <li><strong>Partners & Affiliates:</strong> We may receive data from trusted third-party services that integrate with BitoCircle.</li>
+                  <li><strong>Partners & Affiliates:</strong> We may receive data from trusted third-party services that integrate with Circle.</li>
                 </Box>
               </Box>
 
@@ -435,7 +426,7 @@ const PrivacyClient = () => {
                   We use your information to:
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
-                  <li>Provide, personalize, and improve BitoCircle Services.</li>
+                  <li>Provide, personalize, and improve Circle Services.</li>
                   <li>Enable networking between entrepreneurs, businesses, and crypto users.</li>
                   <li>Suggest connections, communities, and opportunities relevant to your profile.</li>
                   <li>Communicate with you about updates, security alerts, events, and promotions.</li>
@@ -461,13 +452,13 @@ const PrivacyClient = () => {
                   How We Share Your Information
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  BitoCircle <strong>does not sell your personal data</strong>. However, we may share your information in the following ways:
+                  Circle <strong>does not sell your personal data</strong>. However, we may share your information in the following ways:
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
-                  <li><strong>With Other Users:</strong> Your profile, posts, and activity are visible to other BitoCircle members, subject to your privacy settings.</li>
+                  <li><strong>With Other Users:</strong> Your profile, posts, and activity are visible to other Circle members, subject to your privacy settings.</li>
                   <li><strong>With Service Providers:</strong> Trusted third-party vendors who support operations (e.g., cloud hosting, analytics, payment processing).</li>
                   <li><strong>For Legal Compliance:</strong> To comply with legal obligations, enforce Terms of Service, or protect rights, property, and safety.</li>
-                  <li><strong>During Business Transfers:</strong> If BitoCircle undergoes a merger, acquisition, or sale of assets, your information may be transferred.</li>
+                  <li><strong>During Business Transfers:</strong> If Circle undergoes a merger, acquisition, or sale of assets, your information may be transferred.</li>
                 </Box>
               </Box>
 
@@ -584,7 +575,7 @@ const PrivacyClient = () => {
                   Children&apos;s Privacy
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
-                  <li>BitoCircle is <strong>not intended for individuals under 18 years of age</strong>.</li>
+                  <li>Circle is <strong>not intended for individuals under 18 years of age</strong>.</li>
                   <li>We do not knowingly collect data from minors. If we discover such data, it will be deleted immediately.</li>
 
 
@@ -609,7 +600,7 @@ const PrivacyClient = () => {
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li>As a global platform, your information may be stored and processed in countries outside your own.</li>
-                  <li>By using BitoCircle, you consent to such transfers, subject to applicable laws.</li>
+                  <li>By using Circle, you consent to such transfers, subject to applicable laws.</li>
                 </Box>
               </Box>
 
@@ -672,7 +663,7 @@ const PrivacyClient = () => {
                   Third-Party Links
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
-                  <li>BitoCircle may contain links to external websites or services.</li>
+                  <li>Circle may contain links to external websites or services.</li>
                   <li>We are not responsible for their privacy practices or content.</li>
                 </Box>
               </Box>
@@ -696,7 +687,7 @@ const PrivacyClient = () => {
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li>We may update this Privacy Policy periodically.</li>
                   <li>Any changes will be notified via the platform or email.</li>
-                  <li>Continued use of BitoCircle after updates indicates acceptance.</li>
+                  <li>Continued use of Circle after updates indicates acceptance.</li>
                 </Box>
               </Box>
 

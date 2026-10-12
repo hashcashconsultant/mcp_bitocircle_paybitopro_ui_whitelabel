@@ -527,7 +527,7 @@ const LikesListDialog: React.FC<LikesListDialogProps> = ({
                           <VerifiedIcon
                             sx={{
                               fontSize: 16,
-                              color: '#1d9bf0'
+                              color: '#14b8a6'
                             }}
                           />
                         )}
@@ -573,9 +573,9 @@ const LikesListDialog: React.FC<LikesListDialogProps> = ({
                             }
                           }),
                           ...(!followingStates[user.userId] && {
-                            bgcolor: '#1e40af',
+                            bgcolor: '#0f766e',
                             '&:hover': {
-                              bgcolor: '#1e3a8a'
+                              bgcolor: '#115e59'
                             }
                           })
                         }}

@@ -6,8 +6,8 @@ import ActivityPage from '@/components/ActivityPage'
 export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 export const metadata: Metadata = {
-  title: 'Activity - BitoCircle',
-  description: 'Track your activity and insights on BitoCircle',
+  title: 'Activity - Circle',
+  description: 'Track your activity and insights on Circle',
   alternates: {
     canonical: '/connection-highlights',
   },

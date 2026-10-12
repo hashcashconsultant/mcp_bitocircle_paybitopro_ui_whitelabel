@@ -24,7 +24,6 @@ import {
     Snackbar,
     Backdrop,
     Divider,
-    createTheme,
     ThemeProvider,
     Checkbox,
     FormControlLabel,
@@ -66,6 +65,7 @@ import {
     sanitizeBlockedUnicode,
     validateNoBlockedUnicode
 } from '../utils/unicodeValidation'
+import { createBrandTheme } from '@/lib/theme';
 
 // API Base URL
 const API_BASE_URL = 'https://institutional-bo.paybito.com:8443/BrokerAdminApi';
@@ -572,21 +572,21 @@ const KycContent: React.FC<KycContentProps> = ({
         setMode(savedMode || (prefersDarkMode ? 'dark' : 'light'))
     }, [prefersDarkMode])
 
-    const theme = useMemo(() => createTheme({
+    const theme = useMemo(() => createBrandTheme({
         palette: {
             mode,
             primary: {
-                main: '#1e40af',
-                light: '#42a5f5',
-                dark: '#1e40af',
+                main: '#0f766e',
+                light: '#2dd4bf',
+                dark: '#0f766e',
                 contrastText: '#ffffff'
             },
             secondary: {
                 main: '#dc004e'
             },
             background: {
-                default: mode === 'light' ? '#f5f5f5' : '#121212',
-                paper: mode === 'light' ? '#ffffff' : '#1e1e1e'
+                default: mode === 'light' ? '#f5f3ee' : '#0b1211',
+                paper: mode === 'light' ? '#ffffff' : '#121b1a'
             },
             text: {
                 primary: mode === 'light' ? '#212121' : '#ffffff',
@@ -1140,8 +1140,8 @@ const KycContent: React.FC<KycContentProps> = ({
                     py: { xs: 4, sm: 6 },
                     px: { xs: 2, sm: 3 },
                     background: mode === 'light'
-                        ? 'linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%)'
-                        : 'linear-gradient(135deg, #121212 0%, #1e1e1e 100%)'
+                        ? 'linear-gradient(135deg, #f5f3ee 0%, #ffffff 100%)'
+                        : 'linear-gradient(135deg, #0b1211 0%, #121b1a 100%)'
                 }}
             >
                 <Box sx={{ maxWidth: 800, width: '100%' }}>
@@ -1157,7 +1157,7 @@ const KycContent: React.FC<KycContentProps> = ({
                                             ? 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)'
                                             : kycStatus === 'REJECTED'
                                                 ? 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)'
-                                                : 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                                : 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                 backgroundClip: 'text',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
@@ -1590,7 +1590,7 @@ const KycContent: React.FC<KycContentProps> = ({
                                             sx={{
                                                 mt: 3,
                                                 py: 1.5,
-                                                background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                                background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                                 '&:hover': { transform: 'scale(1.02)' }
                                             }}
                                         >
@@ -1855,7 +1855,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={!isValid || loading}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5,
                             '&:hover': { transform: 'translateY(-2px)' }
@@ -2077,7 +2077,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={loading}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -2512,7 +2512,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={loading}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -2640,7 +2640,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={!addressProofFile?.[0]}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -2818,7 +2818,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={!idProofFrontFile?.[0]}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -3463,7 +3463,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={loading || (!userPhotoFile?.[0] && !capturedImage)}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -3508,7 +3508,7 @@ const KycContent: React.FC<KycContentProps> = ({
                                             variant="contained"
                                             onClick={() => setShowWebcam(false)}
                                             sx={{
-                                                background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)'
+                                                background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)'
                                             }}
                                         >
                                             Use This Photo
@@ -3553,7 +3553,7 @@ const KycContent: React.FC<KycContentProps> = ({
                                             onClick={capturePhoto}
                                             sx={{
                                                 mt: 2,
-                                                background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)'
+                                                background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)'
                                             }}
                                         >
                                             Snap Photo
@@ -3582,8 +3582,8 @@ const KycContent: React.FC<KycContentProps> = ({
                         sx={{
                             textAlign: 'center',
                             background: mode === 'dark'
-                                ? 'linear-gradient(135deg, rgba(30, 64, 175, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)'
-                                : 'linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)',
+                                ? 'linear-gradient(135deg, rgba(15, 118, 110, 0.2) 0%, rgba(20, 184, 166, 0.2) 100%)'
+                                : 'linear-gradient(135deg, rgba(15, 118, 110, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%)',
                             borderBottom: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`
                         }}
                     >
@@ -3676,8 +3676,8 @@ const KycContent: React.FC<KycContentProps> = ({
                                                 ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%)'
                                                 : 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%)'
                                             : mode === 'dark'
-                                                ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(30, 64, 175, 0.2) 100%)'
-                                                : 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%)',
+                                                ? 'linear-gradient(135deg, rgba(20, 184, 166, 0.2) 0%, rgba(15, 118, 110, 0.2) 100%)'
+                                                : 'linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(15, 118, 110, 0.1) 100%)',
                                         border: `1px solid ${qrCount <= 60
                                             ? alpha(theme.palette.error.main, 0.3)
                                             : alpha(theme.palette.primary.main, 0.3)
@@ -3732,10 +3732,10 @@ const KycContent: React.FC<KycContentProps> = ({
                                         onClick={generateQr}
                                         sx={{
                                             mt: 1,
-                                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                             '&:hover': {
                                                 transform: 'scale(1.02)',
-                                                background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)'
+                                                background: 'linear-gradient(135deg, #115e59 0%, #0d9488 100%)'
                                             }
                                         }}
                                     >
@@ -4472,7 +4472,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={loading}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -4629,7 +4629,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={!allFilesSelected}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -4822,7 +4822,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         type="submit"
                         disabled={!authorizationLetterFile?.[0]}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -4938,7 +4938,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         startIcon={<AddIcon />}
                         onClick={handleAddOwner}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)'
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)'
                         }}
                     >
                         Add Owner
@@ -5050,7 +5050,7 @@ const KycContent: React.FC<KycContentProps> = ({
                         onClick={handleFinishKYC}
                         disabled={beneficialOwners.length === 0 || loading}
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             px: 4,
                             py: 1.5
                         }}
@@ -5725,7 +5725,7 @@ const KycContent: React.FC<KycContentProps> = ({
                                     (!editingOwner && (!frontIdFile?.[0] || !backIdFile?.[0] || !addressProofFile?.[0] || !selfieFile?.[0]))
                                 }
                                 sx={{
-                                    background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)'
+                                    background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)'
                                 }}
                             >
                                 {loading ? <CircularProgress size={24} color="inherit" /> : (editingOwner ? 'Update Owner' : 'Add Owner')}
@@ -5784,8 +5784,8 @@ const KycContent: React.FC<KycContentProps> = ({
                             py: { xs: 2, sm: 3, md: 4 },
                             px: { xs: 2, sm: 3 },
                             background: mode === 'light'
-                                ? 'linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%)'
-                                : 'linear-gradient(135deg, #121212 0%, #1e1e1e 100%)'
+                                ? 'linear-gradient(135deg, #f5f3ee 0%, #ffffff 100%)'
+                                : 'linear-gradient(135deg, #0b1211 0%, #121b1a 100%)'
                         }}
                     >
                         <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
@@ -5804,7 +5804,7 @@ const KycContent: React.FC<KycContentProps> = ({
                                         variant="h4"
                                         sx={{
                                             fontWeight: 700,
-                                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                             backgroundClip: 'text',
                                             WebkitBackgroundClip: 'text',
                                             WebkitTextFillColor: 'transparent',

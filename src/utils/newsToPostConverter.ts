@@ -43,11 +43,11 @@ const getSourceColor = (source: string): string => {
   const colors: Record<string, string> = {
     'Coindesk': '#ff9500',
     'CoinTelegraph': '#00d4ff',
-    'TheMerkle': '#8b5cf6',
+    'TheMerkle': '#14b8a6',
     'NewsBTC': '#22c55e',
-    'default': '#4267b2'
+    'default': '#0d9488'
     // Default colors for other sources
-    // 'default': ['#4267b2', '#e91e63', '#9c27b0', '#42b883', '#00bcd4', '#ff6f00', '#4caf50']
+    // 'default': ['#0d9488', '#e91e63', '#0d9488', '#42b883', '#00bcd4', '#ff6f00', '#4caf50']
   }
   
   if (colors[source]) {

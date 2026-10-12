@@ -15,7 +15,6 @@ import {
   useMediaQuery,
   Link as MuiLink,
   ThemeProvider,
-  createTheme,
   CssBaseline,
 } from '@mui/material';
 import {
@@ -24,7 +23,8 @@ import {
   LightMode as LightModeIcon,
   DarkMode as DarkModeIcon,
 } from '@mui/icons-material';
-import bitoHubTextLogo from '../Assets/img/bitoHubTextLogo.png';
+import BrandLogo from '@/components/brand/BrandLogo';
+import { createBrandTheme } from '@/lib/theme';
 
 const drawerWidth = 280;
 
@@ -42,7 +42,7 @@ const sections: Section[] = [
   { id: 'section6', title: 'Marketplace & Advertising Standards' },
   { id: 'section7', title: 'Privacy & Security' },
   { id: 'section8', title: 'Enforcement' },
-  { id: 'section9', title: 'Your Role in BitoCircle' },
+  { id: 'section9', title: 'Your Role in Circle' },
 ];
 
 const CommunityClient = () => {
@@ -62,18 +62,18 @@ const CommunityClient = () => {
 
   const theme = useMemo(
     () =>
-      createTheme({
+      createBrandTheme({
         palette: {
           mode,
           primary: {
-            main: '#1e40af',
+            main: '#0f766e',
           },
           secondary: {
             main: '#dc2626',
           },
           background: {
-            default: mode === 'light' ? '#f8f9fa' : '#0a0a0a',
-            paper: mode === 'light' ? '#ffffff' : '#1a1a1a',
+            default: mode === 'light' ? '#f8f6f1' : '#080d0c',
+            paper: mode === 'light' ? '#ffffff' : '#121b1a',
           },
           text: {
             primary: mode === 'light' ? '#2c3e50' : '#e5e5e5',
@@ -172,7 +172,7 @@ const CommunityClient = () => {
               borderLeft: '3px solid',
               borderLeftColor: activeSection === section.id ? 'primary.main' : 'transparent',
               background: activeSection === section.id
-                ? 'linear-gradient(135deg, #dc2626 0%, #1e40af 100%)'
+                ? 'linear-gradient(135deg, #dc2626 0%, #0f766e 100%)'
                 : 'transparent',
               transition: 'all 0.3s ease',
               mb: 0.5,
@@ -189,7 +189,7 @@ const CommunityClient = () => {
                 '&:hover': {
                   bgcolor: activeSection === section.id
                     ? 'rgba(255, 255, 255, 0.1)'
-                    : mode === 'light' ? '#f8f9fa' : 'rgba(255, 255, 255, 0.05)',
+                    : mode === 'light' ? '#f8f6f1' : 'rgba(255, 255, 255, 0.05)',
                   color: activeSection === section.id ? 'white' : 'primary.main',
                   transform: 'translateX(5px)',
                 },
@@ -228,16 +228,7 @@ const CommunityClient = () => {
         >
           <Toolbar>
             <MuiLink href="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <Box
-                component="img"
-                src={bitoHubTextLogo.src}
-                alt="BitoCircle Logo"
-                sx={{
-                  width: { xs: '150px', md: '200px' },
-                  height: 'auto',
-                  filter: mode === 'dark' ? 'brightness(0) invert(1)' : 'none',
-                }}
-              />
+              <Box sx={{ color: 'text.primary', display: 'flex' }}><BrandLogo size={34} /></Box>
             </MuiLink>
             
             <IconButton
@@ -246,9 +237,9 @@ const CommunityClient = () => {
                 ml: 'auto',
                 mr: isMobile ? 1 : 0,
                 color: 'primary.main',
-                bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.1)' : 'rgba(220, 38, 38, 0.1)',
+                bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.1)' : 'rgba(220, 38, 38, 0.1)',
                 '&:hover': {
-                  bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.2)' : 'rgba(220, 38, 38, 0.2)',
+                  bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.2)' : 'rgba(220, 38, 38, 0.2)',
                 },
               }}
             >
@@ -340,7 +331,7 @@ const CommunityClient = () => {
                       transform: 'translateX(-50%)',
                       width: '80px',
                       height: '3px',
-                      background: 'linear-gradient(90deg, #1e40af, #e74c3c)',
+                      background: 'linear-gradient(90deg, #0f766e, #e74c3c)',
                       borderRadius: '2px',
                     },
                   }}
@@ -348,11 +339,11 @@ const CommunityClient = () => {
                   Community & Content Policy
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 1.5, color: 'text.secondary' }}>
-                  BitoCircle is the global platform where <strong>crypto entrepreneurs connect, collaborate, and get discovered by
+                  Circle is the global platform where <strong>crypto entrepreneurs connect, collaborate, and get discovered by
                   users worldwide.</strong>
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2.5, color: 'text.secondary' }}>
-                  To ensure a <strong>safe, professional, and trustworthy environment</strong>, we have established this <strong>Community & Content Policy</strong>. These rules apply to <strong>all users, content, and activities</strong> on BitoCircle.
+                  To ensure a <strong>safe, professional, and trustworthy environment</strong>, we have established this <strong>Community & Content Policy</strong>. These rules apply to <strong>all users, content, and activities</strong> on Circle.
                 </Typography>
               </Box>
 
@@ -531,7 +522,7 @@ const CommunityClient = () => {
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li>Never share sensitive information such as wallet keys, seed phrases, or passwords.</li>
-                  <li>Report suspicious activity, scams, or violations to BitoCircle moderators.</li>
+                  <li>Report suspicious activity, scams, or violations to Circle moderators.</li>
                   <li>Be cautious when engaging in private deals or partnerships.</li>
                 </Box>
               </Box>
@@ -578,10 +569,10 @@ const CommunityClient = () => {
                     borderColor: 'primary.main',
                   }}
                 >
-                  Your Role in BitoCircle
+                  Your Role in Circle
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  BitoCircle thrives on <strong>trust and collaboration</strong>. Every member contributes to the quality of the community.
+                  Circle thrives on <strong>trust and collaboration</strong>. Every member contributes to the quality of the community.
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, mb: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li>Share responsibly</li>

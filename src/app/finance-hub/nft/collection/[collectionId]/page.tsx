@@ -8,8 +8,8 @@ export const dynamic = 'force-dynamic' // Force dynamic rendering
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { collectionId } = await params;
   return {
-    title: `NFT Collection - ${collectionId} | BitoCircle`,
-    description: `Explore the ${collectionId} NFT collection on BitoCircle Finance Hub.`,
+    title: `NFT Collection - ${collectionId} | Circle`,
+    description: `Explore the ${collectionId} NFT collection on Circle Finance Hub.`,
     alternates: {
       canonical: `/finance-hub/nft/collection/${collectionId}`,
     },

@@ -92,7 +92,7 @@ const TaggedProductsSection: React.FC<TaggedProductsSectionProps> = ({
             height: 18,
             fontSize: '0.65rem',
             fontWeight: 600,
-            bgcolor: isDark ? 'rgba(99, 102, 241, 0.2)' : 'rgba(99, 102, 241, 0.1)',
+            bgcolor: isDark ? 'rgba(13, 148, 136, 0.2)' : 'rgba(13, 148, 136, 0.1)',
             color: 'primary.main'
           }}
         />
@@ -233,9 +233,9 @@ const TaggedProductsSection: React.FC<TaggedProductsSectionProps> = ({
                     fontWeight: 600,
                     textTransform: 'capitalize',
                     bgcolor: product.productType === 'DIGITAL'
-                      ? (isDark ? 'rgba(139, 92, 246, 0.2)' : 'rgba(139, 92, 246, 0.1)')
+                      ? (isDark ? 'rgba(20, 184, 166, 0.2)' : 'rgba(20, 184, 166, 0.1)')
                       : (isDark ? 'rgba(34, 197, 94, 0.2)' : 'rgba(34, 197, 94, 0.1)'),
-                    color: product.productType === 'DIGITAL' ? '#8B5CF6' : '#22C55E',
+                    color: product.productType === 'DIGITAL' ? '#14b8a6' : '#22C55E',
                     '& .MuiChip-label': {
                       px: 0.75
                     }

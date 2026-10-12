@@ -299,7 +299,7 @@ function generateMetaDescription(
   profile: ProfileData | null,
   content: ContentData | null
 ): string {
-  if (!content) return 'Content not found on BitoCircle.'
+  if (!content) return 'Content not found on Circle.'
 
   const parts: string[] = []
 
@@ -372,8 +372,8 @@ export async function generateMetadata({
 
   if (!content) {
     return {
-      title: 'Content Not Found | BitoCircle',
-      description: 'This content could not be found on BitoCircle.',
+      title: 'Content Not Found | Circle',
+      description: 'This content could not be found on Circle.',
       robots: { index: false, follow: false }
     }
   }
@@ -388,7 +388,7 @@ export async function generateMetadata({
   // Title: Name ✓ (@username) - Post/Reel | BitoCircle
   const verifiedBadge = isVerified ? ' ✓' : ''
   const contentTypeLabel = isReel ? 'Reel' : 'Post'
-  const title = `${fullName}${verifiedBadge} (@${username}) - ${contentTypeLabel} | BitoCircle`
+  const title = `${fullName}${verifiedBadge} (@${username}) - ${contentTypeLabel} | Circle`
 
   // Description: name - @username - bio - followers - following - posts - post description
   const description = generateMetaDescription(profile, content)
@@ -397,7 +397,7 @@ export async function generateMetadata({
   const keywords = [
     fullName,
     username,
-    'BitoCircle',
+    'Circle',
     'crypto social',
     'blockchain',
     'social media',
@@ -418,7 +418,7 @@ export async function generateMetadata({
       title: `${fullName}'s ${contentTypeLabel}`,
       description,
       url: contentUrl,
-      siteName: 'BitoCircle',
+      siteName: 'Circle',
       images: ogImage ? [
         {
           url: ogImage,
@@ -446,7 +446,7 @@ export async function generateMetadata({
 
     twitter: {
       card: isVideo ? 'player' : (isPhoto ? 'summary_large_image' : 'summary'),
-      title: `${fullName}'s ${contentTypeLabel} | BitoCircle`,
+      title: `${fullName}'s ${contentTypeLabel} | Circle`,
       description,
       images: ogImage ? [ogImage] : [],
       creator: `@${username}`,
@@ -521,7 +521,7 @@ function ContentJsonLd({ content, profile, userId, pageId, postId, type }: JsonL
     },
     publisher: {
       '@type': 'Organization',
-      name: 'BitoCircle',
+      name: 'Circle',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',

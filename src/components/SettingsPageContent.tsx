@@ -649,7 +649,7 @@ const SettingsPageContent: React.FC = () => {
             setSettings(prev => ({ ...prev, twoFactorEnabled: !is2FAEnabling }));
             return;
           }
-          const encodedString = `otpauth://totp/${userEmail}?secret=${twoFactorAuthKey}&issuer=BitoCircle`;
+          const encodedString = `otpauth://totp/${userEmail}?secret=${twoFactorAuthKey}&issuer=Circle`;
 
           setTwoFactorQRCode(encodedString);
           setTwoFactorKey(twoFactorAuthKey);
@@ -1553,7 +1553,7 @@ const SettingsPageContent: React.FC = () => {
 
             <SettingItem
               title="Private account"
-              subtitle="When your account is private, only the people you approve can see your photos, videos, and activity on BitoCircle."
+              subtitle="When your account is private, only the people you approve can see your photos, videos, and activity on Circle."
               action={
                 <Switch
                   checked={settings.privateAccount}
@@ -1582,7 +1582,7 @@ const SettingsPageContent: React.FC = () => {
 
             <SettingItem
               title="Activity status"
-              subtitle="Allow people to see when you're active on BitoHub apps and services."
+              subtitle="Allow people to see when you're active on Circle apps and services."
               action={
                 <Switch
                   checked={settings.activityStatus}
@@ -2380,7 +2380,7 @@ const SettingsPageContent: React.FC = () => {
         </DialogTitle>
         <DialogContent sx={{ px: 3, py: 2 }}>
           <Typography variant="subtitle1" fontWeight={600} sx={{ mb: 2 }}>
-            What people can share on BitoCircle
+            What people can share on Circle
           </Typography>
 
           <Box sx={{
@@ -2394,7 +2394,7 @@ const SettingsPageContent: React.FC = () => {
                 Stories in messages
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Allow people to send your stories in a message to someone else on BitoHub. Only your followers can see your stories.
+                Allow people to send your stories in a message to someone else on Circle. Only your followers can see your stories.
               </Typography>
             </Box>
             <Switch

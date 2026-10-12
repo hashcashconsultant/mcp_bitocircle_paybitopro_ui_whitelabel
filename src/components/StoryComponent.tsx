@@ -358,7 +358,7 @@ const StoryComponent: React.FC<StoryComponentProps> = ({
 
           const hasUnviewed = sortedStories.some(s => s.hasViewed === 'N')
           const firstLetter = firstStory.fullName?.charAt(0)?.toUpperCase() || 'U'
-          const colors = ['#e91e63', '#9c27b0', '#ff6f00', '#00bcd4', '#4caf50', '#f44336', '#2196f3', '#ff9800']
+          const colors = ['#e91e63', '#0d9488', '#ff6f00', '#00bcd4', '#4caf50', '#f44336', '#14b8a6', '#ff9800']
           const colorIndex = storyUserId % colors.length
 
           return {
@@ -367,7 +367,7 @@ const StoryComponent: React.FC<StoryComponentProps> = ({
             username: firstStory.username,
             avatar: firstLetter,
             avatarImage: firstStory.profilePicture,
-            avatarColor: isOwnStory ? '#4267b2' : colors[colorIndex],
+            avatarColor: isOwnStory ? '#0d9488' : colors[colorIndex],
             isOwn: isOwnStory,
             hasUnviewed: hasUnviewed,
             stories: sortedStories.map(apiStory => ({
@@ -375,7 +375,7 @@ const StoryComponent: React.FC<StoryComponentProps> = ({
               name: firstStory.fullName,
               avatar: firstLetter,
               avatarImage: firstStory.profilePicture,
-              avatarColor: isOwnStory ? '#4267b2' : colors[colorIndex],
+              avatarColor: isOwnStory ? '#0d9488' : colors[colorIndex],
               hasStory: true,
               isOwn: isOwnStory,
               viewed: apiStory.hasViewed === 'Y',
@@ -409,7 +409,7 @@ const StoryComponent: React.FC<StoryComponentProps> = ({
               username: '@you',
               avatar: userProfile.fullName?.[0] || brokerDetails?.firstName?.[0] || 'U',
               avatarImage: userProfile.profilePicture || undefined,
-              avatarColor: '#4267b2',
+              avatarColor: '#0d9488',
               isOwn: true,
               hasUnviewed: false,
               stories: []
@@ -437,7 +437,7 @@ const StoryComponent: React.FC<StoryComponentProps> = ({
           name: 'Your Story',
           username: '@you',
           avatar: 'Y',
-          avatarColor: '#4267b2',
+          avatarColor: '#0d9488',
           isOwn: true,
           hasUnviewed: false,
           stories: []
@@ -1388,7 +1388,7 @@ useEffect(() => {
             <Box sx={{
               position: 'absolute', top: -3, left: -3, right: -3, bottom: -3,
               borderRadius: '50%',
-              background: 'linear-gradient(45deg, #4267b2 0%, #5b7ec2 50%, #6a8ed2 100%)',
+              background: 'linear-gradient(45deg, #0d9488 0%, #5b7ec2 50%, #6a8ed2 100%)',
               zIndex: 0
             }} />
           )}
@@ -1433,7 +1433,7 @@ useEffect(() => {
           {storyCount > 1 && (
             <Box sx={{
               position: 'absolute', top: -4, right: -4,
-              bgcolor: '#4267b2', color: 'white', borderRadius: '50%',
+              bgcolor: '#0d9488', color: 'white', borderRadius: '50%',
               width: 20, height: 20, display: 'flex',
               alignItems: 'center', justifyContent: 'center',
               fontSize: '0.65rem', fontWeight: 700,
@@ -2624,7 +2624,7 @@ useEffect(() => {
                           <Box
                             component="span"
                             sx={{
-                              bgcolor: '#1d9bf0',
+                              bgcolor: '#14b8a6',
                               borderRadius: '50%',
                               width: 14,
                               height: 14,

@@ -12,7 +12,6 @@ import {
     CircularProgress,
     useMediaQuery,
     alpha,
-    createTheme,
     ThemeProvider,
     Snackbar,
     Card,
@@ -25,6 +24,7 @@ import {
     Error as ErrorIcon,
     Warning as WarningIcon,
 } from '@mui/icons-material'
+import { createBrandTheme } from '@/lib/theme';
 
 // API Base URL
 const API_BASE_URL = 'https://institutional-bo.paybito.com:8443/BrokerAdminApi'
@@ -198,21 +198,21 @@ const KycCapturePhotoContent: React.FC<KycCapturePhotoContentProps> = ({ uuid, t
         setMode(savedMode || (prefersDarkMode ? 'dark' : 'light'))
     }, [prefersDarkMode])
 
-    const theme = useMemo(() => createTheme({
+    const theme = useMemo(() => createBrandTheme({
         palette: {
             mode,
             primary: {
-                main: '#1e40af',
-                light: '#42a5f5',
-                dark: '#1e40af',
+                main: '#0f766e',
+                light: '#2dd4bf',
+                dark: '#0f766e',
                 contrastText: '#ffffff'
             },
             secondary: {
                 main: '#dc004e'
             },
             background: {
-                default: mode === 'light' ? '#f5f5f5' : '#121212',
-                paper: mode === 'light' ? '#ffffff' : '#1e1e1e'
+                default: mode === 'light' ? '#f5f3ee' : '#0b1211',
+                paper: mode === 'light' ? '#ffffff' : '#121b1a'
             },
             text: {
                 primary: mode === 'light' ? '#212121' : '#ffffff',
@@ -431,8 +431,8 @@ const KycCapturePhotoContent: React.FC<KycCapturePhotoContentProps> = ({ uuid, t
                     py: { xs: 2, sm: 4 },
                     px: { xs: 2, sm: 3 },
                     background: mode === 'light'
-                        ? 'linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%)'
-                        : 'linear-gradient(135deg, #121212 0%, #1e1e1e 100%)'
+                        ? 'linear-gradient(135deg, #f5f3ee 0%, #ffffff 100%)'
+                        : 'linear-gradient(135deg, #0b1211 0%, #121b1a 100%)'
                 }}
             >
                 <Box sx={{ maxWidth: 600, width: '100%' }}>
@@ -457,7 +457,7 @@ const KycCapturePhotoContent: React.FC<KycCapturePhotoContentProps> = ({ uuid, t
                             variant="h4"
                             sx={{
                                 fontWeight: 700,
-                                background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                 backgroundClip: 'text',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
@@ -566,7 +566,7 @@ const KycCapturePhotoContent: React.FC<KycCapturePhotoContentProps> = ({ uuid, t
                                     width: '100%',
                                     borderRadius: 2,
                                     overflow: 'hidden',
-                                    backgroundColor: mode === 'dark' ? '#000' : '#f5f5f5',
+                                    backgroundColor: mode === 'dark' ? '#000' : '#f5f3ee',
                                     mb: 3
                                 }}
                             >
@@ -717,7 +717,7 @@ const KycCapturePhotoContent: React.FC<KycCapturePhotoContentProps> = ({ uuid, t
                                         sx={{
                                             py: 1.5,
                                             px: 4,
-                                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                             '&:hover': {
                                                 transform: 'translateY(-2px)',
                                                 boxShadow: `0 8px 25px ${alpha(theme.palette.primary.main, 0.3)}`
@@ -774,7 +774,7 @@ const KycCapturePhotoContent: React.FC<KycCapturePhotoContentProps> = ({ uuid, t
                                             sx={{
                                                 py: 1.5,
                                                 px: 4,
-                                                background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                                background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                                 '&:hover': {
                                                     transform: 'translateY(-2px)',
                                                     boxShadow: `0 8px 25px ${alpha(theme.palette.primary.main, 0.3)}`

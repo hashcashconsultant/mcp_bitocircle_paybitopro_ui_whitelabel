@@ -83,9 +83,9 @@ interface GetActiveCampaignsResponse {
 
 const privacyOptions: PrivacySetting[] = [
   { value: '1', label: 'Public', description: 'Anyone can see this post', icon: <PublicIcon sx={{ color: '#4caf50' }} /> },
-  { value: '2', label: 'Only Followers', description: 'Only your followers can see this post', icon: <PeopleIcon sx={{ color: '#2196f3' }} /> },
+  { value: '2', label: 'Only Followers', description: 'Only your followers can see this post', icon: <PeopleIcon sx={{ color: '#14b8a6' }} /> },
   { value: '3', label: 'Only Me', description: 'Only you can see this post', icon: <LockIcon sx={{ color: '#ff9800' }} /> },
-  { value: '4', label: 'Exclusive Content', description: 'This content will be visible only to your subscribed followers', icon: <StarIcon sx={{ color: '#9c27b0' }} /> },
+  { value: '4', label: 'Exclusive Content', description: 'This content will be visible only to your subscribed followers', icon: <StarIcon sx={{ color: '#0d9488' }} /> },
 ];
 
 // ==================== COMPONENT PROPS ====================
@@ -617,11 +617,11 @@ const CreateReelDialog: React.FC<CreateReelDialogProps> = ({ open, onClose, onPu
           {/* ================================================================================ */}
 
           <Paper sx={{
-            bgcolor: '#E3F2FD',
+            bgcolor: '#e6fffb',
             p: 2,
             mt: 3,
             border: '1px solid',
-            borderColor: '#90CAF9'
+            borderColor: '#5eead4'
           }}>
             <Typography
               variant="subtitle2"

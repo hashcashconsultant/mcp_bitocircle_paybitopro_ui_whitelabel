@@ -94,7 +94,7 @@ export default function ConnectedAppsContent() {
         Connected Apps
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 3 }}>
-        Apps from the PayBito App Store that you allowed to use your BitoCircle account. Disconnecting an app stops it
+        Apps from the PayBito App Store that you allowed to use your Circle account. Disconnecting an app stops it
         within a minute.{' '}
         <a href="/api/developer-portal" target="_blank" rel="noopener noreferrer">Build your own app</a>
       </Typography>

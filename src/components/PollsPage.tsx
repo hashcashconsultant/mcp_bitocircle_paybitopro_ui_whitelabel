@@ -270,7 +270,7 @@ const getOnlyActive = (tabIndex: number): 'Y' | 'N' => {
 
   // Helper functions
   const getAvatarColor = (id: number) => {
-    const colors = ['#7c3aed', '#ec4899', '#06b6d4', '#f59e0b', '#10b981', '#ef4444']
+    const colors = ['#0d9488', '#ec4899', '#06b6d4', '#f59e0b', '#10b981', '#ef4444']
     return colors[id % colors.length]
   }
 
@@ -681,7 +681,7 @@ const getOnlyActive = (tabIndex: number): 'Y' | 'N' => {
                     {poll.creator.name}
                   </Typography>
                   {poll.creator.isVerified && (
-                    <VerifiedIcon sx={{ fontSize: 14, color: '#1d9bf0' }} />
+                    <VerifiedIcon sx={{ fontSize: 14, color: '#14b8a6' }} />
                   )}
                 </Box>
                 <Typography variant="caption" color="text.secondary">
@@ -716,9 +716,9 @@ const getOnlyActive = (tabIndex: number): 'Y' | 'N' => {
               size="small"
               sx={{
                 bgcolor: theme.palette.mode === 'dark' 
-                  ? 'rgba(66, 103, 178, 0.2)' 
-                  : 'rgba(66, 103, 178, 0.1)',
-                color: theme.palette.mode === 'dark' ? '#90caf9' : '#4267b2',
+                  ? 'rgba(13, 148, 136, 0.2)' 
+                  : 'rgba(13, 148, 136, 0.1)',
+                color: theme.palette.mode === 'dark' ? '#5eead4' : '#0d9488',
                 fontWeight: 500
               }}
             />
@@ -798,15 +798,15 @@ const getOnlyActive = (tabIndex: number): 'Y' | 'N' => {
                           '& .MuiLinearProgress-bar': {
                             bgcolor: isVotedOption
                               ? theme.palette.mode === 'dark'
-                                ? 'rgba(33, 150, 243, 0.2)'
-                                : 'rgba(33, 150, 243, 0.1)'
+                                ? 'rgba(20, 184, 166, 0.2)'
+                                : 'rgba(20, 184, 166, 0.1)'
                               : isWinning 
                                 ? theme.palette.mode === 'dark'
                                   ? 'rgba(76, 175, 80, 0.2)'
                                   : 'rgba(66, 184, 131, 0.1)'
                                 : theme.palette.mode === 'dark'
-                                  ? 'rgba(66, 103, 178, 0.15)'
-                                  : 'rgba(66, 103, 178, 0.05)'
+                                  ? 'rgba(13, 148, 136, 0.15)'
+                                  : 'rgba(13, 148, 136, 0.05)'
                           }
                         }}
                       />
@@ -953,8 +953,8 @@ const getOnlyActive = (tabIndex: number): 'Y' | 'N' => {
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <Box sx={{
                   bgcolor: theme.palette.mode === 'dark' 
-                    ? 'rgba(66, 103, 178, 0.2)' 
-                    : 'rgba(66, 103, 178, 0.1)',
+                    ? 'rgba(13, 148, 136, 0.2)' 
+                    : 'rgba(13, 148, 136, 0.1)',
                   borderRadius: 2,
                   p: 1.5
                 }}>
@@ -1188,7 +1188,7 @@ const getOnlyActive = (tabIndex: number): 'Y' | 'N' => {
                         {selectedPoll.creator.name}
                       </Typography>
                       {selectedPoll.creator.isVerified && (
-                        <VerifiedIcon sx={{ fontSize: 16, color: '#1d9bf0' }} />
+                        <VerifiedIcon sx={{ fontSize: 16, color: '#14b8a6' }} />
                       )}
                     </Box>
                     <Typography variant="caption" color="text.secondary">
@@ -1336,8 +1336,8 @@ const getOnlyActive = (tabIndex: number): 'Y' | 'N' => {
                                       ? 'rgba(76, 175, 80, 0.25)'
                                       : 'rgba(66, 184, 131, 0.15)'
                                     : theme.palette.mode === 'dark'
-                                      ? 'rgba(66, 103, 178, 0.2)'
-                                      : 'rgba(66, 103, 178, 0.1)'
+                                      ? 'rgba(13, 148, 136, 0.2)'
+                                      : 'rgba(13, 148, 136, 0.1)'
                                 }
                               }}
                             />

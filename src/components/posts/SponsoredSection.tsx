@@ -56,12 +56,12 @@ const SponsoredSection: React.FC<SponsoredSectionProps> = ({
         borderRadius: 2,
         bgcolor: (theme) => 
           theme.palette.mode === 'light' 
-            ? 'rgba(99, 102, 241, 0.04)' 
-            : 'rgba(99, 102, 241, 0.08)',
+            ? 'rgba(13, 148, 136, 0.04)' 
+            : 'rgba(13, 148, 136, 0.08)',
         border: (theme) => 
           `1px solid ${theme.palette.mode === 'light' 
-            ? 'rgba(99, 102, 241, 0.15)' 
-            : 'rgba(99, 102, 241, 0.2)'}`,
+            ? 'rgba(13, 148, 136, 0.15)' 
+            : 'rgba(13, 148, 136, 0.2)'}`,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -125,7 +125,7 @@ const SponsoredSection: React.FC<SponsoredSectionProps> = ({
             '&:hover': {
               bgcolor: 'primary.dark'
             },
-            boxShadow: '0 2px 8px rgba(99, 102, 241, 0.25)'
+            boxShadow: '0 2px 8px rgba(13, 148, 136, 0.25)'
           }}
         >
           {cta}

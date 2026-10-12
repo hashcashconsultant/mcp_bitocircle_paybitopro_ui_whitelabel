@@ -224,7 +224,7 @@ export const TextPostComponent: React.FC<BasePostProps> = ({
               <IconButton
                 size="small"
                 onClick={onSave}
-                sx={{ color: '#4267b2' }}
+                sx={{ color: '#0d9488' }}
               >
                 <BookmarkIcon fontSize={isMobile ? 'small' : 'medium'} />
               </IconButton>
@@ -542,7 +542,7 @@ export const ImagePostComponent: React.FC<ImagePostProps> = ({
                 <IconButton
                   size="small"
                   onClick={onSave}
-                  sx={{ color: '#4267b2' }}
+                  sx={{ color: '#0d9488' }}
                 >
                   <BookmarkIcon fontSize={isMobile ? 'small' : 'medium'} />
                 </IconButton>
@@ -951,7 +951,7 @@ export const VideoPostComponent: React.FC<VideoPostProps> = ({
               <IconButton
                 size="small"
                 onClick={onSave}
-                sx={{ color: '#4267b2' }}
+                sx={{ color: '#0d9488' }}
               >
                 <BookmarkIcon fontSize={isMobile ? 'small' : 'medium'} />
               </IconButton>
@@ -1101,7 +1101,7 @@ export const PollPostComponent: React.FC<PollPostProps> = ({
         <Card variant="outlined" sx={{
           p: { xs: 2, sm: 2.5 },
           mb: 2,
-          bgcolor: '#f8f9fa',
+          bgcolor: '#f8f6f1',
           borderColor: '#e4e6ea'
         }}>
           <Typography
@@ -1137,7 +1137,7 @@ export const PollPostComponent: React.FC<PollPostProps> = ({
                       py: { xs: 1, sm: 1.25 },
                       px: 2,
                       '&:hover': {
-                        borderColor: '#4267b2',
+                        borderColor: '#0d9488',
                         bgcolor: '#f0f8ff'
                       }
                     }}
@@ -1170,7 +1170,7 @@ export const PollPostComponent: React.FC<PollPostProps> = ({
                           height: '100%',
                           bgcolor: 'transparent',
                           '& .MuiLinearProgress-bar': {
-                            bgcolor: isWinning ? 'rgba(66, 184, 131, 0.15)' : 'rgba(66, 103, 178, 0.1)'
+                            bgcolor: isWinning ? 'rgba(66, 184, 131, 0.15)' : 'rgba(13, 148, 136, 0.1)'
                           }
                         }}
                       />
@@ -1197,7 +1197,7 @@ export const PollPostComponent: React.FC<PollPostProps> = ({
                             {option.text}
                           </Typography>
                           {isSelected && (
-                            <CheckCircleIcon sx={{ fontSize: 16, color: '#4267b2' }} />
+                            <CheckCircleIcon sx={{ fontSize: 16, color: '#0d9488' }} />
                           )}
                           {isWinning && (
                             <Chip
@@ -1335,7 +1335,7 @@ export const PollPostComponent: React.FC<PollPostProps> = ({
               <IconButton
                 size="small"
                 onClick={onSave}
-                sx={{ color: '#4267b2' }}
+                sx={{ color: '#0d9488' }}
               >
                 <BookmarkIcon fontSize={isMobile ? 'small' : 'medium'} />
               </IconButton>

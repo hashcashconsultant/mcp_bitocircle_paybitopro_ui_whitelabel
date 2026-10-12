@@ -459,8 +459,8 @@ const SendGiftDialog: React.FC<SendGiftDialogProps> = ({
           py: 0.5,
           px: 1.5,
           minWidth: 'auto',
-          bgcolor: '#1e40af',
-          '&:hover': { bgcolor: '#1e3a8a' }
+          bgcolor: '#0f766e',
+          '&:hover': { bgcolor: '#115e59' }
         }}
       >
         Add Funds
@@ -522,9 +522,9 @@ const SendGiftDialog: React.FC<SendGiftDialogProps> = ({
                   mt: 2,
                   p: 2,
                   borderRadius: 2,
-                  bgcolor: 'rgba(30, 64, 175, 0.08)',
+                  bgcolor: 'rgba(15, 118, 110, 0.08)',
                   border: 1,
-                  borderColor: 'rgba(30, 64, 175, 0.2)',
+                  borderColor: 'rgba(15, 118, 110, 0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between'
@@ -572,15 +572,15 @@ const SendGiftDialog: React.FC<SendGiftDialogProps> = ({
             p: 2,
             borderRadius: 3,
             border: 2,
-            borderColor: isSelected ? '#1e40af' : 'divider',
-            bgcolor: isSelected ? 'rgba(30, 64, 175, 0.08)' : 'background.paper',
+            borderColor: isSelected ? '#0f766e' : 'divider',
+            bgcolor: isSelected ? 'rgba(15, 118, 110, 0.08)' : 'background.paper',
             textAlign: 'center',
             position: 'relative',
             transition: 'all 0.3s ease',
             '&:hover': {
-              borderColor: '#1e40af',
+              borderColor: '#0f766e',
               transform: 'translateY(-4px)',
-              boxShadow: '0 8px 24px rgba(30, 64, 175, 0.2)'
+              boxShadow: '0 8px 24px rgba(15, 118, 110, 0.2)'
             }
           }}
         >
@@ -666,12 +666,12 @@ const SendGiftDialog: React.FC<SendGiftDialogProps> = ({
                 fontSize: '0.8rem',
                 px: 2,
                 minWidth: 'auto',
-                bgcolor: isSelected ? '#1e40af' : 'transparent',
-                borderColor: '#1e40af',
-                color: isSelected ? 'white' : '#1e40af',
+                bgcolor: isSelected ? '#0f766e' : 'transparent',
+                borderColor: '#0f766e',
+                color: isSelected ? 'white' : '#0f766e',
                 '&:hover': {
-                  bgcolor: isSelected ? '#1e3a8a' : 'rgba(30, 64, 175, 0.08)',
-                  borderColor: '#1e40af'
+                  bgcolor: isSelected ? '#115e59' : 'rgba(15, 118, 110, 0.08)',
+                  borderColor: '#0f766e'
                 }
               }}
             >
@@ -715,9 +715,9 @@ const SendGiftDialog: React.FC<SendGiftDialogProps> = ({
                 mb: 3,
                 p: 3,
                 borderRadius: 3,
-                background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(30, 58, 138, 0.05))',
+                background: 'linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(30, 58, 138, 0.05))',
                 border: 1,
-                borderColor: 'rgba(30, 64, 175, 0.3)'
+                borderColor: 'rgba(15, 118, 110, 0.3)'
               }}
             >
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1.5, pb: 1.5, borderBottom: 1, borderColor: 'divider' }}>
@@ -774,16 +774,16 @@ const SendGiftDialog: React.FC<SendGiftDialogProps> = ({
                   borderRadius: 3,
                   fontSize: '1rem',
                   fontWeight: 600,
-                  background: 'linear-gradient(135deg, #1e40af, #1e3a8a)',
-                  boxShadow: '0 4px 15px rgba(30, 64, 175, 0.3)',
+                  background: 'linear-gradient(135deg, #0f766e, #115e59)',
+                  boxShadow: '0 4px 15px rgba(15, 118, 110, 0.3)',
                   '&:hover': {
-                    background: 'linear-gradient(135deg, #2563eb, #1e40af)',
+                    background: 'linear-gradient(135deg, #0d9488, #0f766e)',
                     transform: 'translateY(-2px)',
-                    boxShadow: '0 6px 20px rgba(30, 64, 175, 0.4)'
+                    boxShadow: '0 6px 20px rgba(15, 118, 110, 0.4)'
                   },
                   '&:disabled': {
                     opacity: 0.5,
-                    background: 'linear-gradient(135deg, #1e40af, #1e3a8a)'
+                    background: 'linear-gradient(135deg, #0f766e, #115e59)'
                   },
                   transition: 'all 0.3s ease'
                 }}

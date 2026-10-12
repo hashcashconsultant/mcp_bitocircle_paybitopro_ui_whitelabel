@@ -4,7 +4,7 @@ import BitoHubFeed from '@/components/BitoHubFeed'
 export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 export const metadata: Metadata = {
-  title: 'Crypto Social Feed Platform | BitoCircle',
+  title: 'Crypto Social Feed Platform | Circle',
   description: 'Explore live updates on a crypto social feed platform where users share insights, discover trends and engage with the global crypto community.',
   alternates: {
     canonical: '/',

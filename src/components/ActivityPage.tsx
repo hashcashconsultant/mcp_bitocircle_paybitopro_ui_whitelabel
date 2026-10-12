@@ -84,7 +84,7 @@ const ActivityPage: React.FC = () => {
       user: {
         name: 'David Chen',
         avatar: 'DC',
-        avatarColor: '#7c3aed',
+        avatarColor: '#0d9488',
         isVerified: true
       },
       action: 'raised $5M Series A funding',
@@ -219,9 +219,9 @@ const ActivityPage: React.FC = () => {
       case 'achievement':
         return <AchievementIcon sx={{ color: '#f59e0b' }} />
       case 'launch':
-        return <LaunchIcon sx={{ color: '#8b5cf6' }} />
+        return <LaunchIcon sx={{ color: '#14b8a6' }} />
       case 'network':
-        return <NetworkIcon sx={{ color: '#3b82f6' }} />
+        return <NetworkIcon sx={{ color: '#14b8a6' }} />
       case 'trending':
         return <TrendingIcon sx={{ color: '#ef4444' }} />
       case 'poll':
@@ -298,7 +298,7 @@ const ActivityPage: React.FC = () => {
               fontSize: { xs: '0.875rem', sm: '1rem' }
             },
             '& .MuiTabs-indicator': {
-              backgroundColor: '#4267b2',
+              backgroundColor: '#0d9488',
               height: 3
             }
           }}
@@ -341,7 +341,7 @@ const ActivityPage: React.FC = () => {
                         {activity.user.name}
                       </Typography>
                       {activity.user.isVerified && (
-                        <VerifiedIcon sx={{ fontSize: 16, color: '#1d9bf0' }} />
+                        <VerifiedIcon sx={{ fontSize: 16, color: '#14b8a6' }} />
                       )}
                       <Box sx={{ ml: 1 }}>
                         {getActivityIcon(activity.type)}
@@ -373,8 +373,8 @@ const ActivityPage: React.FC = () => {
                     color="primary"
                     variant="outlined"
                     sx={{ 
-                      borderColor: '#4267b2',
-                      color: '#4267b2',
+                      borderColor: '#0d9488',
+                      color: '#0d9488',
                       fontWeight: 600
                     }}
                   />
@@ -416,7 +416,7 @@ const ActivityPage: React.FC = () => {
                       key={index}
                       variant="body2"
                       sx={{
-                        color: '#4267b2',
+                        color: '#0d9488',
                         cursor: 'pointer',
                         '&:hover': { textDecoration: 'underline' }
                       }}

@@ -92,7 +92,7 @@ const BitoHubPopup: React.FC<BitoHubPopupProps> = ({
       icon: <ShieldIcon sx={{ fontSize: 24 }} />,
       title: 'Web3 Identity',
       description: 'Secure blockchain-verified profile',
-      color: '#7c3aed'
+      color: '#0d9488'
     },
     {
       icon: <GroupsIcon sx={{ fontSize: 24 }} />,
@@ -120,7 +120,7 @@ const BitoHubPopup: React.FC<BitoHubPopupProps> = ({
       icon: <PostAddIcon sx={{ fontSize: 28 }} />,
       title: 'Make Your First Post',
       description: 'Share your first content with the community',
-      color: '#8b5cf6',
+      color: '#14b8a6',
       show: hasMadeFirstPost === 0 // Only show if user hasn't made first post
     },
     {
@@ -170,14 +170,14 @@ const BitoHubPopup: React.FC<BitoHubPopupProps> = ({
       }}
       sx={{
         '& .MuiBackdrop-root': {
-          backgroundColor: 'rgba(99, 102, 241, 0.1)',
+          backgroundColor: 'rgba(13, 148, 136, 0.1)',
           backdropFilter: 'blur(2px)'
         }
       }}
     >
       {/* Header */}
       <Box sx={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+        background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #f093fb 100%)',
         p: 3,
         textAlign: 'center'
       }}>
@@ -195,12 +195,12 @@ const BitoHubPopup: React.FC<BitoHubPopupProps> = ({
         }}>
           <Typography variant="h5" sx={{
             fontWeight: 700,
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            BitoCircle
+            Circle
           </Typography>
         </Box>
 
@@ -226,11 +226,11 @@ const BitoHubPopup: React.FC<BitoHubPopupProps> = ({
           mb: 3
         }}>
           <span style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
-          }}>Claim Your BitoCircle Profile</span>
+          }}>Claim Your Circle Profile</span>
         </Typography>
 
         <Card sx={{
@@ -261,8 +261,8 @@ const BitoHubPopup: React.FC<BitoHubPopupProps> = ({
 
         {/* Reward Conditions Section */}
         <Card sx={{
-          bgcolor: '#f8fafc',
-          border: '2px dashed #667eea',
+          bgcolor: '#f8f6f1',
+          border: '2px dashed #0d9488',
           p: 2.5,
           mb: 3,
           borderRadius: 3
@@ -407,19 +407,19 @@ const BitoHubPopup: React.FC<BitoHubPopupProps> = ({
           size="large"
           onClick={handleClaim}
           sx={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
             color: 'white',
             py: 2,
             borderRadius: 2,
             fontSize: 16,
             fontWeight: 700,
             textTransform: 'none',
-            boxShadow: '0 4px 20px rgba(102, 126, 234, 0.4)',
+            boxShadow: '0 4px 20px rgba(13, 148, 136, 0.4)',
             transition: 'all 0.3s ease',
             '&:hover': {
-              background: 'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
+              background: 'linear-gradient(135deg, #0f766e 0%, #0d9488 100%)',
               transform: 'translateY(-2px)',
-              boxShadow: '0 6px 30px rgba(102, 126, 234, 0.5)'
+              boxShadow: '0 6px 30px rgba(13, 148, 136, 0.5)'
             }
           }}
         >

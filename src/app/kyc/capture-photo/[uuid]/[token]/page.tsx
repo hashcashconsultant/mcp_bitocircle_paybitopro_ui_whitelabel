@@ -7,8 +7,8 @@ export const dynamic = 'force-dynamic' // Force dynamic rendering
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { uuid, token } = await params;
   return {
-    title: 'KYC Photo Capture | BitoCircle',
-    description: 'Securely upload your photo for BitoCircle identity verification.',
+    title: 'KYC Photo Capture | Circle',
+    description: 'Securely upload your photo for Circle identity verification.',
     alternates: {
       canonical: `/kyc/capture-photo/${uuid}/${token}`,
     },

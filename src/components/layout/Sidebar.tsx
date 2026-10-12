@@ -200,8 +200,8 @@ const Sidebar: React.FC<SidebarProps> = ({ temporary = false, onClose }) => {
 
   const generateAvatarColor = (name: string): string => {
     const colors = [
-      '#7c3aed', '#ec4899', '#8b5cf6', '#06b6d4',
-      '#f59e0b', '#10b981', '#ef4444', '#3b82f6'
+      '#0d9488', '#ec4899', '#14b8a6', '#06b6d4',
+      '#f59e0b', '#10b981', '#ef4444', '#14b8a6'
     ]
     let hash = 0
     for (let i = 0; i < name.length; i++) {
@@ -378,7 +378,7 @@ const Sidebar: React.FC<SidebarProps> = ({ temporary = false, onClose }) => {
           category: 'Personal Profile',
           followers: '',
           avatar: brokerDetails?.firstName?.[0] || 'Y',
-          avatarBgColor: '#7c3aed',
+          avatarBgColor: '#0d9488',
           isOnline: true,
           profilePicture: personalProfilePhoto || undefined
         }
@@ -393,7 +393,7 @@ const Sidebar: React.FC<SidebarProps> = ({ temporary = false, onClose }) => {
           category: 'Personal Profile',
           followers: '',
           avatar: brokerDetails?.firstName?.[0] || 'Y',
-          avatarBgColor: '#7c3aed',
+          avatarBgColor: '#0d9488',
           isOnline: true,
           profilePicture: personalProfilePhoto || undefined
         }
@@ -411,7 +411,7 @@ const Sidebar: React.FC<SidebarProps> = ({ temporary = false, onClose }) => {
         category: 'Personal Profile',
         followers: '',
         avatar: brokerDetails?.firstName?.[0] || 'Y',
-        avatarBgColor: '#7c3aed',
+        avatarBgColor: '#0d9488',
         isOnline: true,
         profilePicture: personalProfilePhoto || undefined
       }
@@ -962,9 +962,9 @@ const Sidebar: React.FC<SidebarProps> = ({ temporary = false, onClose }) => {
           borderRadius: 2,
           textTransform: 'none',
           fontWeight: 600,
-          bgcolor: '#1e40af',
+          bgcolor: '#0f766e',
           '&:hover': {
-            bgcolor: '#1e3a8a'
+            bgcolor: '#115e59'
           }
         }}
       >
@@ -1045,7 +1045,7 @@ const Sidebar: React.FC<SidebarProps> = ({ temporary = false, onClose }) => {
                     <SearchIcon sx={{ color: 'text.secondary', fontSize: 18 }} />
                   </Box>
                   <InputBase
-                    placeholder="Search BitoCircle"
+                    placeholder="Search Circle"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     sx={{
@@ -1353,7 +1353,7 @@ const Sidebar: React.FC<SidebarProps> = ({ temporary = false, onClose }) => {
               <Avatar
                 src={userProfile.profilePicture || undefined}
                 sx={{
-                  bgcolor: '#4267b2',
+                  bgcolor: '#0d9488',
                   width: 30,
                   height: 30,
                   fontSize: 12,

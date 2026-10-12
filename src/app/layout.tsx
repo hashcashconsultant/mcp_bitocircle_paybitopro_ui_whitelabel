@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
+import { Bricolage_Grotesque, DM_Sans } from 'next/font/google'
 import './globals.css'
 import { BrokerProvider } from '@/contexts/BrokerContext'
 import { ThemeProvider } from '@/contexts/ThemeContext'
@@ -11,10 +11,16 @@ import { UserProfileProvider } from '@/contexts/UserProfileContext'
 // White-label identity/SEO — edit src/config/whitelabel.ts, not this file.
 import { WHITELABEL } from '@/config/whitelabel'
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
+// Brand fonts: body text and headings. Swap these two for your own; the theme reads the CSS variables.
+const bodyFont = DM_Sans({
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-body',
+})
+const displayFont = Bricolage_Grotesque({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
 })
 
 export const metadata: Metadata = {
@@ -91,11 +97,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileColor" content={WHITELABEL.colors.surface.dark.page} />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff"></meta>
+        <meta name="theme-color" content={WHITELABEL.colors.surface.dark.page}></meta>
       </head>
-      <body className={roboto.className} suppressHydrationWarning>
+      <body className={`${bodyFont.className} ${bodyFont.variable} ${displayFont.variable}`} suppressHydrationWarning>
         <AuthProvider>
           <BrokerProvider>
             <UserProfileProvider>

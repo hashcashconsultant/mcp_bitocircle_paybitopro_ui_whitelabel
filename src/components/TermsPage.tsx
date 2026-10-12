@@ -19,7 +19,6 @@ import {
   useMediaQuery,
   Link as MuiLink,
   ThemeProvider,
-  createTheme,
   CssBaseline,
 } from '@mui/material';
 import {
@@ -29,7 +28,8 @@ import {
   DarkMode as DarkModeIcon,
 } from '@mui/icons-material';
 import Image from 'next/image';
-import bitoHubTextLogo from '../app/Assets/img/bitoHubTextLogo.png';
+import BrandLogo from '@/components/brand/BrandLogo';
+import { createBrandTheme } from '@/lib/theme';
 
 const drawerWidth = 280;
 
@@ -76,18 +76,18 @@ const TermsPage = () => {
   // Create theme based on mode
   const theme = useMemo(
     () =>
-      createTheme({
+      createBrandTheme({
         palette: {
           mode,
           primary: {
-            main: '#1e40af',
+            main: '#0f766e',
           },
           secondary: {
             main: '#dc2626',
           },
           background: {
-            default: mode === 'light' ? '#f8f9fa' : '#0a0a0a',
-            paper: mode === 'light' ? '#ffffff' : '#1a1a1a',
+            default: mode === 'light' ? '#f8f6f1' : '#080d0c',
+            paper: mode === 'light' ? '#ffffff' : '#121b1a',
           },
           text: {
             primary: mode === 'light' ? '#2c3e50' : '#e5e5e5',
@@ -185,7 +185,7 @@ const TermsPage = () => {
               borderLeft: '3px solid',
               borderLeftColor: activeSection === section.id ? 'primary.main' : 'transparent',
               background: activeSection === section.id
-                ? 'linear-gradient(135deg, #dc2626 0%, #1e40af 100%)'
+                ? 'linear-gradient(135deg, #dc2626 0%, #0f766e 100%)'
                 : 'transparent',
               transition: 'all 0.3s ease',
               mb: 0.5,
@@ -202,7 +202,7 @@ const TermsPage = () => {
                 '&:hover': {
                   bgcolor: activeSection === section.id
                     ? 'rgba(255, 255, 255, 0.1)'
-                    : mode === 'light' ? '#f8f9fa' : 'rgba(255, 255, 255, 0.05)',
+                    : mode === 'light' ? '#f8f6f1' : 'rgba(255, 255, 255, 0.05)',
                   color: activeSection === section.id ? 'white' : 'primary.main',
                   transform: 'translateX(5px)',
                 },
@@ -241,16 +241,7 @@ const TermsPage = () => {
         >
           <Toolbar>
             <MuiLink href="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <Box
-                component="img"
-                src={bitoHubTextLogo.src}
-                alt="BitoCircle Logo"
-                sx={{
-                  width: { xs: '150px', md: '200px' },
-                  height: 'auto',
-                  filter: mode === 'dark' ? 'brightness(0) invert(1)' : 'none',
-                }}
-              />
+              <Box sx={{ color: 'text.primary', display: 'flex' }}><BrandLogo size={34} /></Box>
             </MuiLink>
 
             {/* Theme Toggle Button */}
@@ -260,9 +251,9 @@ const TermsPage = () => {
                 ml: 'auto',
                 mr: isMobile ? 1 : 0,
                 color: 'primary.main',
-                bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.1)' : 'rgba(220, 38, 38, 0.1)',
+                bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.1)' : 'rgba(220, 38, 38, 0.1)',
                 '&:hover': {
-                  bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.2)' : 'rgba(220, 38, 38, 0.2)',
+                  bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.2)' : 'rgba(220, 38, 38, 0.2)',
                 },
               }}
             >
@@ -354,7 +345,7 @@ const TermsPage = () => {
                       transform: 'translateX(-50%)',
                       width: '80px',
                       height: '3px',
-                      background: 'linear-gradient(90deg, #1e40af, #e74c3c)',
+                      background: 'linear-gradient(90deg, #0f766e, #e74c3c)',
                       borderRadius: '2px',
                     },
                   }}
@@ -365,7 +356,7 @@ const TermsPage = () => {
                   Last updated on: December 5, 2025
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2.5, color: 'text.secondary' }}>
-                  Welcome to <strong>BitoCircle</strong>. These Terms of Service and Community Guidelines (&ldquo;Terms&rdquo;) govern your access to and use of the BitoCircle platform, including our website, mobile application, and related services (collectively, the &ldquo;Services&rdquo;). By creating an account, accessing, or using BitoCircle, you agree to be bound by these Terms. If you do not agree, you must discontinue use of the Services.
+                  Welcome to <strong>Circle</strong>. These Terms of Service and Community Guidelines (&ldquo;Terms&rdquo;) govern your access to and use of the Circle platform, including our website, mobile application, and related services (collectively, the &ldquo;Services&rdquo;). By creating an account, accessing, or using Circle, you agree to be bound by these Terms. If you do not agree, you must discontinue use of the Services.
                 </Typography>
               </Box>
 
@@ -386,9 +377,9 @@ const TermsPage = () => {
                   1. Eligibility
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
-                  <li>You must be at least <strong>18 years old</strong> to use BitoCircle.</li>
+                  <li>You must be at least <strong>18 years old</strong> to use Circle.</li>
                   <li>By registering, you confirm that you have the <strong>legal capacity</strong> to enter into these Terms.</li>
-                  <li>Use of BitoCircle is <strong>prohibited</strong> in jurisdictions where such platforms are restricted or illegal.</li>
+                  <li>Use of Circle is <strong>prohibited</strong> in jurisdictions where such platforms are restricted or illegal.</li>
                 </Box>
               </Box>
 
@@ -432,7 +423,7 @@ const TermsPage = () => {
                   3. Acceptable Use & Zero Tolerance Policy
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  BitoCircle maintains a <strong>ZERO TOLERANCE POLICY</strong> for objectionable content and abusive behavior.
+                  Circle maintains a <strong>ZERO TOLERANCE POLICY</strong> for objectionable content and abusive behavior.
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
                   You agree <strong>not to post, share, or engage in</strong> any content or activity that includes or promotes:
@@ -467,8 +458,8 @@ const TermsPage = () => {
                   4. Content Ownership & License
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
-                  <li>You <strong>retain ownership</strong> of the content you post on BitoCircle.</li>
-                  <li>By posting content, you grant BitoCircle a <strong>non-exclusive, worldwide, royalty-free license</strong> to host, store, display, and distribute your content within the platform for the purpose of operating and promoting the Services.</li>
+                  <li>You <strong>retain ownership</strong> of the content you post on Circle.</li>
+                  <li>By posting content, you grant Circle a <strong>non-exclusive, worldwide, royalty-free license</strong> to host, store, display, and distribute your content within the platform for the purpose of operating and promoting the Services.</li>
                   <li>We reserve the right to <strong>remove, restrict, or disable access</strong> to any content that violates these Terms, our policies, or applicable laws.</li>
                 </Box>
               </Box>
@@ -514,7 +505,7 @@ const TermsPage = () => {
                   6. Enforcement Actions
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  If you violate these Terms, BitoCircle may take one or more of the following actions:
+                  If you violate these Terms, Circle may take one or more of the following actions:
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li><strong>Removal</strong> of violating content</li>
@@ -544,7 +535,7 @@ const TermsPage = () => {
                   7. User Responsibilities
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  By using BitoCircle, you agree to:
+                  By using Circle, you agree to:
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li><strong>Follow these Terms</strong> and all applicable laws</li>
@@ -571,7 +562,7 @@ const TermsPage = () => {
                   8. Networking & Marketplace Features
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
-                  <li>BitoCircle enables <strong>networking and discovery</strong> among crypto entrepreneurs and related communities.</li>
+                  <li>Circle enables <strong>networking and discovery</strong> among crypto entrepreneurs and related communities.</li>
                   <li>We <strong>do not guarantee or endorse</strong> the accuracy, legitimacy, or success of any user, project, or opportunity.</li>
                   <li>You are <strong>solely responsible</strong> for conducting due diligence before entering into collaborations, transactions, or business relationships.</li>
                 </Box>
@@ -595,7 +586,7 @@ const TermsPage = () => {
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li>The Services may include <strong>links or integrations</strong> to third-party platforms.</li>
-                  <li>BitoCircle is <strong>not responsible</strong> for third-party content, services, policies, or practices.</li>
+                  <li>Circle is <strong>not responsible</strong> for third-party content, services, policies, or practices.</li>
                   <li>Your use of third-party services is <strong>at your own risk</strong> and subject to their terms.</li>
                 </Box>
               </Box>
@@ -617,7 +608,7 @@ const TermsPage = () => {
                   10. Privacy
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, color: 'text.secondary' }}>
-                  Your use of BitoCircle is subject to our <strong>Privacy Policy</strong>, which explains how we collect, use, and protect your information. By using the Services, you consent to our data practices.
+                  Your use of Circle is subject to our <strong>Privacy Policy</strong>, which explains how we collect, use, and protect your information. By using the Services, you consent to our data practices.
                 </Typography>
               </Box>
 
@@ -660,9 +651,9 @@ const TermsPage = () => {
                   12. Disclaimers
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
-                  <li>BitoCircle is provided on an &ldquo;<strong>as is</strong>&rdquo; and &ldquo;<strong>as available</strong>&rdquo; basis.</li>
+                  <li>Circle is provided on an &ldquo;<strong>as is</strong>&rdquo; and &ldquo;<strong>as available</strong>&rdquo; basis.</li>
                   <li>We make <strong>no warranties</strong> regarding uninterrupted, secure, or error-free operation.</li>
-                  <li>BitoCircle is a <strong>social and networking platform</strong> and is not a financial exchange, broker, or investment advisor.</li>
+                  <li>Circle is a <strong>social and networking platform</strong> and is not a financial exchange, broker, or investment advisor.</li>
                 </Box>
               </Box>
 
@@ -683,7 +674,7 @@ const TermsPage = () => {
                   13. Limitation of Liability
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, color: 'text.secondary' }}>
-                  To the maximum extent permitted by law, BitoCircle shall <strong>not be liable</strong> for any indirect, incidental, consequential, or special damages arising from your use of the Services, including disputes, losses, or damages related to business dealings, investments, or third-party interactions.
+                  To the maximum extent permitted by law, Circle shall <strong>not be liable</strong> for any indirect, incidental, consequential, or special damages arising from your use of the Services, including disputes, losses, or damages related to business dealings, investments, or third-party interactions.
                 </Typography>
               </Box>
 
@@ -729,7 +720,7 @@ const TermsPage = () => {
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li>We may <strong>update these Terms</strong> from time to time.</li>
-                  <li>Continued use of BitoCircle after updated Terms are published constitutes <strong>acceptance of the revised Terms</strong>.</li>
+                  <li>Continued use of Circle after updated Terms are published constitutes <strong>acceptance of the revised Terms</strong>.</li>
                 </Box>
               </Box>
 
@@ -767,7 +758,7 @@ const TermsPage = () => {
                   </MuiLink>
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, color: 'text.secondary', fontStyle: 'italic' }}>
-                  By using BitoCircle, you acknowledge that you have read, understood, and agreed to these Unified Terms of Service & Community Guidelines.
+                  By using Circle, you acknowledge that you have read, understood, and agreed to these Unified Terms of Service & Community Guidelines.
                 </Typography>
                 <Box sx={{ mb: 25 }}>
 

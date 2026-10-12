@@ -432,7 +432,7 @@ const ReportDialog: React.FC<ReportDialogProps> = ({
                   {getTitle()}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  If someone is in immediate danger, get help before reporting to BitoCircle. Do not wait.
+                  If someone is in immediate danger, get help before reporting to Circle. Do not wait.
                 </Typography>
               </Box>
               <List sx={{ pt: 0 }}>
@@ -604,7 +604,7 @@ const ReportDialog: React.FC<ReportDialogProps> = ({
                     Report received
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ ml: 2 }}>
-                    Your report helps us to improve our processes and keeps BitoHub safe for everyone.
+                    Your report helps us to improve our processes and keeps Circle safe for everyone.
                   </Typography>
                 </Box>
 

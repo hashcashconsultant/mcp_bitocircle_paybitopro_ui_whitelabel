@@ -23,7 +23,6 @@ import {
     useMediaQuery,
     Link as MuiLink,
     ThemeProvider,
-    createTheme,
     CssBaseline,
     Card,
     CardContent,
@@ -113,6 +112,7 @@ import {
 } from '@mui/icons-material';
 import { getLocationData } from '../services/CoreDataService'
 import axios from 'axios';
+import { createBrandTheme } from '@/lib/theme';
 
 
 const API_BASE_URL = 'https://institutional-bo.paybito.com:8443/BrokerAdminApi';
@@ -405,13 +405,13 @@ const FinanceHubPaymentsPage = () => {
     // Create theme using the external theme function
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#1e40af',
-                        light: '#42a5f5',
-                        dark: '#1e40af',
+                        main: '#0f766e',
+                        light: '#2dd4bf',
+                        dark: '#0f766e',
                         contrastText: '#ffffff',
                     },
                     secondary: {
@@ -421,8 +421,8 @@ const FinanceHubPaymentsPage = () => {
                         contrastText: '#ffffff',
                     },
                     background: {
-                        default: mode === 'light' ? '#f5f5f5' : '#121212',
-                        paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+                        default: mode === 'light' ? '#f5f3ee' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
                         primary: mode === 'light' ? '#212121' : '#ffffff',
@@ -775,7 +775,7 @@ const FinanceHubPaymentsPage = () => {
 
 <style>
 .crypto-checkout-btn {
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -788,7 +788,7 @@ const FinanceHubPaymentsPage = () => {
 .crypto-checkout-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
 }
 
 .crypto-checkout-btn:active {
@@ -1257,8 +1257,8 @@ const FinanceHubPaymentsPage = () => {
                                     p: 2,
                                     borderRadius: '50%',
                                     backgroundColor: theme.palette.mode === 'light'
-                                        ? 'rgba(30, 64, 175, 0.1)'
-                                        : 'rgba(66, 165, 245, 0.1)',
+                                        ? 'rgba(15, 118, 110, 0.1)'
+                                        : 'rgba(45, 212, 191, 0.1)',
                                     marginLeft: '9px',
                                     marginTop: '3px',
                                     position: 'relative',
@@ -1405,17 +1405,17 @@ const FinanceHubPaymentsPage = () => {
                                                 variant="outlined"
                                                 startIcon={<AccountBalanceWallet />}
                                                 sx={{
-                                                    background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                    background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                     color: 'white',
                                                     fontWeight: 600,
                                                     fontSize: '0.875rem',
                                                     px: 3,
                                                     py: 1,
                                                     border: 'none',
-                                                    boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)',
+                                                    boxShadow: '0 4px 15px rgba(20, 184, 166, 0.3)',
                                                     '&:hover': {
-                                                        background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
-                                                        boxShadow: '0 6px 20px rgba(59, 130, 246, 0.4)',
+                                                        background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
+                                                        boxShadow: '0 6px 20px rgba(20, 184, 166, 0.4)',
                                                         transform: 'translateY(-1px)',
                                                     },
                                                     transition: 'all 0.3s ease-in-out'
@@ -1657,13 +1657,13 @@ const FinanceHubPaymentsPage = () => {
                                                                                 setOpenShareDialog(true);
                                                                             }}
                                                                             sx={{
-                                                                                background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                                                background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                                                 color: 'white',
                                                                                 fontWeight: 600,
                                                                                 px: 3,
                                                                                 py: 1,
                                                                                 '&:hover': {
-                                                                                    background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                                                    background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                                                     opacity: 0.9,
                                                                                 }
                                                                             }}
@@ -1739,9 +1739,9 @@ const FinanceHubPaymentsPage = () => {
                                                                                 setOpenShareDialog(true);
                                                                             }}
                                                                             sx={{
-                                                                                background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                                                background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                                                 '&:hover': {
-                                                                                    background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                                                    background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                                                     opacity: 0.9,
                                                                                 }
                                                                             }}
@@ -2256,17 +2256,17 @@ const FinanceHubPaymentsPage = () => {
                                             variant="outlined"
                                             startIcon={<Payments />}
                                             sx={{
-                                                background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                 color: 'white',
                                                 fontWeight: 600,
                                                 fontSize: '0.875rem',
                                                 px: 3,
                                                 py: 1,
                                                 border: 'none',
-                                                boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)',
+                                                boxShadow: '0 4px 15px rgba(20, 184, 166, 0.3)',
                                                 '&:hover': {
-                                                    background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
-                                                    boxShadow: '0 6px 20px rgba(59, 130, 246, 0.4)',
+                                                    background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
+                                                    boxShadow: '0 6px 20px rgba(20, 184, 166, 0.4)',
                                                     transform: 'translateY(-1px)',
                                                 },
                                                 transition: 'all 0.3s ease-in-out'
@@ -2309,7 +2309,7 @@ const FinanceHubPaymentsPage = () => {
                                                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                                                             <img
                                                                 src={`${currency.logo}`}
-                                                                alt="BitoCircle"
+                                                                alt="Circle"
                                                                 style={{
                                                                     width: 40,
                                                                     height: 40,
@@ -2388,8 +2388,8 @@ const FinanceHubPaymentsPage = () => {
                                                                         transition: 'all 0.2s ease-in-out',
                                                                         '&:hover': {
                                                                             backgroundColor: theme.palette.mode === 'light'
-                                                                                ? 'rgba(30, 64, 175, 0.08)'
-                                                                                : 'rgba(66, 165, 245, 0.08)',
+                                                                                ? 'rgba(15, 118, 110, 0.08)'
+                                                                                : 'rgba(45, 212, 191, 0.08)',
                                                                             borderColor: '#1e3fad',
                                                                             borderWidth: 1.5,
                                                                         },
@@ -2619,7 +2619,7 @@ const FinanceHubPaymentsPage = () => {
                                                                 flex: 1,
                                                                 px: 1,
                                                                 fontWeight: 600,
-                                                                color: txn.status.toLowerCase() === 'pending' ? '#1e40af' : txn.status.toLowerCase() === 'confirmed' ? '#13ef43' : '#ef1c13',
+                                                                color: txn.status.toLowerCase() === 'pending' ? '#0f766e' : txn.status.toLowerCase() === 'confirmed' ? '#13ef43' : '#ef1c13',
                                                             }}
                                                         >
                                                             {txn.status}
@@ -2960,13 +2960,13 @@ const FinanceHubPaymentsPage = () => {
                                 fontSize: '1rem',
                                 textTransform: 'none',
                                 boxShadow: theme.palette.mode === 'light'
-                                    ? '0 8px 25px rgba(30, 64, 175, 0.35)'
-                                    : '0 8px 25px rgba(66, 165, 245, 0.35)'
+                                    ? '0 8px 25px rgba(15, 118, 110, 0.35)'
+                                    : '0 8px 25px rgba(45, 212, 191, 0.35)'
                                 ,
                                 '&:hover': {
                                     boxShadow: theme.palette.mode === 'light'
-                                        ? '0 12px 35px rgba(30, 64, 175, 0.45)'
-                                        : '0 12px 35px rgba(66, 165, 245, 0.45)'
+                                        ? '0 12px 35px rgba(15, 118, 110, 0.45)'
+                                        : '0 12px 35px rgba(45, 212, 191, 0.45)'
                                     ,
 
                                 },

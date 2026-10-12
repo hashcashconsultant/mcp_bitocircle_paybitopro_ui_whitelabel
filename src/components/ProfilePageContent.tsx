@@ -504,8 +504,8 @@ const getPostType = (apiType: string): PostType => {
 // Generate consistent avatar color based on user ID
 const generateAvatarColor = (userId: number): string => {
   const colors = [
-    '#4267b2', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
-    '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
+    '#0d9488', '#e91e63', '#0d9488', '#0f766e', '#0f766e',
+    '#14b8a6', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
     '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800',
     '#ff5722', '#795548', '#607d8b'
   ]
@@ -886,7 +886,7 @@ const ImageCropperDialog: React.FC<ImageCropperDialogProps> = ({
             position: 'relative',
             width: '100%',
             height: { xs: 300, sm: 400 },
-            bgcolor: '#1a1a2e'
+            bgcolor: '#121b1a'
           }}
         >
           <Cropper
@@ -920,12 +920,12 @@ const ImageCropperDialog: React.FC<ImageCropperDialogProps> = ({
                 step={0.1}
                 onChange={(e, value) => setZoom(value as number)}
                 sx={{
-                  color: '#1e40af',
+                  color: '#0f766e',
                   '& .MuiSlider-thumb': {
                     width: 16,
                     height: 16,
                     '&:hover, &.Mui-focusVisible': {
-                      boxShadow: '0 0 0 8px rgba(30, 64, 175, 0.16)'
+                      boxShadow: '0 0 0 8px rgba(15, 118, 110, 0.16)'
                     }
                   }
                 }}
@@ -947,12 +947,12 @@ const ImageCropperDialog: React.FC<ImageCropperDialogProps> = ({
                 step={1}
                 onChange={(e, value) => setRotation(value as number)}
                 sx={{
-                  color: '#1e40af',
+                  color: '#0f766e',
                   '& .MuiSlider-thumb': {
                     width: 16,
                     height: 16,
                     '&:hover, &.Mui-focusVisible': {
-                      boxShadow: '0 0 0 8px rgba(30, 64, 175, 0.16)'
+                      boxShadow: '0 0 0 8px rgba(15, 118, 110, 0.16)'
                     }
                   }
                 }}
@@ -994,9 +994,9 @@ const ImageCropperDialog: React.FC<ImageCropperDialogProps> = ({
             textTransform: 'none',
             borderRadius: 2,
             px: 3,
-            bgcolor: '#1e40af',
+            bgcolor: '#0f766e',
             '&:hover': {
-              bgcolor: '#5558dd'
+              bgcolor: '#0d9488'
             }
           }}
         >
@@ -3715,7 +3715,7 @@ const ProfilePageContent: React.FC = () => {
         sx={{
           height: { xs: 200, sm: 250, md: 400 },
           width: '100%',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
           borderRadius: { xs: 0, md: '0 0 16px 16px' },
           position: 'relative',
           overflow: 'hidden',
@@ -3774,7 +3774,7 @@ const ProfilePageContent: React.FC = () => {
             sx={{
               width: '100%',
               height: '100%',
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+              background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)'
             }}
           />
         )}
@@ -3893,9 +3893,9 @@ const ProfilePageContent: React.FC = () => {
                 px: 3,
                 py: 1,
                 fontSize: { xs: '0.875rem', sm: '1rem' },
-                bgcolor: '#1e40af',
+                bgcolor: '#0f766e',
                 '&:hover': {
-                  bgcolor: '#5558dd',
+                  bgcolor: '#0d9488',
                 },
               }}
             >
@@ -3938,15 +3938,15 @@ const ProfilePageContent: React.FC = () => {
                 size="small"
                 sx={{
                   p: 0.5,
-                  background: 'linear-gradient(135deg, #a855f7, #6366f1)',
+                  background: 'linear-gradient(135deg, #14b8a6, #0d9488)',
                   color: 'white',
                   width: 28,
                   height: 28,
                   transition: 'all 0.3s ease',
                   '&:hover': {
-                    background: 'linear-gradient(135deg, #9333ea, #4f46e5)',
+                    background: 'linear-gradient(135deg, #9333ea, #0f766e)',
                     transform: 'scale(1.15)',
-                    boxShadow: '0 4px 12px rgba(139, 92, 246, 0.5)',
+                    boxShadow: '0 4px 12px rgba(20, 184, 166, 0.5)',
                   },
                 }}
               >
@@ -4062,7 +4062,7 @@ const ProfilePageContent: React.FC = () => {
                   >
                     <Typography
                       variant="body2"
-                      sx={{ color: '#1e40af', cursor: 'pointer' }}
+                      sx={{ color: '#0f766e', cursor: 'pointer' }}
                     >
                       {profileData.website}
                     </Typography>
@@ -4112,7 +4112,7 @@ const ProfilePageContent: React.FC = () => {
                     size="small"
                     href={profileData.socialMedia.facebookLink}
                     target="_blank"
-                    sx={{ color: '#1877F2' }}
+                    sx={{ color: '#0d9488' }}
                   >
                     <FacebookIcon />
                   </IconButton>
@@ -4218,10 +4218,10 @@ const ProfilePageContent: React.FC = () => {
                 color: 'text.secondary',
               },
               '& .Mui-selected': {
-                color: '#1e40af',
+                color: '#0f766e',
               },
               '& .MuiTabs-indicator': {
-                backgroundColor: '#1e40af',
+                backgroundColor: '#0f766e',
                 height: 3,
               },
             }}
@@ -4303,7 +4303,7 @@ const ProfilePageContent: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bgcolor: '#1e40af'
+                bgcolor: '#0f766e'
               }}
             >
               <Typography sx={{ fontSize: '6rem', color: 'white' }}>
@@ -4361,7 +4361,7 @@ const ProfilePageContent: React.FC = () => {
                   sx={{
                     width: 80,
                     height: 80,
-                    bgcolor: '#1e40af',
+                    bgcolor: '#0f766e',
                     fontSize: '2rem',
                     opacity: isUploadingImage ? 0.5 : 1
                   }}
@@ -4395,9 +4395,9 @@ const ProfilePageContent: React.FC = () => {
                   sx={{
                     borderRadius: 2,
                     textTransform: 'none',
-                    bgcolor: '#1e40af',
+                    bgcolor: '#0f766e',
                     '&:hover': {
-                      bgcolor: '#5558dd',
+                      bgcolor: '#0d9488',
                     },
                   }}
                 >
@@ -4703,8 +4703,8 @@ const ProfilePageContent: React.FC = () => {
                           {...otherProps}
                           size="small"
                           sx={{
-                            bgcolor: '#e3f2fd',
-                            borderColor: '#1877f2'
+                            bgcolor: '#e6fffb',
+                            borderColor: '#0d9488'
                           }}
                         />
                       );
@@ -5003,7 +5003,7 @@ const ProfilePageContent: React.FC = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <FacebookIcon sx={{ color: '#1877F2' }} />
+                    <FacebookIcon sx={{ color: '#0d9488' }} />
                   </InputAdornment>
                 ),
               }}
@@ -5109,9 +5109,9 @@ const ProfilePageContent: React.FC = () => {
                   borderRadius: 2,
                   textTransform: 'none',
                   px: 3,
-                  bgcolor: '#1e40af',
+                  bgcolor: '#0f766e',
                   '&:hover': {
-                    bgcolor: '#5558dd',
+                    bgcolor: '#0d9488',
                   },
                 }}
               >
@@ -5199,10 +5199,10 @@ const ProfilePageContent: React.FC = () => {
                 flex: 1
               },
               '& .Mui-selected': {
-                color: '#1e40af'
+                color: '#0f766e'
               },
               '& .MuiTabs-indicator': {
-                backgroundColor: '#1e40af',
+                backgroundColor: '#0f766e',
                 height: 3
               }
             }}
@@ -5265,7 +5265,7 @@ const ProfilePageContent: React.FC = () => {
                         sx={{
                           width: 48,
                           height: 48,
-                          bgcolor: '#1e40af'
+                          bgcolor: '#0f766e'
                         }}
                       >
                         {getInitials(user.fullName)}
@@ -5277,7 +5277,7 @@ const ProfilePageContent: React.FC = () => {
                           {user.fullName}
                         </Typography>
                         {user.isVerified && (
-                          <Typography variant="caption" sx={{ color: '#1e40af' }}>
+                          <Typography variant="caption" sx={{ color: '#0f766e' }}>
                             ✓
                           </Typography>
                         )}
@@ -5415,7 +5415,7 @@ const ProfilePageContent: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bgcolor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                bgcolor: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
                 color: 'white',
                 fontSize: '1.5rem'
               }}
@@ -5459,7 +5459,7 @@ const ProfilePageContent: React.FC = () => {
                 width: 40,
                 height: 40,
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #a855f7, #6366f1)',
+                background: 'linear-gradient(135deg, #14b8a6, #0d9488)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -5484,7 +5484,7 @@ const ProfilePageContent: React.FC = () => {
         <DialogContent sx={{ p: 0 }}>
           {isLoadingBadgeCreators ? (
             <Box sx={{ display: 'flex', justifyContent: 'center', py: 6 }}>
-              <CircularProgress sx={{ color: '#6366f1' }} />
+              <CircularProgress sx={{ color: '#0d9488' }} />
             </Box>
           ) : badgeCreators.length === 0 ? (
             <Box sx={{ textAlign: 'center', py: 6, px: 3 }}>
@@ -5541,7 +5541,7 @@ const ProfilePageContent: React.FC = () => {
                         sx={{
                           width: 52,
                           height: 52,
-                          background: 'linear-gradient(135deg, #a855f7, #6366f1)',
+                          background: 'linear-gradient(135deg, #14b8a6, #0d9488)',
                           fontSize: '1.2rem',
                           fontWeight: 700,
                         }}
@@ -5598,14 +5598,14 @@ const ProfilePageContent: React.FC = () => {
                         py: 0.8,
                         background: creator.alreadyPurchasedBadge === 1
                           ? 'linear-gradient(135deg, #22c55e, #16a34a)'
-                          : 'linear-gradient(135deg, #a855f7, #6366f1)',
+                          : 'linear-gradient(135deg, #14b8a6, #0d9488)',
                         boxShadow: creator.alreadyPurchasedBadge === 1
                           ? '0 2px 8px rgba(34, 197, 94, 0.3)'
-                          : '0 2px 8px rgba(139, 92, 246, 0.3)',
+                          : '0 2px 8px rgba(20, 184, 166, 0.3)',
                         '&:hover': {
                           background: creator.alreadyPurchasedBadge === 1
                             ? 'linear-gradient(135deg, #16a34a, #15803d)'
-                            : 'linear-gradient(135deg, #9333ea, #4f46e5)',
+                            : 'linear-gradient(135deg, #9333ea, #0f766e)',
                           transform: 'translateY(-1px)',
                         },
                         transition: 'all 0.2s ease',

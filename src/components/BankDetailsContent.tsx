@@ -25,8 +25,7 @@ import {
     DialogContent,
     Snackbar,
     Backdrop,
-    Divider,
-    createTheme
+    Divider
 } from '@mui/material'
 import {
     Info as InfoIcon,
@@ -80,6 +79,7 @@ import {
 } from '@mui/icons-material'
 import axios from 'axios';
 import { getBitoHubUserInfo, getUserBankDetails, getUserKycDetails } from '../services/CoreDataService';
+import { createBrandTheme } from '@/lib/theme';
 
 const API_BASE_URL = 'https://institutional-bo.paybito.com:8443/BrokerAdminApi';
 
@@ -526,13 +526,13 @@ const BankDetailsContent: React.FC<BankDetailsContentProps> = ({
     // Create theme using the external theme function
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#1e40af',
-                        light: '#42a5f5',
-                        dark: '#1e40af',
+                        main: '#0f766e',
+                        light: '#2dd4bf',
+                        dark: '#0f766e',
                         contrastText: '#ffffff',
                     },
                     secondary: {
@@ -542,8 +542,8 @@ const BankDetailsContent: React.FC<BankDetailsContentProps> = ({
                         contrastText: '#ffffff',
                     },
                     background: {
-                        default: mode === 'light' ? '#f5f5f5' : '#121212',
-                        paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+                        default: mode === 'light' ? '#f5f3ee' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
                         primary: mode === 'light' ? '#212121' : '#ffffff',
@@ -939,8 +939,8 @@ const BankDetailsContent: React.FC<BankDetailsContentProps> = ({
                     px: { xs: 2, sm: 3 },
                     background:
                         theme.palette.mode === 'light'
-                            ? 'linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%)'
-                            : 'linear-gradient(135deg, #121212 0%, #1e1e1e 100%)',
+                            ? 'linear-gradient(135deg, #f5f3ee 0%, #ffffff 100%)'
+                            : 'linear-gradient(135deg, #0b1211 0%, #121b1a 100%)',
                 }}
             >
                 <Box sx={{ maxWidth: 900, mx: 'auto' }}>
@@ -958,7 +958,7 @@ const BankDetailsContent: React.FC<BankDetailsContentProps> = ({
                                 variant="h4"
                                 sx={{
                                     fontWeight: 700,
-                                    background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                    background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                     backgroundClip: 'text',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
@@ -1794,7 +1794,7 @@ const BankDetailsContent: React.FC<BankDetailsContentProps> = ({
                                     disabled={isLoading || loading}
                                     onClick={handleSave}
                                     sx={{
-                                        background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                        background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                                         color: 'white',
                                         fontWeight: 600,
                                         fontSize: { xs: '0.9rem', sm: '1rem' },

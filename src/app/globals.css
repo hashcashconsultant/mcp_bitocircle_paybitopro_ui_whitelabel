@@ -22,20 +22,24 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: rgba(120, 140, 136, 0.45);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: rgba(120, 140, 136, 0.7);
+}
+
+::selection {
+  background: rgba(13, 148, 136, 0.3);
 }
 .post-content-icons {
   font-size: 28px !important;
 }
 .exchangePrimaryColor {
-  color: #1e40af !important;
+  color: #0f766e !important;
 }

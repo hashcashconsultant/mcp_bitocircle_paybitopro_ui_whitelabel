@@ -479,7 +479,7 @@ const InstagramStyleActivity: React.FC = () => {
 
   // Generate random color for avatar
   const getRandomAvatarColor = () => {
-    const colors = ['#e91e63', '#4267b2', '#42b883', '#9c27b0', '#ff6f00', '#00bcd4', '#4caf50', '#ff5722'];
+    const colors = ['#e91e63', '#0d9488', '#42b883', '#0d9488', '#ff6f00', '#00bcd4', '#4caf50', '#ff5722'];
     return colors[Math.floor(Math.random() * colors.length)];
   };
 

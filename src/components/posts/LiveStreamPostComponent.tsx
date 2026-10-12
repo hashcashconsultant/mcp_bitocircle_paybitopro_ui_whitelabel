@@ -216,7 +216,7 @@ const LiveStreamPostComponent: React.FC<LiveStreamPostProps> = ({
               left: 0,
               right: 0,
               bottom: 0,
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f44336 100%)',
+              background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #f44336 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
@@ -371,7 +371,7 @@ const LiveStreamPostComponent: React.FC<LiveStreamPostProps> = ({
                     {user.name}
                   </Typography>
                   {user.isVerified && (
-                    <VerifiedIcon sx={{ fontSize: 16, color: '#1d9bf0' }} />
+                    <VerifiedIcon sx={{ fontSize: 16, color: '#14b8a6' }} />
                   )}
                 </Box>
                 <Typography variant="caption" color="text.secondary">

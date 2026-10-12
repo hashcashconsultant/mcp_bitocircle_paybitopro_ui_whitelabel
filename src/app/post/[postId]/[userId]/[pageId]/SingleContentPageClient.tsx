@@ -603,7 +603,7 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
               <IconButton onClick={() => setSelectedImageIndex(prev => prev === 0 ? content.mediaUrls.length - 1 : prev - 1)} sx={{ position: 'absolute', left: 8, top: '50%', transform: 'translateY(-50%)', bgcolor: 'rgba(255,255,255,0.9)', '&:hover': { bgcolor: 'white' }, width: 32, height: 32 }}><PrevIcon sx={{ fontSize: 20 }} /></IconButton>
               <IconButton onClick={() => setSelectedImageIndex(prev => prev === content.mediaUrls.length - 1 ? 0 : prev + 1)} sx={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)', bgcolor: 'rgba(255,255,255,0.9)', '&:hover': { bgcolor: 'white' }, width: 32, height: 32 }}><NextIcon sx={{ fontSize: 20 }} /></IconButton>
               <Box sx={{ position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 0.5 }}>
-                {content.mediaUrls.map((_, index) => (<Box key={index} sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: index === selectedImageIndex ? '#0095f6' : 'rgba(255,255,255,0.5)', cursor: 'pointer' }} onClick={() => setSelectedImageIndex(index)} />))}
+                {content.mediaUrls.map((_, index) => (<Box key={index} sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: index === selectedImageIndex ? '#0d9488' : 'rgba(255,255,255,0.5)', cursor: 'pointer' }} onClick={() => setSelectedImageIndex(index)} />))}
               </Box>
             </>
           )}
@@ -620,7 +620,7 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
             <IconButton onClick={handleMuteToggle} sx={{ bgcolor: 'rgba(0,0,0,0.6)', color: 'white', '&:hover': { bgcolor: 'rgba(0,0,0,0.8)' }, width: 36, height: 36 }}>{isMuted ? <VolumeOffIcon sx={{ fontSize: 20 }} /> : <VolumeUpIcon sx={{ fontSize: 20 }} />}</IconButton>
           </Box>
           {content.duration > 0 && <Box sx={{ position: 'absolute', bottom: 16, left: 16, bgcolor: 'rgba(0,0,0,0.6)', color: 'white', px: 1, py: 0.5, borderRadius: 1, fontSize: '0.75rem' }}>{formatDuration(content.duration)}</Box>}
-          {content.type === 'REEL' && <Box sx={{ position: 'absolute', top: 16, left: 16 }}><Chip icon={<ReelIcon sx={{ fontSize: 16 }} />} label="Reel" size="small" sx={{ bgcolor: 'rgba(139, 92, 246, 0.9)', color: 'white', fontWeight: 600, '& .MuiChip-icon': { color: 'white' } }} /></Box>}
+          {content.type === 'REEL' && <Box sx={{ position: 'absolute', top: 16, left: 16 }}><Chip icon={<ReelIcon sx={{ fontSize: 16 }} />} label="Reel" size="small" sx={{ bgcolor: 'rgba(20, 184, 166, 0.9)', color: 'white', fontWeight: 600, '& .MuiChip-icon': { color: 'white' } }} /></Box>}
         </Box>
       )
     }
@@ -638,14 +638,14 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
               return (
                 <Box key={option.id} sx={{ mb: 1.5 }}>
                   {!localHasVoted ? (
-                    <Button variant="outlined" fullWidth onClick={() => handleVote(option.id)} sx={{ justifyContent: 'flex-start', textTransform: 'none', borderColor: isDark ? '#4b5563' : '#e4e6ea', color: 'text.primary', py: 1.25, px: 2, '&:hover': { borderColor: '#0095f6', bgcolor: isDark ? 'rgba(0, 149, 246, 0.1)' : '#f0f8ff' } }}>{option.text}</Button>
+                    <Button variant="outlined" fullWidth onClick={() => handleVote(option.id)} sx={{ justifyContent: 'flex-start', textTransform: 'none', borderColor: isDark ? '#4b5563' : '#e4e6ea', color: 'text.primary', py: 1.25, px: 2, '&:hover': { borderColor: '#0d9488', bgcolor: isDark ? 'rgba(0, 149, 246, 0.1)' : '#f0f8ff' } }}>{option.text}</Button>
                   ) : (
                     <Box sx={{ position: 'relative', bgcolor: isDark ? '#111827' : 'white', border: '1px solid', borderColor: isWinning ? '#42b883' : (isDark ? '#4b5563' : '#e4e6ea'), borderRadius: 1, overflow: 'hidden', minHeight: 44 }}>
                       <LinearProgress variant="determinate" value={percentage} sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, height: '100%', bgcolor: 'transparent', '& .MuiLinearProgress-bar': { bgcolor: isWinning ? 'rgba(66, 184, 131, 0.15)' : 'rgba(0, 149, 246, 0.1)' } }} />
                       <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: 2, py: 1.25, zIndex: 1 }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                           <Typography sx={{ fontSize: '0.9rem', fontWeight: isSelected ? 600 : 400 }}>{option.text}</Typography>
-                          {isSelected && <CheckCircleIcon sx={{ fontSize: 16, color: '#0095f6' }} />}
+                          {isSelected && <CheckCircleIcon sx={{ fontSize: 16, color: '#0d9488' }} />}
                           {isWinning && <Chip label="Leading" size="small" sx={{ height: 20, fontSize: '0.7rem', bgcolor: '#42b883', color: 'white' }} />}
                         </Box>
                         <Typography sx={{ fontSize: '0.85rem', fontWeight: 600, color: isWinning ? '#42b883' : 'text.secondary' }}>{percentage}%</Typography>
@@ -707,7 +707,7 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
             <Collapse in={isReplyingToThis && !isEditingThis}>
               <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
                 <TextField fullWidth placeholder={`Reply to ${comment.fullName}...`} value={replyText[comment.id] || ''} onChange={(e) => setReplyText(prev => ({ ...prev, [comment.id]: e.target.value }))} onKeyPress={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddComment(comment.id) } }} variant="standard" size="small" disabled={isSubmitting} />
-                <Button size="small" onClick={() => handleAddComment(comment.id)} disabled={!replyText[comment.id]?.trim() || isSubmitting} sx={{ textTransform: 'none', fontWeight: 600, color: '#0095f6' }}>{isSubmitting ? <CircularProgress size={14} /> : 'Post'}</Button>
+                <Button size="small" onClick={() => handleAddComment(comment.id)} disabled={!replyText[comment.id]?.trim() || isSubmitting} sx={{ textTransform: 'none', fontWeight: 600, color: '#0d9488' }}>{isSubmitting ? <CircularProgress size={14} /> : 'Post'}</Button>
               </Box>
             </Collapse>
 
@@ -763,8 +763,8 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
           <Box sx={{ flex: 1 }} onClick={() => router.push(`/public/${content.userId}/${content.pageId}`)} style={{ cursor: 'pointer' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
               <Typography variant="body2" fontWeight={600}>{content.fullName}</Typography>
-              {content.isVerified && <VerifiedIcon sx={{ fontSize: 14, color: '#0095f6' }} />}
-              {content.type === 'REEL' && <Chip icon={<ReelIcon sx={{ fontSize: 12 }} />} label="Reel" size="small" sx={{ ml: 0.5, height: 18, fontSize: '0.65rem', bgcolor: 'rgba(139, 92, 246, 0.15)', color: '#8B5CF6' }} />}
+              {content.isVerified && <VerifiedIcon sx={{ fontSize: 14, color: '#0d9488' }} />}
+              {content.type === 'REEL' && <Chip icon={<ReelIcon sx={{ fontSize: 12 }} />} label="Reel" size="small" sx={{ ml: 0.5, height: 18, fontSize: '0.65rem', bgcolor: 'rgba(20, 184, 166, 0.15)', color: '#14b8a6' }} />}
             </Box>
             {content.location && <Typography variant="caption" color="text.secondary">{content.location}</Typography>}
           </Box>
@@ -794,7 +794,7 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
 
         <Box sx={{ position: 'sticky', bottom: 0, bgcolor: isDark ? '#000' : '#fff', borderTop: '1px solid', borderColor: 'divider', p: 2, display: 'flex', gap: 1 }}>
           <TextField fullWidth placeholder="Add a comment..." value={newComment} onChange={(e) => setNewComment(e.target.value)} variant="standard" InputProps={{ disableUnderline: true }} disabled={isSubmitting} />
-          <Button onClick={() => handleAddComment()} disabled={!newComment.trim() || isSubmitting} sx={{ textTransform: 'none', fontWeight: 600, color: '#0095f6' }}>{isSubmitting ? <CircularProgress size={16} /> : 'Post'}</Button>
+          <Button onClick={() => handleAddComment()} disabled={!newComment.trim() || isSubmitting} sx={{ textTransform: 'none', fontWeight: 600, color: '#0d9488' }}>{isSubmitting ? <CircularProgress size={16} /> : 'Post'}</Button>
         </Box>
 
         <Snackbar open={snackbar.open} autoHideDuration={3000} onClose={() => setSnackbar(prev => ({ ...prev, open: false }))}><Alert severity={snackbar.severity} variant="filled">{snackbar.message}</Alert></Snackbar>
@@ -822,8 +822,8 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
             <Box sx={{ flex: 1 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, flexWrap: 'wrap' }}>
                 <Typography variant="body2" fontWeight={600} sx={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }} onClick={() => router.push(`/public/${content.userId}/${content.pageId}`)}>{content.fullName}</Typography>
-                {content.isVerified && <VerifiedIcon sx={{ fontSize: 14, color: '#0095f6' }} />}
-                {content.type === 'REEL' && <Chip icon={<ReelIcon sx={{ fontSize: 14 }} />} label="Reel" size="small" sx={{ ml: 0.5, height: 20, fontSize: '0.65rem', bgcolor: 'rgba(139, 92, 246, 0.15)', color: '#8B5CF6', '& .MuiChip-icon': { color: '#8B5CF6' } }} />}
+                {content.isVerified && <VerifiedIcon sx={{ fontSize: 14, color: '#0d9488' }} />}
+                {content.type === 'REEL' && <Chip icon={<ReelIcon sx={{ fontSize: 14 }} />} label="Reel" size="small" sx={{ ml: 0.5, height: 20, fontSize: '0.65rem', bgcolor: 'rgba(20, 184, 166, 0.15)', color: '#14b8a6', '& .MuiChip-icon': { color: '#14b8a6' } }} />}
               </Box>
               {content.location && <Typography variant="caption" color="text.secondary">{content.location}</Typography>}
             </Box>
@@ -875,7 +875,7 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
           {/* Comment Input */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, p: 2, borderTop: '1px solid', borderColor: 'divider' }}>
             <TextField fullWidth placeholder="Add a comment..." value={newComment} onChange={(e) => setNewComment(e.target.value)} onKeyPress={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddComment() } }} variant="standard" InputProps={{ disableUnderline: true }} disabled={isSubmitting} sx={{ '& .MuiInputBase-input': { fontSize: '0.875rem' } }} />
-            <Button onClick={() => handleAddComment()} disabled={!newComment.trim() || isSubmitting} sx={{ textTransform: 'none', fontWeight: 600, color: newComment.trim() ? '#0095f6' : '#b3dbff', minWidth: 'auto' }}>{isSubmitting ? <CircularProgress size={16} /> : 'Post'}</Button>
+            <Button onClick={() => handleAddComment()} disabled={!newComment.trim() || isSubmitting} sx={{ textTransform: 'none', fontWeight: 600, color: newComment.trim() ? '#0d9488' : '#b3dbff', minWidth: 'auto' }}>{isSubmitting ? <CircularProgress size={16} /> : 'Post'}</Button>
           </Box>
         </Box>
       </Box>

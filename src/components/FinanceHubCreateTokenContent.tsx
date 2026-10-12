@@ -19,7 +19,6 @@ import {
   Snackbar,
   Alert,
   useMediaQuery,
-  createTheme,
   Backdrop,
   IconButton,
   Tooltip,
@@ -46,6 +45,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { createBrandTheme } from '@/lib/theme';
 
 const API_BASE_URL = 'https://account.paybito.com/accountviewer';
 const SECRET_KEY_STORAGE = 'hcx_secret_key'; // localStorage key for secret key
@@ -175,23 +175,23 @@ const FinanceHubCreateTokenContent: React.FC = () => {
    */
   const theme = useMemo(
     () =>
-      createTheme({
+      createBrandTheme({
         palette: {
           mode,
           primary: {
-            main: '#1e40af',
-            light: '#3b82f6',
-            dark: '#1e3a8a',
+            main: '#0f766e',
+            light: '#14b8a6',
+            dark: '#115e59',
           },
           secondary: {
             main: '#dc2626',
           },
           background: {
-            default: mode === 'light' ? '#f8fafc' : '#0f0f11',
+            default: mode === 'light' ? '#f8f6f1' : '#0b1211',
             paper: mode === 'light' ? '#ffffff' : '#1a1a1d',
           },
           text: {
-            primary: mode === 'light' ? '#1e293b' : '#f1f5f9',
+            primary: mode === 'light' ? '#16201f' : '#efece5',
             secondary: mode === 'light' ? '#64748b' : '#94a3b8',
           },
         },
@@ -875,8 +875,8 @@ const FinanceHubCreateTokenContent: React.FC = () => {
             zIndex: (theme) => theme.zIndex.drawer + 1,
             backdropFilter: 'blur(4px)',
             background: mode === 'light'
-              ? 'linear-gradient(to bottom, #f8fafc 0%, #e0e7ff 100%)'
-              : 'linear-gradient(to bottom, #0f0f11 0%, #1a1a1d 100%)',
+              ? 'linear-gradient(to bottom, #f8f6f1 0%, #e0e7ff 100%)'
+              : 'linear-gradient(to bottom, #0b1211 0%, #1a1a1d 100%)',
           }}
           open={true}
         >
@@ -898,8 +898,8 @@ const FinanceHubCreateTokenContent: React.FC = () => {
         sx={{
           minHeight: '100vh',
           background: mode === 'light'
-            ? 'linear-gradient(to bottom, #f8fafc 0%, #e0e7ff 100%)'
-            : 'linear-gradient(to bottom, #0f0f11 0%, #1a1a1d 100%)',
+            ? 'linear-gradient(to bottom, #f8f6f1 0%, #e0e7ff 100%)'
+            : 'linear-gradient(to bottom, #0b1211 0%, #1a1a1d 100%)',
           py: { xs: 4, md: 8 },
         }}
       >
@@ -921,7 +921,7 @@ const FinanceHubCreateTokenContent: React.FC = () => {
                   variant="h4"
                   sx={{
                     fontWeight: 700,
-                    background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -1010,9 +1010,9 @@ const FinanceHubCreateTokenContent: React.FC = () => {
                     disabled={!secretInput || loading}
                     sx={{
                       py: 1.5,
-                      background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                      background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
+                        background: 'linear-gradient(135deg, #115e59 0%, #0d9488 100%)',
                       },
                     }}
                   >
@@ -1048,8 +1048,8 @@ const FinanceHubCreateTokenContent: React.FC = () => {
                       sx={{
                         mt: 3,
                         background: mode === 'light'
-                          ? 'linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(59, 130, 246, 0.08) 100%)'
-                          : 'linear-gradient(135deg, rgba(66, 165, 245, 0.08) 0%, rgba(30, 64, 175, 0.12) 100%)',
+                          ? 'linear-gradient(135deg, rgba(15, 118, 110, 0.05) 0%, rgba(20, 184, 166, 0.08) 100%)'
+                          : 'linear-gradient(135deg, rgba(45, 212, 191, 0.08) 0%, rgba(15, 118, 110, 0.12) 100%)',
                         border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
                       }}
                     >
@@ -1171,7 +1171,7 @@ const FinanceHubCreateTokenContent: React.FC = () => {
                         <Card
                           sx={{
                             mt: 3,
-                            bgcolor: mode === 'light' ? 'rgba(59, 130, 246, 0.05)' : 'rgba(66, 165, 245, 0.08)',
+                            bgcolor: mode === 'light' ? 'rgba(20, 184, 166, 0.05)' : 'rgba(45, 212, 191, 0.08)',
                             border: `1px solid ${alpha(theme.palette.primary.main, 0.15)}`,
                           }}
                         >
@@ -1233,7 +1233,7 @@ const FinanceHubCreateTokenContent: React.FC = () => {
                       <Chip
                         label={`${hcxBalance} HCX`}
                         sx={{
-                          background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                          background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                           color: 'white',
                           fontWeight: 600,
                           fontSize: '0.875rem',
@@ -1353,9 +1353,9 @@ const FinanceHubCreateTokenContent: React.FC = () => {
                       onClick={handleSendHcx}
                       sx={{
                         py: 1.5,
-                        background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                        background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                         '&:hover': {
-                          background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
+                          background: 'linear-gradient(135deg, #115e59 0%, #0d9488 100%)',
                         },
                       }}
                     >
@@ -1423,9 +1423,9 @@ const FinanceHubCreateTokenContent: React.FC = () => {
                         onClick={handleCreateAsset}
                         sx={{
                           py: 1.5,
-                          background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)',
+                          background: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)',
                           '&:hover': {
-                            background: 'linear-gradient(135deg, #6d28d9 0%, #9333ea 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #9333ea 100%)',
                           },
                         }}
                       >
@@ -1647,9 +1647,9 @@ const FinanceHubCreateTokenContent: React.FC = () => {
                 disabled={loading}
                 onClick={handleAddAsset}
                 sx={{
-                  background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                  background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                   '&:hover': {
-                    background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
+                    background: 'linear-gradient(135deg, #115e59 0%, #0d9488 100%)',
                   },
                 }}
               >

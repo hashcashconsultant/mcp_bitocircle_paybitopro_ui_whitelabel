@@ -373,7 +373,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
         <Box
             sx={{
                 minHeight: '100vh',
-                background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%)',
+                background: 'linear-gradient(135deg, #0b1211 0%, #16201f 25%, #334155 50%, #475569 75%, #64748b 100%)',
                 py: { xs: 2, md: 4 },
                 px: { xs: 2, md: 3 },
                 position: 'relative',
@@ -384,7 +384,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.3) 0%, transparent 25%), radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.3) 0%, transparent 25%)',
+                    background: 'radial-gradient(circle at 25% 25%, rgba(20, 184, 166, 0.3) 0%, transparent 25%), radial-gradient(circle at 75% 75%, rgba(20, 184, 166, 0.3) 0%, transparent 25%)',
                     pointerEvents: 'none',
                 },
             }}
@@ -403,7 +403,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                     {/* Modern Header */}
                     <Box
                         sx={{
-                            background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 25%, #6366f1 50%, #8b5cf6 75%, #a855f7 100%)',
+                            background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 25%, #0d9488 50%, #14b8a6 75%, #14b8a6 100%)',
                             color: 'white',
                             px: { xs: 3, md: 5 },
                             py: { xs: 4, md: 5 },
@@ -506,7 +506,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                 sx={{
                                     fontWeight: 700,
                                     mb: 3,
-                                    color: '#0f172a',
+                                    color: '#0b1211',
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: 1.5,
@@ -517,7 +517,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                     sx={{
                                         p: 1,
                                         borderRadius: 2,
-                                        background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)',
+                                        background: 'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)',
                                         color: 'white',
                                         display: 'flex',
                                         alignItems: 'center',
@@ -533,14 +533,14 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                 sx={{
                                     borderRadius: 3,
                                     overflow: 'hidden',
-                                    border: '2px solid #f1f5f9',
+                                    border: '2px solid #efece5',
                                     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                                 }}
                             >
                                 {/* Table Header */}
                                 <Box
                                     sx={{
-                                        background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                                        background: 'linear-gradient(135deg, #f8f6f1 0%, #efece5 100%)',
                                         px: 4,
                                         py: 3,
                                         display: 'flex',
@@ -582,7 +582,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         }}
                                     >
                                         <Box sx={{ flex: 2 }}>
-                                            <Typography sx={{ fontWeight: 600, color: '#0f172a', fontSize: '1rem' }}>
+                                            <Typography sx={{ fontWeight: 600, color: '#0b1211', fontSize: '1rem' }}>
                                                 {description}
                                             </Typography>
                                             {/*  <Typography sx={{ color: '#64748b', fontSize: '0.875rem', mt: 0.5 }}>
@@ -599,7 +599,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 label={quantity}
                                                 size="small"
                                                 sx={{
-                                                    bgcolor: '#f1f5f9',
+                                                    bgcolor: '#efece5',
                                                     color: '#475569',
                                                     fontWeight: 600,
                                                     minWidth: 40,
@@ -607,7 +607,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                             />
                                         </Box>
                                         <Box sx={{ flex: 1, textAlign: { xs: 'left', sm: 'right' } }}>
-                                            <Typography sx={{ fontWeight: 700, color: '#0f172a', fontSize: '1.1rem' }}>
+                                            <Typography sx={{ fontWeight: 700, color: '#0b1211', fontSize: '1.1rem' }}>
                                                 {parseFloat(totalAmount).toFixed(6)} {currency}
                                             </Typography>
                                         </Box>
@@ -619,7 +619,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                 {/* Total - Updated to single line */}
                                 <Box
                                     sx={{
-                                        background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                                        background: 'linear-gradient(135deg, #f8f6f1 0%, #efece5 100%)',
                                         px: 4,
                                         py: 3,
                                         display: 'flex',
@@ -627,14 +627,14 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         alignItems: 'center',
                                     }}
                                 >
-                                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#0f172a' }}>
+                                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#0b1211' }}>
                                         Total
                                     </Typography>
                                     <Typography
                                         variant="h5"
                                         sx={{
                                             fontWeight: 800,
-                                            background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)',
+                                            background: 'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)',
                                             backgroundClip: 'text',
                                             WebkitBackgroundClip: 'text',
                                             WebkitTextFillColor: 'transparent',
@@ -664,7 +664,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                     sx={{
                                         fontWeight: 700,
                                         mb: 4,
-                                        color: '#0f172a',
+                                        color: '#0b1211',
                                         display: 'flex',
                                         alignItems: 'center',
                                         gap: 1.5,
@@ -675,7 +675,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         sx={{
                                             p: 1,
                                             borderRadius: 2,
-                                            background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                                            background: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)',
                                             color: 'white',
                                             display: 'flex',
                                             alignItems: 'center',
@@ -697,7 +697,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         InputProps={{
                                             startAdornment: (
                                                 <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
-                                                    <EmailIcon sx={{ color: '#6366f1', fontSize: 22 }} />
+                                                    <EmailIcon sx={{ color: '#0d9488', fontSize: 22 }} />
                                                 </Box>
                                             ),
                                         }}
@@ -708,7 +708,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 fontSize: '1rem',
                                                 minHeight: '56px',
                                                 '& input': {
-                                                    color: '#0f172a',
+                                                    color: '#0b1211',
                                                     padding: '16px 14px',
                                                     '&::placeholder': {
                                                         color: '#64748b',
@@ -717,30 +717,30 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 },
                                                 '& input:-webkit-autofill': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                     transition: 'background-color 5000s ease-in-out 0s',
                                                 },
                                                 '& input:-webkit-autofill:hover': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                 },
                                                 '& input:-webkit-autofill:focus': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                 },
                                                 '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: '#6366f1',
+                                                    borderColor: '#0d9488',
                                                     borderWidth: 2,
                                                 },
                                                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: '#6366f1',
+                                                    borderColor: '#0d9488',
                                                     borderWidth: 2,
                                                 },
                                             },
                                             '& .MuiInputLabel-root': {
                                                 color: '#64748b',
                                                 '&.Mui-focused': {
-                                                    color: '#6366f1',
+                                                    color: '#0d9488',
                                                 },
                                             },
                                         }}
@@ -755,7 +755,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         InputProps={{
                                             startAdornment: (
                                                 <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
-                                                    <PersonIcon sx={{ color: '#6366f1', fontSize: 22 }} />
+                                                    <PersonIcon sx={{ color: '#0d9488', fontSize: 22 }} />
                                                 </Box>
                                             ),
                                         }}
@@ -766,7 +766,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 fontSize: '1rem',
                                                 minHeight: '56px',
                                                 '& input': {
-                                                    color: '#0f172a',
+                                                    color: '#0b1211',
                                                     padding: '16px 14px',
                                                     '&::placeholder': {
                                                         color: '#64748b',
@@ -775,30 +775,30 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 },
                                                 '& input:-webkit-autofill': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                     transition: 'background-color 5000s ease-in-out 0s',
                                                 },
                                                 '& input:-webkit-autofill:hover': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                 },
                                                 '& input:-webkit-autofill:focus': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                 },
                                                 '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: '#6366f1',
+                                                    borderColor: '#0d9488',
                                                     borderWidth: 2,
                                                 },
                                                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: '#6366f1',
+                                                    borderColor: '#0d9488',
                                                     borderWidth: 2,
                                                 },
                                             },
                                             '& .MuiInputLabel-root': {
                                                 color: '#64748b',
                                                 '&.Mui-focused': {
-                                                    color: '#6366f1',
+                                                    color: '#0d9488',
                                                 },
                                             },
                                         }}
@@ -813,7 +813,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         InputProps={{
                                             startAdornment: (
                                                 <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
-                                                    <PreviewIcon sx={{ color: '#6366f1', fontSize: 22 }} />
+                                                    <PreviewIcon sx={{ color: '#0d9488', fontSize: 22 }} />
                                                 </Box>
                                             ),
                                         }}
@@ -824,7 +824,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 fontSize: '1rem',
                                                 minHeight: '56px',
                                                 '& input': {
-                                                    color: '#0f172a',
+                                                    color: '#0b1211',
                                                     padding: '16px 14px',
                                                     '&::placeholder': {
                                                         color: '#64748b',
@@ -835,47 +835,47 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 // 👇 Make disabled input look same as normal
                                                 '&.Mui-disabled': {
                                                     backgroundColor: 'white',
-                                                    color: '#0f172a',
+                                                    color: '#0b1211',
                                                     '& fieldset': {
                                                         borderColor: '#cbd5e1', // optional: softer border for disabled
                                                     },
                                                     '& input': {
-                                                        color: '#0f172a',
-                                                        WebkitTextFillColor: '#0f172a', // Fix for Chrome autofill
+                                                        color: '#0b1211',
+                                                        WebkitTextFillColor: '#0b1211', // Fix for Chrome autofill
                                                     },
                                                 },
 
                                                 '& input:-webkit-autofill': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                     transition: 'background-color 5000s ease-in-out 0s',
                                                 },
                                                 '& input:-webkit-autofill:disabled': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                     transition: 'background-color 5000s ease-in-out 0s',
                                                 },
                                                 '& input:-webkit-autofill:hover': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                 },
                                                 '& input:-webkit-autofill:focus': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                 },
                                                 '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: '#6366f1',
+                                                    borderColor: '#0d9488',
                                                     borderWidth: 2,
                                                 },
                                                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: '#6366f1',
+                                                    borderColor: '#0d9488',
                                                     borderWidth: 2,
                                                 },
                                             },
                                             '& .MuiInputLabel-root': {
                                                 color: '#64748b',
                                                 '&.Mui-focused': {
-                                                    color: '#6366f1',
+                                                    color: '#0d9488',
                                                 },
                                             },
                                         }}
@@ -892,7 +892,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         InputProps={{
                                             startAdornment: (
                                                 <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center', alignSelf: 'flex-start', mt: 1 }}>
-                                                    <WalletIcon sx={{ color: '#6366f1', fontSize: 22 }} />
+                                                    <WalletIcon sx={{ color: '#0d9488', fontSize: 22 }} />
                                                 </Box>
                                             ),
                                             endAdornment: formData.cryptoRefundAddress && (
@@ -902,9 +902,9 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                     sx={{
                                                         alignSelf: 'flex-start',
                                                         mt: 1,
-                                                        color: '#6366f1',
+                                                        color: '#0d9488',
                                                         '&:hover': {
-                                                            bgcolor: alpha('#6366f1', 0.1),
+                                                            bgcolor: alpha('#0d9488', 0.1),
                                                         },
                                                     }}
                                                 >
@@ -919,7 +919,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 fontSize: '1rem',
                                                 minHeight: '80px',
                                                 '& textarea': {
-                                                    color: '#0f172a',
+                                                    color: '#0b1211',
                                                     padding: '16px 14px',
                                                     '&::placeholder': {
                                                         color: '#64748b',
@@ -928,30 +928,30 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                                 },
                                                 '& textarea:-webkit-autofill': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                     transition: 'background-color 5000s ease-in-out 0s',
                                                 },
                                                 '& textarea:-webkit-autofill:hover': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                 },
                                                 '& textarea:-webkit-autofill:focus': {
                                                     WebkitBoxShadow: '0 0 0 1000px white inset',
-                                                    WebkitTextFillColor: '#0f172a',
+                                                    WebkitTextFillColor: '#0b1211',
                                                 },
                                                 '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: '#6366f1',
+                                                    borderColor: '#0d9488',
                                                     borderWidth: 2,
                                                 },
                                                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: '#6366f1',
+                                                    borderColor: '#0d9488',
                                                     borderWidth: 2,
                                                 },
                                             },
                                             '& .MuiInputLabel-root': {
                                                 color: '#64748b',
                                                 '&.Mui-focused': {
-                                                    color: '#6366f1',
+                                                    color: '#0d9488',
                                                 },
                                             },
                                         }}
@@ -971,7 +971,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                 <Paper
                                     sx={{
                                         p: 4,
-                                        background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                                        background: 'linear-gradient(135deg, #f8f6f1 0%, #efece5 100%)',
                                         border: '2px solid #e2e8f0',
                                         borderRadius: 3,
                                         position: 'sticky',
@@ -984,7 +984,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         sx={{
                                             fontWeight: 700,
                                             mb: 4,
-                                            color: '#0f172a',
+                                            color: '#0b1211',
                                             textAlign: 'center',
                                             fontSize: '1.5rem',
                                         }}
@@ -1017,7 +1017,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                             sx={{
                                                 fontWeight: 800,
                                                 textAlign: 'center',
-                                                background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%)',
+                                                background: 'linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #14b8a6 100%)',
                                                 backgroundClip: 'text',
                                                 WebkitBackgroundClip: 'text',
                                                 WebkitTextFillColor: 'transparent',
@@ -1054,15 +1054,15 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                                         sx={{
                                             py: 2,
                                             borderRadius: 3,
-                                            background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%)',
+                                            background: 'linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #14b8a6 100%)',
                                             fontWeight: 700,
                                             fontSize: '1.1rem',
                                             textTransform: 'none',
-                                            boxShadow: '0 10px 15px -3px rgba(59, 130, 246, 0.4), 0 4px 6px -2px rgba(59, 130, 246, 0.3)',
+                                            boxShadow: '0 10px 15px -3px rgba(20, 184, 166, 0.4), 0 4px 6px -2px rgba(20, 184, 166, 0.3)',
                                             transition: 'all 0.3s ease',
                                             '&:hover': {
-                                                background: 'linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%)',
-                                                boxShadow: '0 20px 25px -5px rgba(59, 130, 246, 0.4), 0 10px 10px -5px rgba(59, 130, 246, 0.3)',
+                                                background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #0d9488 100%)',
+                                                boxShadow: '0 20px 25px -5px rgba(20, 184, 166, 0.4), 0 10px 10px -5px rgba(20, 184, 166, 0.3)',
                                                 transform: 'translateY(-2px)',
                                             },
                                         }}
@@ -1091,7 +1091,7 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                     {/* Modern Footer */}
                     <Box
                         sx={{
-                            background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                            background: 'linear-gradient(135deg, #f8f6f1 0%, #efece5 100%)',
                             px: { xs: 3, md: 5 },
                             py: 4,
                             borderTop: '2px solid #e2e8f0',
@@ -1107,11 +1107,11 @@ const FinanceHubPaymentsProceedToPaymentContent = () => {
                             }}
                         >
                             By proceeding with this payment, you agree to our{' '}
-                            <Box component="span" sx={{ color: '#3b82f6', fontWeight: 600, cursor: 'pointer' }}>
+                            <Box component="span" sx={{ color: '#14b8a6', fontWeight: 600, cursor: 'pointer' }}>
                                 Terms of Service
                             </Box>{' '}
                             and{' '}
-                            <Box component="span" sx={{ color: '#3b82f6', fontWeight: 600, cursor: 'pointer' }}>
+                            <Box component="span" sx={{ color: '#14b8a6', fontWeight: 600, cursor: 'pointer' }}>
                                 Privacy Policy
                             </Box>
                             .

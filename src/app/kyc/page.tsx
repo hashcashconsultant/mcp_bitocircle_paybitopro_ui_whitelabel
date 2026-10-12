@@ -5,8 +5,8 @@ export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 
 export const metadata : Metadata = {
-  title: 'Identity Verification (KYC) | BitoCircle',
-  description: 'Complete your identity verification to unlock full access to BitoCircle&apos;s financial and social features.',
+  title: 'Identity Verification (KYC) | Circle',
+  description: 'Complete your identity verification to unlock full access to Circle&apos;s financial and social features.',
   alternates: {
     canonical: '/kyc',
   },

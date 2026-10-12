@@ -687,7 +687,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
                     position: 'relative', 
                     width: '100%', 
                     height: 80, // Fixed height instead of aspect ratio
-                    bgcolor: '#f5f5f5',
+                    bgcolor: '#f5f3ee',
                     overflow: 'hidden'
                   }}>
                     <Box
@@ -782,7 +782,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
                           handleCallToAction(post.callToActionUrl)
                         }}
                         sx={{
-                          bgcolor: '#0095f6',
+                          bgcolor: '#0d9488',
                           color: 'white',
                           textTransform: 'none',
                           fontSize: '0.6rem',
@@ -886,7 +886,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
       }}>
         <CardContent sx={{ p: { xs: 2, sm: '16px' } }}>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <TrendingIcon sx={{ color: '#4267b2', mr: 1, fontSize: { xs: 20, sm: 24 } }} />
+            <TrendingIcon sx={{ color: '#0d9488', mr: 1, fontSize: { xs: 20, sm: 24 } }} />
             <Typography variant="h6" fontWeight={600} sx={{ fontSize: { xs: '1rem', sm: '1.25rem' } }}>
               Trending Topics
             </Typography>
@@ -918,7 +918,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
                         cursor: 'pointer',
                         '&:hover': {
                           textDecoration: 'underline',
-                          color: '#4267b2'
+                          color: '#0d9488'
                         }
                       }}
                     >
@@ -926,8 +926,8 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
                     </Typography>
                   </Link>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <TrendingIcon sx={{ fontSize: { xs: 14, sm: 16 }, mr: 0.5, color: '#4267b2' }} />
-                    <Typography variant="caption" sx={{ color: '#4267b2', fontSize: { xs: '0.7rem', sm: '0.75rem' } }}>
+                    <TrendingIcon sx={{ fontSize: { xs: 14, sm: 16 }, mr: 0.5, color: '#0d9488' }} />
+                    <Typography variant="caption" sx={{ color: '#0d9488', fontSize: { xs: '0.7rem', sm: '0.75rem' } }}>
                       {topic.growth}
                     </Typography>
                   </Box>
@@ -949,7 +949,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
       }}>
         <CardContent sx={{ p: { xs: 2, sm: '16px' } }}>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <Box sx={{ color: '#4267b2', mr: 1, fontSize: { xs: 20, sm: 24 } }}>⭐</Box>
+            <Box sx={{ color: '#0d9488', mr: 1, fontSize: { xs: 20, sm: 24 } }}>⭐</Box>
             <Typography variant="h6" fontWeight={600} sx={{ fontSize: { xs: '1rem', sm: '1.25rem' } }}>
               Connection Highlights
             </Typography>
@@ -1035,7 +1035,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
       }}>
         <CardContent sx={{ p: { xs: 2, sm: '16px' } }}>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <ChartIcon sx={{ color: '#4267b2', mr: 1, fontSize: { xs: 20, sm: 24 } }} />
+            <ChartIcon sx={{ color: '#0d9488', mr: 1, fontSize: { xs: 20, sm: 24 } }} />
             <Typography variant="h6" fontWeight={600} sx={{ fontSize: { xs: '1rem', sm: '1.25rem' } }}>
               Poll Insights
             </Typography>
@@ -1085,10 +1085,10 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
                 size="small"
                 onClick={onViewAllPolls}
                 sx={{
-                  color: '#4267b2',
+                  color: '#0d9488',
                   textTransform: 'none',
                   fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                  '&:hover': { bgcolor: 'rgba(66, 103, 178, 0.08)' }
+                  '&:hover': { bgcolor: 'rgba(13, 148, 136, 0.08)' }
                 }}
               >
                 View All Polls
@@ -1105,7 +1105,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
       }}>
         <CardContent sx={{ p: { xs: 2, sm: '16px' } }}>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <GroupAddIcon sx={{ color: '#4267b2', mr: 1, fontSize: { xs: 20, sm: 24 } }} />
+            <GroupAddIcon sx={{ color: '#0d9488', mr: 1, fontSize: { xs: 20, sm: 24 } }} />
             <Typography variant="h6" fontWeight={600} sx={{ fontSize: { xs: '1rem', sm: '1.25rem' } }}>
               Who to Follow
             </Typography>
@@ -1175,7 +1175,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
                           {user.displayName}
                         </Typography>
                         {user.isVerified === 'Y' && (
-                          <Box sx={{ color: '#4267b2', ml: 0.5, fontSize: { xs: 12, sm: 14 } }}>⭐</Box>
+                          <Box sx={{ color: '#0d9488', ml: 0.5, fontSize: { xs: 12, sm: 14 } }}>⭐</Box>
                         )}
                       </Box>
                       <Typography
@@ -1213,16 +1213,16 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
                       )}
                       sx={{
                         borderRadius: '16px',
-                        bgcolor: followingUsers.has(user.userId) ? 'transparent' : '#4267b2',
-                        borderColor: '#4267b2',
-                        color: followingUsers.has(user.userId) ? '#4267b2' : 'white',
+                        bgcolor: followingUsers.has(user.userId) ? 'transparent' : '#0d9488',
+                        borderColor: '#0d9488',
+                        color: followingUsers.has(user.userId) ? '#0d9488' : 'white',
                         textTransform: 'none',
                         fontSize: { xs: 10, sm: 12 },
                         px: { xs: 1.5, sm: 2 },
                         minWidth: { xs: 70, sm: 80 },
                         '&:hover': {
-                          bgcolor: followingUsers.has(user.userId) ? 'rgba(66, 103, 178, 0.08)' : '#365899',
-                          borderColor: '#4267b2'
+                          bgcolor: followingUsers.has(user.userId) ? 'rgba(13, 148, 136, 0.08)' : '#365899',
+                          borderColor: '#0d9488'
                         }
                       }}
                     >
@@ -1243,12 +1243,12 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
                   size="small"
                   onClick={() => setShowAll(!showAll)}
                   sx={{
-                    color: '#4267b2',
+                    color: '#0d9488',
                     textTransform: 'none',
                     fontSize: { xs: '0.8rem', sm: '0.875rem' },
                     width: '100%',
                     mt: 1,
-                    '&:hover': { bgcolor: 'rgba(66, 103, 178, 0.08)' }
+                    '&:hover': { bgcolor: 'rgba(13, 148, 136, 0.08)' }
                   }}
                 >
                   {showAll ? 'Show Less' : `Show More (${suggestedUsers.length - 5} more)`}

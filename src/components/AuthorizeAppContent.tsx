@@ -27,7 +27,7 @@ import { tokenCookie } from '@/hooks/useAuthRedirect'
 import { signedInUuid } from '@/utils/apiAuth'
 import { savePendingAuthorize } from '@/utils/pendingAuthorize'
 
-const SIGN_IN_URL = 'https://myaccount.paybito.com/signin?continue=https://www.bitocircle.com&app=BitoCircle'
+import { ssoUrl } from '@/config/whitelabel'
 
 interface ScopeInfo {
   scope: string
@@ -88,7 +88,7 @@ export default function AuthorizeAppContent({ sandbox = false }: { sandbox?: boo
     // Same sign-in check as the API calls: the uuid cookie is not always readable, so signedInUuid() also uses localStorage.
     if (!tokenCookie.get() || !signedInUuid()) {
       savePendingAuthorize()
-      window.location.href = SIGN_IN_URL
+      window.location.href = ssoUrl('signin')
       return
     }
     ;(async () => {
@@ -100,7 +100,7 @@ export default function AuthorizeAppContent({ sandbox = false }: { sandbox?: boo
         const body = (await response.json().catch(() => ({}))) as { appDetails?: AppDetails; errorResponse?: ErrorResponse }
         if (response.status === 401) {
           savePendingAuthorize()
-          window.location.href = SIGN_IN_URL
+          window.location.href = ssoUrl('signin')
           return
         }
         if (!body.appDetails || body.errorResponse?.error_data !== 0) {
@@ -109,7 +109,7 @@ export default function AuthorizeAppContent({ sandbox = false }: { sandbox?: boo
           setApp(body.appDetails)
         }
       } catch {
-        setError('Could not reach BitoCircle. Check your connection and try again.')
+        setError('Could not reach Circle. Check your connection and try again.')
       } finally {
         setLoading(false)
       }
@@ -130,7 +130,7 @@ export default function AuthorizeAppContent({ sandbox = false }: { sandbox?: boo
       }
       setError(body.errorResponse?.error_msg || 'Authorization failed.')
     } catch {
-      setError('Could not reach BitoCircle. Check your connection and try again.')
+      setError('Could not reach Circle. Check your connection and try again.')
     }
     setSubmitting(false)
   }
@@ -189,7 +189,7 @@ export default function AuthorizeAppContent({ sandbox = false }: { sandbox?: boo
               </Stack>
 
               <Typography>
-                <strong>{app.appName}</strong> wants to use your BitoCircle account. It will be able to:
+                <strong>{app.appName}</strong> wants to use your Circle account. It will be able to:
               </Typography>
 
               <List dense disablePadding>

@@ -794,7 +794,7 @@ const SearchPageContent: React.FC = () => {
                       width: 20,
                       height: 20,
                       fontSize: '0.65rem',
-                      bgcolor: '#4267b2'
+                      bgcolor: '#0d9488'
                     }}
                   >
                     {reel.fullName.charAt(0)}
@@ -865,7 +865,7 @@ const SearchPageContent: React.FC = () => {
                 <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: post.content ? 1.5 : 0 }}>
                   <Avatar 
                     sx={{ 
-                      bgcolor: '#4267b2',
+                      bgcolor: '#0d9488',
                       width: 40,
                       height: 40,
                       fontSize: '1rem',

@@ -15,7 +15,6 @@ import {
   useMediaQuery,
   Link as MuiLink,
   ThemeProvider,
-  createTheme,
   CssBaseline,
 } from '@mui/material';
 import {
@@ -24,7 +23,8 @@ import {
   LightMode as LightModeIcon,
   DarkMode as DarkModeIcon,
 } from '@mui/icons-material';
-import bitoHubTextLogo from '../Assets/img/bitoHubTextLogo.png';
+import BrandLogo from '@/components/brand/BrandLogo';
+import { createBrandTheme } from '@/lib/theme';
 
 const drawerWidth = 280;
 
@@ -60,18 +60,18 @@ const ChildSafetyClient = () => {
 
   const theme = useMemo(
     () =>
-      createTheme({
+      createBrandTheme({
         palette: {
           mode,
           primary: {
-            main: '#1e40af',
+            main: '#0f766e',
           },
           secondary: {
             main: '#dc2626',
           },
           background: {
-            default: mode === 'light' ? '#f8f9fa' : '#0a0a0a',
-            paper: mode === 'light' ? '#ffffff' : '#1a1a1a',
+            default: mode === 'light' ? '#f8f6f1' : '#080d0c',
+            paper: mode === 'light' ? '#ffffff' : '#121b1a',
           },
           text: {
             primary: mode === 'light' ? '#2c3e50' : '#e5e5e5',
@@ -184,7 +184,7 @@ const ChildSafetyClient = () => {
               borderLeft: '3px solid',
               borderLeftColor: activeSection === section.id ? 'primary.main' : 'transparent',
               background: activeSection === section.id
-                ? 'linear-gradient(135deg, #dc2626 0%, #1e40af 100%)'
+                ? 'linear-gradient(135deg, #dc2626 0%, #0f766e 100%)'
                 : 'transparent',
               transition: 'all 0.3s ease',
               mb: 0.5,
@@ -201,7 +201,7 @@ const ChildSafetyClient = () => {
                 '&:hover': {
                   bgcolor: activeSection === section.id
                     ? 'rgba(255, 255, 255, 0.1)'
-                    : mode === 'light' ? '#f8f9fa' : 'rgba(255, 255, 255, 0.05)',
+                    : mode === 'light' ? '#f8f6f1' : 'rgba(255, 255, 255, 0.05)',
                   color: activeSection === section.id ? 'white' : 'primary.main',
                   transform: 'translateX(5px)',
                 },
@@ -240,16 +240,7 @@ const ChildSafetyClient = () => {
         >
           <Toolbar>
             <MuiLink href="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <Box
-                component="img"
-                src={bitoHubTextLogo.src}
-                alt="BitoCircle Logo"
-                sx={{
-                  width: { xs: '150px', md: '200px' },
-                  height: 'auto',
-                  filter: mode === 'dark' ? 'brightness(0) invert(1)' : 'none',
-                }}
-              />
+              <Box sx={{ color: 'text.primary', display: 'flex' }}><BrandLogo size={34} /></Box>
             </MuiLink>
             
             <IconButton
@@ -258,9 +249,9 @@ const ChildSafetyClient = () => {
                 ml: 'auto',
                 mr: isMobile ? 1 : 0,
                 color: 'primary.main',
-                bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.1)' : 'rgba(220, 38, 38, 0.1)',
+                bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.1)' : 'rgba(220, 38, 38, 0.1)',
                 '&:hover': {
-                  bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.2)' : 'rgba(220, 38, 38, 0.2)',
+                  bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.2)' : 'rgba(220, 38, 38, 0.2)',
                 },
               }}
             >
@@ -352,7 +343,7 @@ const ChildSafetyClient = () => {
                       transform: 'translateX(-50%)',
                       width: '80px',
                       height: '3px',
-                      background: 'linear-gradient(90deg, #1e40af, #e74c3c)',
+                      background: 'linear-gradient(90deg, #0f766e, #e74c3c)',
                       borderRadius: '2px',
                     },
                   }}
@@ -360,7 +351,7 @@ const ChildSafetyClient = () => {
                   Child Safety Standards & CSAE Policy
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2.5, color: 'text.secondary', textAlign: 'center' }}>
-                  BitoCircle - Hashcash Consultants
+                  Circle - Hashcash Consultants
                 </Typography>
               </Box>
 
@@ -381,7 +372,7 @@ const ChildSafetyClient = () => {
                   1. Zero-Tolerance Policy
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  Hashcash Consultants enforces a <strong>zero-tolerance policy</strong> toward child sexual abuse and exploitation (CSAE) on BitoCircle. Any form of CSAE is strictly prohibited.
+                  Hashcash Consultants enforces a <strong>zero-tolerance policy</strong> toward child sexual abuse and exploitation (CSAE) on Circle. Any form of CSAE is strictly prohibited.
                 </Typography>
               </Box>
 
@@ -402,7 +393,7 @@ const ChildSafetyClient = () => {
                   2. Prohibited Content and Activities
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  The following activities and content are expressly prohibited on BitoCircle:
+                  The following activities and content are expressly prohibited on Circle:
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li>Child sexual abuse material (CSAM)</li>
@@ -457,7 +448,7 @@ const ChildSafetyClient = () => {
                   4. Detection and Reporting
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  BitoCircle maintains moderation measures, including a dedicated in-app reporting mechanism, user reports, and review processes to identify policy violations.
+                  Circle maintains moderation measures, including a dedicated in-app reporting mechanism, user reports, and review processes to identify policy violations.
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
                   Users must report any suspected CSAE-related content or behavior immediately using:
@@ -525,7 +516,7 @@ const ChildSafetyClient = () => {
                   6. Age Restriction
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  BitoCircle is <strong>not intended for individuals under 18 years of age</strong>.
+                  Circle is <strong>not intended for individuals under 18 years of age</strong>.
                 </Typography>
                 <Typography sx={{ fontSize: '16px', lineHeight: 1.7, color: 'text.secondary' }}>
                   Accounts identified as belonging to minors will be terminated.
@@ -553,7 +544,7 @@ const ChildSafetyClient = () => {
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, '& li': { mb: 1.5, color: 'text.secondary', fontSize: '16px', lineHeight: 1.7 } }}>
                   <li><strong>Developer:</strong> Hashcash Consultants</li>
-                  <li><strong>App:</strong> BitoCircle</li>
+                  <li><strong>App:</strong> Circle</li>
                   <li>
                     <strong>Email:</strong>{' '}
                     <MuiLink

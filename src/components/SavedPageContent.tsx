@@ -350,13 +350,13 @@ const SavedPageContent: React.FC = () => {
                 borderRadius: 10,
                 fontSize: { xs: '0.85rem', sm: '0.9rem' },
                 fontWeight: activeTab === tab ? 600 : 400,
-                bgcolor: activeTab === tab ? '#1e40af' : 'white',
+                bgcolor: activeTab === tab ? '#0f766e' : 'white',
                 color: activeTab === tab ? 'white' : '#6B7280',
                 border: activeTab === tab ? 'none' : '1px solid ' + theme.palette.divider,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
                 '&:hover': {
-                  bgcolor: activeTab === tab ? '#1e40af' : '#F3F4F6'
+                  bgcolor: activeTab === tab ? '#0f766e' : '#F3F4F6'
                 },
                 '& .MuiChip-label': {
                   px: 0
@@ -455,8 +455,8 @@ const SavedPageContent: React.FC = () => {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          bgcolor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                          bgcolor: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
+                          background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
                           position: 'relative'
                         }}
                       >
@@ -505,7 +505,7 @@ const SavedPageContent: React.FC = () => {
                         }}
                         onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                           e.currentTarget.style.display = 'none';
-                          e.currentTarget.parentElement!.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                          e.currentTarget.parentElement!.style.background = 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)';
                         }}
                       />
                     ) : post.postType === 'VIDEO' && post.mediaUrls ? (
@@ -521,7 +521,7 @@ const SavedPageContent: React.FC = () => {
                           }}
                           onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
                             e.currentTarget.style.display = 'none';
-                            e.currentTarget.parentElement!.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                            e.currentTarget.parentElement!.style.background = 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)';
                           }}
                         />
                         {/* Video play icon overlay */}
@@ -556,7 +556,7 @@ const SavedPageContent: React.FC = () => {
                           }}
                           onError={(e: React.SyntheticEvent<HTMLVideoElement>) => {
                             e.currentTarget.style.display = 'none';
-                            e.currentTarget.parentElement!.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                            e.currentTarget.parentElement!.style.background = 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)';
                           }}
                         />
                         {/* Reel icon overlay */}
@@ -618,7 +618,7 @@ const SavedPageContent: React.FC = () => {
                           <Avatar sx={{ 
                             width: { xs: 24, sm: 28 }, 
                             height: { xs: 24, sm: 28 }, 
-                            bgcolor: '#1e40af', 
+                            bgcolor: '#0f766e', 
                             fontSize: { xs: '0.7rem', sm: '0.8rem' }
                           }}>
                             {post.fullName.charAt(0)}
@@ -721,7 +721,7 @@ const SavedPageContent: React.FC = () => {
                     ) : (
                       <BookmarkIcon sx={{ 
                         fontSize: { xs: 16, sm: 18 }, 
-                        color: '#1e40af' 
+                        color: '#0f766e' 
                       }} />
                     )}
                   </IconButton>

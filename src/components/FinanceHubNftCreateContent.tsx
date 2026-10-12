@@ -16,7 +16,6 @@ import {
     useMediaQuery,
     Link as MuiLink,
     ThemeProvider,
-    createTheme,
     CssBaseline,
     Card,
     CardContent,
@@ -65,7 +64,6 @@ import {
     ArrowBack
 } from '@mui/icons-material';
 import Image from 'next/image';
-import bitoHubTextLogo from '../app/Assets/img/bitoHubTextLogo.png';
 import { redirect } from 'next/dist/server/api-utils';
 import Link from 'next/link';
 import { MetaMaskContext, useMetaMask } from '../contexts/MetaMaskContext';
@@ -73,6 +71,7 @@ import { CRYPTOIMAGEURL, getLocationData, getBlockChainContract } from '../servi
 import axios from 'axios';
 import { MetaMaskInpageProvider } from "@metamask/providers";
 import web3 from "web3";
+import { createBrandTheme } from '@/lib/theme';
 
 const API_BASE_URL = 'https://institutional-bo.paybito.com:8443/BrokerAdminApi';
 
@@ -495,38 +494,38 @@ const FinanceHubNftCreatePage = () => {
     // Create theme based on mode
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#2563eb',
-                        light: '#3b82f6',
-                        dark: '#1d4ed8',
+                        main: '#0d9488',
+                        light: '#14b8a6',
+                        dark: '#0f766e',
                     },
                     secondary: {
-                        main: '#7c3aed',
-                        light: '#8b5cf6',
-                        dark: '#6d28d9',
+                        main: '#0d9488',
+                        light: '#14b8a6',
+                        dark: '#0f766e',
                     },
                     background: {
-                        default: mode === 'light' ? '#f8fafc' : '#0f0f23',
-                        paper: mode === 'light' ? '#ffffff' : '#1a1b3a',
+                        default: mode === 'light' ? '#f8f6f1' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
-                        primary: mode === 'light' ? '#0f172a' : '#f1f5f9',
+                        primary: mode === 'light' ? '#0b1211' : '#efece5',
                         secondary: mode === 'light' ? '#475569' : '#94a3b8',
                     },
                     grey: {
-                        50: '#f8fafc',
-                        100: '#f1f5f9',
+                        50: '#f8f6f1',
+                        100: '#efece5',
                         200: '#e2e8f0',
                         300: '#cbd5e1',
                         400: '#94a3b8',
                         500: '#64748b',
                         600: '#475569',
                         700: '#334155',
-                        800: '#1e293b',
-                        900: '#0f172a',
+                        800: '#16201f',
+                        900: '#0b1211',
                     },
                 },
                 typography: {
@@ -742,8 +741,8 @@ const FinanceHubNftCreatePage = () => {
                     pb: 6,
                     minHeight: '100vh',
                     background: mode === 'light'
-                        ? 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #f1f5f9 75%, #ffffff 100%)'
-                        : 'linear-gradient(135deg, #0f0f23 0%, #1a1b3a 25%, #0f172a 75%, #1e293b 100%)',
+                        ? 'linear-gradient(135deg, #f8f6f1 0%, #e2e8f0 25%, #efece5 75%, #ffffff 100%)'
+                        : 'linear-gradient(135deg, #0b1211 0%, #121b1a 25%, #0b1211 75%, #16201f 100%)',
                 }}
             >
                 <Container

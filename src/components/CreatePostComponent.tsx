@@ -110,7 +110,7 @@ const CreatePostComponent: React.FC<CreatePostComponentProps> = ({
   onOpenAIDialog,
   onPostCreated,
   avatarLetter = 'B',
-  avatarColor = '#4267b2',
+  avatarColor = '#0d9488',
   placeholder = "What's your next move?",
   userId = '',
   adminUser = ''
@@ -664,7 +664,7 @@ const CreatePostComponent: React.FC<CreatePostComponentProps> = ({
             </Avatar> */}
             <Avatar
               src={userProfile.profilePicture || undefined}
-              sx={{ bgcolor: '#4267b2', width: 34, height: 34, fontSize: 13, fontWeight: 600 }}
+              sx={{ bgcolor: '#0d9488', width: 34, height: 34, fontSize: 13, fontWeight: 600 }}
             >
               {(userProfile.fullName?.[0] || brokerDetails?.firstName?.[0] || 'U').toUpperCase()}
             </Avatar>
@@ -803,7 +803,7 @@ const CreatePostComponent: React.FC<CreatePostComponentProps> = ({
               variant="text"
               startIcon={
                 <StoryIcon sx={{
-                  color: '#9c27b0',
+                  color: '#0d9488',
                   fontSize: { xs: 18, sm: 20 }
                 }} />
               }
@@ -816,9 +816,9 @@ const CreatePostComponent: React.FC<CreatePostComponentProps> = ({
                 px: { xs: 1, sm: 2 },
                 '&:hover': {
                   bgcolor: theme.palette.mode === 'light'
-                    ? 'rgba(156, 39, 176, 0.08)'
-                    : 'rgba(156, 39, 176, 0.15)',
-                  color: '#9c27b0'
+                    ? 'rgba(13, 148, 136, 0.08)'
+                    : 'rgba(13, 148, 136, 0.15)',
+                  color: '#0d9488'
                 }
               }}
             >
@@ -939,8 +939,8 @@ const CreatePostComponent: React.FC<CreatePostComponentProps> = ({
                 '&:hover': {
                   borderColor: theme.palette.primary.main,
                   bgcolor: theme.palette.mode === 'light'
-                    ? 'rgba(30, 64, 175, 0.04)'
-                    : 'rgba(30, 64, 175, 0.08)'
+                    ? 'rgba(15, 118, 110, 0.04)'
+                    : 'rgba(15, 118, 110, 0.08)'
                 }
               }}
             >
@@ -1176,7 +1176,7 @@ const CreatePostComponent: React.FC<CreatePostComponentProps> = ({
             disabled={uploadingStory || !selectedStoryFile}
             startIcon={uploadingStory ? <CircularProgress size={20} /> : <SendIcon />}
             sx={{
-              bgcolor: '#9c27b0',
+              bgcolor: '#0d9488',
               '&:hover': {
                 bgcolor: '#7b1fa2'
               }
@@ -1269,7 +1269,7 @@ const CreatePostComponent: React.FC<CreatePostComponentProps> = ({
 
             <ListItem sx={{ px: 0 }}>
               <ListItemIcon sx={{ minWidth: 44 }}>
-                <VideocamIcon sx={{ color: '#2196f3' }} />
+                <VideocamIcon sx={{ color: '#14b8a6' }} />
               </ListItemIcon>
               <ListItemText
                 primary="Camera Permission"
@@ -1280,7 +1280,7 @@ const CreatePostComponent: React.FC<CreatePostComponentProps> = ({
 
             <ListItem sx={{ px: 0 }}>
               <ListItemIcon sx={{ minWidth: 44 }}>
-                <WifiIcon sx={{ color: '#9c27b0' }} />
+                <WifiIcon sx={{ color: '#0d9488' }} />
               </ListItemIcon>
               <ListItemText
                 primary="Stable Connection"

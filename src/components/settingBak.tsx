@@ -960,7 +960,7 @@ const SettingsPageContent: React.FC = () => {
         </DialogTitle>
         <DialogContent sx={{ px: 3, py: 2 }}>
           <Typography variant="subtitle1" fontWeight={600} sx={{ mb: 2 }}>
-            What people can share on BitoHub
+            What people can share on Circle
           </Typography>
           
           <Box sx={{
@@ -974,7 +974,7 @@ const SettingsPageContent: React.FC = () => {
                 Stories in messages
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Allow people to send your stories in a message to someone else on BitoHub. Only your followers can see your stories.
+                Allow people to send your stories in a message to someone else on Circle. Only your followers can see your stories.
               </Typography>
             </Box>
             <Switch

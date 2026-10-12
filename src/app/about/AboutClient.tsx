@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { WHITELABEL } from '@/config/whitelabel';
+import { WHITELABEL, ssoUrl } from '@/config/whitelabel';
 import {
   Box,
   Container,
@@ -11,7 +11,6 @@ import {
   useMediaQuery,
   Link as MuiLink,
   ThemeProvider,
-  createTheme,
   CssBaseline,
   Button,
 } from '@mui/material';
@@ -19,7 +18,9 @@ import {
   LightMode as LightModeIcon,
   DarkMode as DarkModeIcon,
 } from '@mui/icons-material';
-import bitoHubTextLogo from '../Assets/img/bitoHubTextLogo.png';
+import BrandLogo from '@/components/brand/BrandLogo';
+import BrandArt from '@/components/brand/BrandArt';
+import { createBrandTheme } from '@/lib/theme';
 
 const AboutClient = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -38,18 +39,18 @@ const AboutClient = () => {
 
   const theme = useMemo(
     () =>
-      createTheme({
+      createBrandTheme({
         palette: {
           mode,
           primary: {
-            main: '#1e40af',
+            main: '#0f766e',
           },
           secondary: {
             main: '#dc2626',
           },
           background: {
-            default: mode === 'light' ? '#f9fafb' : '#0a0a0a',
-            paper: mode === 'light' ? '#ffffff' : '#1a1a1a',
+            default: mode === 'light' ? '#f9fafb' : '#080d0c',
+            paper: mode === 'light' ? '#ffffff' : '#121b1a',
           },
           text: {
             primary: mode === 'light' ? '#2c3e50' : '#e5e5e5',
@@ -109,16 +110,7 @@ const AboutClient = () => {
         >
           <Toolbar>
             <MuiLink href="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <Box
-                component="img"
-                src={bitoHubTextLogo.src}
-                alt="BitoCircle Logo"
-                sx={{
-                  width: { xs: '150px', md: '200px' },
-                  height: 'auto',
-                  filter: mode === 'dark' ? 'brightness(0) invert(1)' : 'none',
-                }}
-              />
+              <Box sx={{ color: 'text.primary', display: 'flex' }}><BrandLogo size={34} /></Box>
             </MuiLink>
             
             <IconButton
@@ -126,9 +118,9 @@ const AboutClient = () => {
               sx={{
                 ml: 'auto',
                 color: 'primary.main',
-                bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.1)' : 'rgba(220, 38, 38, 0.1)',
+                bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.1)' : 'rgba(220, 38, 38, 0.1)',
                 '&:hover': {
-                  bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.2)' : 'rgba(220, 38, 38, 0.2)',
+                  bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.2)' : 'rgba(220, 38, 38, 0.2)',
                 },
               }}
             >
@@ -150,25 +142,13 @@ const AboutClient = () => {
         >
           {/* Video Background */}
           <Box
-            component="video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
             sx={{
               position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
+              inset: 0,
+              background: 'radial-gradient(1200px 600px at 15% 10%, #0f766e 0%, transparent 60%), radial-gradient(900px 500px at 90% 90%, #7a2e28 0%, transparent 55%), #0b1211',
               zIndex: 0,
             }}
-          >
-            <source src="/video/aboutVideo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </Box>
+          />
 
           {/* Video Overlay */}
           <Box
@@ -208,7 +188,7 @@ const AboutClient = () => {
               width: '150px',
               height: '150px',
               borderRadius: '50%',
-              bgcolor: 'rgba(37, 99, 235, 0.2)',
+              bgcolor: 'rgba(13, 148, 136, 0.2)',
               bottom: '-60px',
               left: '-80px',
               zIndex: 2,
@@ -240,7 +220,7 @@ const AboutClient = () => {
                 },
               }}
             >
-              About BitoCircle
+              About Circle
             </Typography>
           </Container>
         </Box>
@@ -275,7 +255,7 @@ const AboutClient = () => {
                       bottom: 0,
                       width: '60px',
                       height: '4px',
-                      background: 'linear-gradient(90deg, #dc2626, #1e40af)',
+                      background: 'linear-gradient(90deg, #dc2626, #0f766e)',
                       borderRadius: '2px',
                     },
                   }}
@@ -283,10 +263,10 @@ const AboutClient = () => {
                   Who We Are
                 </Typography>
                 <Typography sx={{ fontSize: '1rem', lineHeight: 1.7, mb: 2, color: 'text.secondary' }}>
-                  BitoCircle is the world&apos;s first social platform built exclusively for the crypto community. We bring together founders, innovators, investors, and users on one global stage — making it easier than ever for entrepreneurs to connect, collaborate, and get discovered.
+                  Circle is the world&apos;s first social platform built exclusively for the crypto community. We bring together founders, innovators, investors, and users on one global stage — making it easier than ever for entrepreneurs to connect, collaborate, and get discovered.
                 </Typography>
                 <Typography sx={{ fontSize: '1rem', lineHeight: 1.7, color: 'text.secondary' }}>
-                  Unlike traditional social platforms, BitoCircle is designed to fuel the growth of the Web3 ecosystem by giving entrepreneurs the visibility, tools, and community they need to succeed.
+                  Unlike traditional social platforms, Circle is designed to fuel the growth of the Web3 ecosystem by giving entrepreneurs the visibility, tools, and community they need to succeed.
                 </Typography>
               </Box>
               <Box
@@ -301,16 +281,7 @@ const AboutClient = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Box
-                  component="img"
-                  src="/img/who-we-are.jpg"
-                  alt="Crypto Network"
-                  sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
+                <BrandArt variant="who-we-are" />
               </Box>
             </Box>
           </Container>
@@ -322,7 +293,7 @@ const AboutClient = () => {
           className="fade-section"
           sx={{
             py: 10,
-            bgcolor: mode === 'light' ? '#f1f5f9' : '#111827',
+            bgcolor: mode === 'light' ? '#efece5' : '#111827',
             opacity: visibleSections.has('our-mission') ? 1 : 0,
             transform: visibleSections.has('our-mission') ? 'translateY(0)' : 'translateY(20px)',
             transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
@@ -347,7 +318,7 @@ const AboutClient = () => {
                       bottom: 0,
                       width: '60px',
                       height: '4px',
-                      background: 'linear-gradient(90deg, #dc2626, #1e40af)',
+                      background: 'linear-gradient(90deg, #dc2626, #0f766e)',
                       borderRadius: '2px',
                     },
                   }}
@@ -370,16 +341,7 @@ const AboutClient = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Box
-                  component="img"
-                  src="/img/our-mission.jpg"
-                  alt="Mission"
-                  sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
+                <BrandArt variant="our-mission" />
               </Box>
             </Box>
           </Container>
@@ -415,7 +377,7 @@ const AboutClient = () => {
                       bottom: 0,
                       width: '60px',
                       height: '4px',
-                      background: 'linear-gradient(90deg, #dc2626, #1e40af)',
+                      background: 'linear-gradient(90deg, #dc2626, #0f766e)',
                       borderRadius: '2px',
                     },
                   }}
@@ -438,16 +400,7 @@ const AboutClient = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Box
-                  component="img"
-                  src="/img/our-vission.jpg"
-                  alt="Vision / Growth"
-                  sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
+                <BrandArt variant="our-vission" />
               </Box>
             </Box>
           </Container>
@@ -459,7 +412,7 @@ const AboutClient = () => {
           className="fade-section"
           sx={{
             py: 12,
-            background: 'linear-gradient(120deg, #dc2626, #1e40af)',
+            background: 'linear-gradient(120deg, #dc2626, #0f766e)',
             textAlign: 'center',
             opacity: visibleSections.has('join-movement') ? 1 : 0,
             transform: visibleSections.has('join-movement') ? 'translateY(0)' : 'translateY(20px)',
@@ -493,14 +446,14 @@ const AboutClient = () => {
                 Join the Movement
               </Typography>
               <Typography sx={{ fontSize: '1.2rem', lineHeight: 1.7, mb: 2, color: 'rgba(255, 255, 255, 0.95)' }}>
-                BitoCircle isn&apos;t just a platform — it&apos;s a global community of builders and believers. Whether you&apos;re launching your first token, building a blockchain startup, or just exploring Web3, this is where your journey gets discovered.
+                Circle isn&apos;t just a platform — it&apos;s a global community of builders and believers. Whether you&apos;re launching your first token, building a blockchain startup, or just exploring Web3, this is where your journey gets discovered.
               </Typography>
               <Typography variant="h5" sx={{ mt: 4, mb: 4, color: '#fff', fontWeight: 600 }}>
-                BitoCircle — Where crypto entrepreneurs meet the world.
+                Circle — Where crypto entrepreneurs meet the world.
               </Typography>
               <Button
                 component="a"
-                href={`https://myaccount.paybito.com/signin?continue=${WHITELABEL.siteUrl}&app=BitoCircle`}
+                href={ssoUrl('signin')}
                 sx={{
                   background: 'rgba(255, 255, 255, 0.2)',
                   backdropFilter: 'blur(10px)',

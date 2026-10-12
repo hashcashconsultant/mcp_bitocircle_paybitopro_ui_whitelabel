@@ -4,8 +4,8 @@ import AuthorizeAppContent from '@/components/AuthorizeAppContent'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'BitoCircle - Authorize app',
-  description: 'Allow an app to use your BitoCircle account.',
+  title: 'Circle - Authorize app',
+  description: 'Allow an app to use your Circle account.',
   robots: { index: false },
 }
 

@@ -528,7 +528,7 @@ const PollPostComponent: React.FC<PollPostProps> = ({
                   <VerifiedIcon
                     sx={{
                       fontSize: { xs: 16, sm: 18 },
-                      color: '#1d9bf0'
+                      color: '#14b8a6'
                     }}
                   />
                 )}
@@ -564,9 +564,9 @@ const PollPostComponent: React.FC<PollPostProps> = ({
                       py: 0.25,
                       fontSize: { xs: '0.7rem', sm: '0.75rem' },
                       fontWeight: 600,
-                      color: '#1e40af',
+                      color: '#0f766e',
                       '&:hover': {
-                        bgcolor: isDark ? 'rgba(99, 102, 241, 0.15)' : 'rgba(99, 102, 241, 0.08)',
+                        bgcolor: isDark ? 'rgba(13, 148, 136, 0.15)' : 'rgba(13, 148, 136, 0.08)',
                       },
                       '&:disabled': {
                         color: '#9ca3af',
@@ -663,7 +663,7 @@ const PollPostComponent: React.FC<PollPostProps> = ({
           <Card variant="outlined" sx={{
             p: { xs: 2, sm: 2.5 },
             mb: 2,
-            bgcolor: isDark ? '#1f2937' : '#f8f9fa',
+            bgcolor: isDark ? '#1f2937' : '#f8f6f1',
             borderColor: isDark ? '#374151' : '#e4e6ea'
           }}>
             <Typography
@@ -698,8 +698,8 @@ const PollPostComponent: React.FC<PollPostProps> = ({
                         py: { xs: 1, sm: 1.25 },
                         px: 2,
                         '&:hover': {
-                          borderColor: '#4267b2',
-                          bgcolor: isDark ? 'rgba(66, 103, 178, 0.1)' : '#f0f8ff'
+                          borderColor: '#0d9488',
+                          bgcolor: isDark ? 'rgba(13, 148, 136, 0.1)' : '#f0f8ff'
                         }
                       }}
                     >
@@ -730,7 +730,7 @@ const PollPostComponent: React.FC<PollPostProps> = ({
                             height: '100%',
                             bgcolor: 'transparent',
                             '& .MuiLinearProgress-bar': {
-                              bgcolor: isWinning ? 'rgba(66, 184, 131, 0.15)' : 'rgba(66, 103, 178, 0.1)'
+                              bgcolor: isWinning ? 'rgba(66, 184, 131, 0.15)' : 'rgba(13, 148, 136, 0.1)'
                             }
                           }}
                         />
@@ -756,7 +756,7 @@ const PollPostComponent: React.FC<PollPostProps> = ({
                               {option.text}
                             </Typography>
                             {isSelected && (
-                              <CheckCircleIcon sx={{ fontSize: 16, color: '#4267b2' }} />
+                              <CheckCircleIcon sx={{ fontSize: 16, color: '#0d9488' }} />
                             )}
                             {isWinning && (
                               <Chip
@@ -942,7 +942,7 @@ const PollPostComponent: React.FC<PollPostProps> = ({
                 <IconButton
                   size="small"
                   onClick={onSave}
-                  sx={{ color: '#4267b2' }}
+                  sx={{ color: '#0d9488' }}
                 >
                   <BookmarkIcon fontSize={isMobile ? 'small' : 'medium'} />
                 </IconButton>

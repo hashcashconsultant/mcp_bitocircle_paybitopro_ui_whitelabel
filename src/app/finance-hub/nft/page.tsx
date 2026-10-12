@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 
 export const metadata : Metadata = {
-  title: 'NFT Marketplace | BitoCircle Finance Hub',
-  description: 'Discover, buy, and sell unique digital assets in the BitoCircle NFT marketplace.',
+  title: 'NFT Marketplace | Circle Finance Hub',
+  description: 'Discover, buy, and sell unique digital assets in the Circle NFT marketplace.',
   alternates: {
     canonical: '/finance-hub/nft',
   },

@@ -344,12 +344,12 @@ const SubscriptionDialog: React.FC<SubscriptionDialogProps> = ({
               textTransform: 'none',
               fontSize: '1rem',
               fontWeight: 600,
-              bgcolor: '#1e40af',
+              bgcolor: '#0f766e',
               '&:hover': {
-                bgcolor: '#1e3a8a',
+                bgcolor: '#115e59',
               },
               '&:disabled': {
-                bgcolor: '#1e40af',
+                bgcolor: '#0f766e',
                 opacity: 0.7,
               },
             }}
@@ -375,7 +375,7 @@ const SubscriptionDialog: React.FC<SubscriptionDialogProps> = ({
             By subscribing, you agree to share your primary email address with {creatorName}. 
             Your subscription includes a recurring {subscriptionDetails.minSubscriptionPeriod.toLowerCase()} payment of ${subscriptionDetails.price.toFixed(2)} to support {creatorName}.
             By continuing, you agree to the{' '}
-            <Link href="#" sx={{ color: '#1e40af' }}>
+            <Link href="#" sx={{ color: '#0f766e' }}>
               Subscription terms
             </Link>
             .
@@ -391,8 +391,8 @@ const SubscriptionDialog: React.FC<SubscriptionDialogProps> = ({
               color: 'text.disabled',
             }}
           >
-            Subscription provided by BitoHub |{' '}
-            <Link href="#" sx={{ color: '#1e40af' }}>
+            Subscription provided by Circle |{' '}
+            <Link href="#" sx={{ color: '#0f766e' }}>
               Help Center
             </Link>
           </Typography>

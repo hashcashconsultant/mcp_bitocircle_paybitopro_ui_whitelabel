@@ -4,8 +4,8 @@ import TermsPage from '@/components/TermsPage'
 export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions | BitoCircle',
-  description: 'Read the Terms and Conditions of BitoCircle - The first social platform for the crypto community.',
+  title: 'Terms and Conditions | Circle',
+  description: 'Read the Terms and Conditions of Circle - The first social platform for the crypto community.',
   alternates: {
     canonical: '/terms',
   },

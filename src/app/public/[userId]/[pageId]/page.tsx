@@ -122,8 +122,8 @@ export async function generateMetadata({
   // Fallback metadata if profile not found
   if (!profile) {
     return {
-      title: 'Profile Not Found | BitoCircle',
-      description: 'This profile could not be found on BitoCircle.',
+      title: 'Profile Not Found | Circle',
+      description: 'This profile could not be found on Circle.',
       robots: { index: false, follow: false }
     }
   }
@@ -140,25 +140,25 @@ export async function generateMetadata({
 
   // Generate dynamic title
   const verifiedBadge = isVerified ? '✓ ' : ''
-  const title = `${fullName} ${verifiedBadge}(@${username}) | BitoCircle`
+  const title = `${fullName} ${verifiedBadge}(@${username}) | Circle`
 
   // Generate dynamic description
   let description = ''
   if (bio) {
     description = bio.length > 155 ? `${bio.substring(0, 152)}...` : bio
   } else {
-    description = `${fullName} on BitoCircle. ${formatNumber(followersCount)} Followers, ${formatNumber(postsCount)} Posts.`
+    description = `${fullName} on Circle. ${formatNumber(followersCount)} Followers, ${formatNumber(postsCount)} Posts.`
     if (categories) {
       description += ` ${categories}.`
     }
-    description += ' Join BitoCircle to connect!'
+    description += ' Join Circle to connect!'
   }
 
   // Keywords from bio and categories
   const keywords = [
     fullName,
     username,
-    'BitoCircle',
+    'Circle',
     'crypto social',
     'blockchain',
     ...(profile.categoryList || []),
@@ -177,7 +177,7 @@ export async function generateMetadata({
       title: `${fullName} (@${username})`,
       description,
       url: profileUrl,
-      siteName: 'BitoCircle',
+      siteName: 'Circle',
       images: [
         {
           url: profileImage,
@@ -191,7 +191,7 @@ export async function generateMetadata({
 
     twitter: {
       card: 'summary',
-      title: `${fullName} (@${username}) | BitoCircle`,
+      title: `${fullName} (@${username}) | Circle`,
       description,
       images: [profileImage],
       creator: `@${username}`,
@@ -233,7 +233,7 @@ function ProfileJsonLd({ profile, userId, pageId }: ProfileJsonLdProps) {
       '@type': 'Person',
       name: profile.fullName,
       alternateName: profile.username?.replace('@', ''),
-      description: profile.bio || `${profile.fullName} on BitoCircle`,
+      description: profile.bio || `${profile.fullName} on Circle`,
       url: `${SITE_URL}/public/${userId}/${pageId}`,
       image: profile.profilePicture || `${SITE_URL}/default-avatar.png`,
       sameAs: [

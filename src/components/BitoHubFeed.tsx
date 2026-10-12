@@ -262,8 +262,8 @@ export interface TaggedProduct {
 // Generate consistent avatar color based on user ID
 const generateAvatarColor = (userId: number): string => {
   const colors = [
-    '#4267b2', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
-    '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
+    '#0d9488', '#e91e63', '#0d9488', '#0f766e', '#0f766e',
+    '#14b8a6', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
     '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800',
     '#ff5722', '#795548', '#607d8b'
   ]
@@ -1502,7 +1502,7 @@ if (data.brandId) {
             onOpenLiveDialog={() => setOpenPostDialog(true)}
             onOpenAIDialog={() => setOpenPostDialog(true)}
             avatarLetter="A"
-            avatarColor="#4267b2"
+            avatarColor="#0d9488"
             placeholder="What's your next move?"
           />
 

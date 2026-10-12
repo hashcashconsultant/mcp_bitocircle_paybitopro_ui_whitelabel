@@ -5,8 +5,8 @@ export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 
 export const metadata : Metadata = {
-  title: 'BitoCircle - Bank Details',
-  description: 'Manage your bank details securely on BitoCircle.',
+  title: 'Circle - Bank Details',
+  description: 'Manage your bank details securely on Circle.',
   alternates: {
     canonical: '/bank-details',
   },

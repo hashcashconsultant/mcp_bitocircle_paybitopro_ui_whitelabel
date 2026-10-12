@@ -1386,7 +1386,7 @@ const ConversationList = memo(({
                       {conversation.type === 'group' ? (
                         <Avatar
                           src={conversation.avatar}
-                          sx={{ bgcolor: '#1e40af', width: 48, height: 48 }}
+                          sx={{ bgcolor: '#0f766e', width: 48, height: 48 }}
                         >
                           {!conversation.avatar && <GroupsIcon />}
                         </Avatar>
@@ -1863,7 +1863,7 @@ useEffect(() => {
               textDecoration: 'underline',
               wordBreak: 'break-all',
               '&:hover': {
-                color: isOwnMessage ? '#e3f2fd' : 'primary.dark',
+                color: isOwnMessage ? '#e6fffb' : 'primary.dark',
                 textDecoration: 'underline',
               },
               cursor: 'pointer',
@@ -3295,7 +3295,7 @@ if (msg.messageId) {
           name: result.data.conversationName || groupName,
           type: 'group',
           avatar: result.data.conversationImage || undefined,
-          avatarColor: '#1e40af',
+          avatarColor: '#0f766e',
           lastMessage: 'Group created',
           time: 'Now',
           unread: 0,
@@ -6301,7 +6301,7 @@ useEffect(() => {
               cursor: 'pointer',
             },
             '& .crypto-checkout-btn': {
-              background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+              background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
               color: 'white',
               border: 'none',
               borderRadius: '8px',
@@ -7552,15 +7552,15 @@ useEffect(() => {
               // Color coding by file type
               const extColors: Record<string, { bg: string; color: string; icon: string }> = {
                 PDF:  { bg: '#FFEBEE', color: '#D32F2F', icon: '📄' },
-                DOC:  { bg: '#E3F2FD', color: '#1565C0', icon: '📝' },
-                DOCX: { bg: '#E3F2FD', color: '#1565C0', icon: '📝' },
+                DOC:  { bg: '#e6fffb', color: '#0f766e', icon: '📝' },
+                DOCX: { bg: '#e6fffb', color: '#0f766e', icon: '📝' },
                 XLS:  { bg: '#E8F5E9', color: '#2E7D32', icon: '📊' },
                 XLSX: { bg: '#E8F5E9', color: '#2E7D32', icon: '📊' },
                 ZIP:  { bg: '#FFF3E0', color: '#E65100', icon: '📦' },
                 RAR:  { bg: '#FFF3E0', color: '#E65100', icon: '📦' },
                 TXT:  { bg: '#F3E5F5', color: '#7B1FA2', icon: '📃' },
               };
-              const style = extColors[fileExt] || { bg: '#F5F5F5', color: '#616161', icon: '📎' };
+              const style = extColors[fileExt] || { bg: '#f5f3ee', color: '#616161', icon: '📎' };
 
               return (
                 <Box
@@ -7713,7 +7713,7 @@ useEffect(() => {
                                               color: message.isOwn ? '#bbdefb' : 'primary.main',
                                               textDecoration: 'underline',
                                               '&:hover': {
-                                                color: message.isOwn ? '#e3f2fd' : 'primary.dark',
+                                                color: message.isOwn ? '#e6fffb' : 'primary.dark',
                                               },
                                             }
                                           }}

@@ -691,8 +691,8 @@ const getPostType = (apiType: string): PostType => {
 
 const generateAvatarColor = (userId: number): string => {
   const colors = [
-    '#4267b2', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
-    '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
+    '#0d9488', '#e91e63', '#0d9488', '#0f766e', '#0f766e',
+    '#14b8a6', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
     '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800',
     '#ff5722', '#795548', '#607d8b'
   ]
@@ -1434,7 +1434,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
       if (result.success && result.data) {
         const stories: Story[] = result.data.map(apiStory => {
           const firstLetter = apiStory.fullName?.charAt(0)?.toUpperCase() || 'U'
-          const colors = ['#e91e63', '#9c27b0', '#ff6f00', '#00bcd4', '#4caf50', '#f44336', '#2196f3', '#ff9800']
+          const colors = ['#e91e63', '#0d9488', '#ff6f00', '#00bcd4', '#4caf50', '#f44336', '#14b8a6', '#ff9800']
           const colorIndex = apiStory.userId % colors.length
 
           return {
@@ -2102,8 +2102,8 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
 
     if (navigator.share) {
       navigator.share({
-        title: `${profileData.name} on BitoCircle`,
-        text: `Check out ${profileData.name}'s profile on BitoCircle`,
+        title: `${profileData.name} on Circle`,
+        text: `Check out ${profileData.name}'s profile on Circle`,
         url: `${window.location.origin}/public/${userId}`
       })
     } else {
@@ -2854,9 +2854,9 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
               variant="contained"
               onClick={fetchPublicProfile}
               sx={{
-                bgcolor: '#1e40af',
+                bgcolor: '#0f766e',
                 '&:hover': {
-                  bgcolor: '#5558dd',
+                  bgcolor: '#0d9488',
                 },
               }}
             >
@@ -2876,7 +2876,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
           height: { xs: 200, sm: 250, md: 400 },
           background: profileData.coverImage
             ? `url(${profileData.coverImage}) center/cover no-repeat`
-            : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            : 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: { xs: 0, md: '0 0 16px 16px' },
@@ -2925,7 +2925,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
             sx={{
               width: '100%',
               height: '100%',
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+              background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)'
             }}
           />
         )}
@@ -2997,12 +2997,12 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                         py: 1.2,
                         fontSize: { xs: '0.85rem', sm: '0.95rem' },
                         fontWeight: 600,
-                        background: 'linear-gradient(135deg, #1e40af, #1e3a8a)',
-                        boxShadow: '0 4px 15px rgba(30, 64, 175, 0.3)',
+                        background: 'linear-gradient(135deg, #0f766e, #115e59)',
+                        boxShadow: '0 4px 15px rgba(15, 118, 110, 0.3)',
                         '&:hover': {
-                          background: 'linear-gradient(135deg, #2563eb, #1e40af)',
+                          background: 'linear-gradient(135deg, #0d9488, #0f766e)',
                           transform: 'translateY(-2px)',
-                          boxShadow: '0 6px 20px rgba(30, 64, 175, 0.4)',
+                          boxShadow: '0 6px 20px rgba(15, 118, 110, 0.4)',
                         },
                         transition: 'all 0.3s ease',
                       }}
@@ -3024,8 +3024,8 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                         borderColor: 'divider',
                         color: 'text.secondary',
                         '&:hover': {
-                          borderColor: '#1e40af',
-                          bgcolor: 'rgba(30, 64, 175, 0.04)',
+                          borderColor: '#0f766e',
+                          bgcolor: 'rgba(15, 118, 110, 0.04)',
                           transform: 'translateY(-2px)',
                         },
                         transition: 'all 0.3s ease',
@@ -3266,7 +3266,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                     height: { xs: 100, sm: 120, md: 150 },
                     border: '4px solid white',
                     boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                    bgcolor: '#e3f2fd',
+                    bgcolor: '#e6fffb',
                     fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
                     cursor: (profileStories.length > 0 || profileData.profileImage) ? 'pointer' : 'default',
                     '&:hover': (profileStories.length > 0 || profileData.profileImage) ? {
@@ -3308,13 +3308,13 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                         ? 'grey.400'
                         : profileData.isUserFollowing === 2
                           ? '#f59e0b'
-                          : '#1e40af',
+                          : '#0f766e',
                       '&:hover': {
                         bgcolor: profileData.isUserFollowing === 1
                           ? 'grey.500'
                           : profileData.isUserFollowing === 2
                             ? '#d97706'
-                            : '#5558dd',
+                            : '#0d9488',
                       },
                     }}
                   >
@@ -3337,11 +3337,11 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                         px: 3,
                         py: 1,
                         fontSize: { xs: '0.875rem', sm: '1rem' },
-                        borderColor: '#1e40af',
-                        color: '#1e40af',
+                        borderColor: '#0f766e',
+                        color: '#0f766e',
                         '&:hover': {
-                          borderColor: '#5558dd',
-                          bgcolor: 'rgba(30, 64, 175, 0.04)',
+                          borderColor: '#0d9488',
+                          bgcolor: 'rgba(15, 118, 110, 0.04)',
                         },
                       }}
                     >
@@ -3408,7 +3408,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                 {profileData.name}
               </Typography>
               {profileData.isVerified && (
-                <VerifiedIcon sx={{ color: '#1e40af', fontSize: 24 }} />
+                <VerifiedIcon sx={{ color: '#0f766e', fontSize: 24 }} />
               )}
               {profileData.isPrivate && (
                 <PrivateIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
@@ -3427,10 +3427,10 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                     sx={{
                       px: 2,
                       py: 0.5,
-                      bgcolor: '#e3f2fd',
+                      bgcolor: '#e6fffb',
                       borderRadius: 2,
                       fontSize: '0.875rem',
-                      color: '#1e40af',
+                      color: '#0f766e',
                       fontWeight: 500
                     }}
                   >
@@ -3498,7 +3498,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                     <WebsiteIcon sx={{ fontSize: 18, color: 'text.secondary' }} />
                     <Typography
                       variant="body2"
-                      sx={{ color: '#1e40af', cursor: 'pointer' }}
+                      sx={{ color: '#0f766e', cursor: 'pointer' }}
                       onClick={() => {
                         if (profileData.website) {
                           const url = profileData.website.startsWith('http')
@@ -3556,7 +3556,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                     size="small"
                     href={profileData.socialMedia.facebook}
                     target="_blank"
-                    sx={{ color: '#1877F2' }}
+                    sx={{ color: '#0d9488' }}
                   >
                     <FacebookIcon />
                   </IconButton>
@@ -3691,10 +3691,10 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                 color: 'text.secondary',
               },
               '& .Mui-selected': {
-                color: '#1e40af',
+                color: '#0f766e',
               },
               '& .MuiTabs-indicator': {
-                backgroundColor: '#1e40af',
+                backgroundColor: '#0f766e',
                 height: 3,
               },
             }}
@@ -3862,7 +3862,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                 height: { xs: 100, sm: 120, md: 150 },
                 border: '4px solid white',
                 boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                bgcolor: '#e3f2fd',
+                bgcolor: '#e6fffb',
                 fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
                 cursor: profileData.profileImage ? 'pointer' : 'default',
                 '&:hover': profileData.profileImage ? {
@@ -3919,10 +3919,10 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                 flex: 1
               },
               '& .Mui-selected': {
-                color: '#1e40af'
+                color: '#0f766e'
               },
               '& .MuiTabs-indicator': {
-                backgroundColor: '#1e40af',
+                backgroundColor: '#0f766e',
                 height: 3
               }
             }}
@@ -3985,7 +3985,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                         sx={{
                           width: 48,
                           height: 48,
-                          bgcolor: '#1e40af'
+                          bgcolor: '#0f766e'
                         }}
                       >
                         {getInitials(user.fullName)}
@@ -3997,7 +3997,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                           {user.fullName}
                         </Typography>
                         {user.isVerified && (
-                          <Typography variant="caption" sx={{ color: '#1e40af' }}>
+                          <Typography variant="caption" sx={{ color: '#0f766e' }}>
                             ✓
                           </Typography>
                         )}
@@ -4148,7 +4148,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
                 color: 'white',
                 fontSize: '1.5rem'
               }}
@@ -4294,7 +4294,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                 width: 72,
                 height: 72,
                 border: '3px solid white',
-                bgcolor: '#e3f2fd',
+                bgcolor: '#e6fffb',
                 fontSize: '1.8rem',
               }}
             >
@@ -4383,14 +4383,14 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
                   width: 44,
                   height: 44,
                   borderRadius: '50%',
-                  bgcolor: '#e3f2fd',
+                  bgcolor: '#e6fffb',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
                 }}
               >
-                <PersonOutlineIcon sx={{ color: '#1e40af', fontSize: 24 }} />
+                <PersonOutlineIcon sx={{ color: '#0f766e', fontSize: 24 }} />
               </Box>
               <Box>
                 <Typography variant="body1" fontWeight={600}>
@@ -4455,9 +4455,9 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
             sx={{
               borderRadius: 3,
               textTransform: 'none',
-              bgcolor: '#1e40af',
+              bgcolor: '#0f766e',
               '&:hover': {
-                bgcolor: '#5558dd',
+                bgcolor: '#0d9488',
               },
             }}
           >

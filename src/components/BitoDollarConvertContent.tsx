@@ -16,8 +16,7 @@ import {
     alpha,
     Snackbar,
     CircularProgress,
-    createTheme,
-} from '@mui/material'
+    } from '@mui/material'
 import {
     Close,
     AccountBalanceWallet as WalletIcon,
@@ -25,6 +24,7 @@ import {
 } from '@mui/icons-material'
 import axios from 'axios';
 import { getBitoHubUserInfo, getBitoDollarTxnCharge } from '../services/CoreDataService';
+import { createBrandTheme } from '@/lib/theme';
 
 interface BitoDollarConvertContentProps {
     assetId: string;
@@ -108,13 +108,13 @@ const BitoDollarConvertContent: React.FC<BitoDollarConvertContentProps> = ({
 
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#1e40af',
-                        light: '#42a5f5',
-                        dark: '#1e40af',
+                        main: '#0f766e',
+                        light: '#2dd4bf',
+                        dark: '#0f766e',
                         contrastText: '#ffffff',
                     },
                     secondary: {
@@ -124,8 +124,8 @@ const BitoDollarConvertContent: React.FC<BitoDollarConvertContentProps> = ({
                         contrastText: '#ffffff',
                     },
                     background: {
-                        default: mode === 'light' ? '#f5f5f5' : '#121212',
-                        paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+                        default: mode === 'light' ? '#f5f3ee' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
                         primary: mode === 'light' ? '#212121' : '#ffffff',
@@ -422,8 +422,8 @@ const BitoDollarConvertContent: React.FC<BitoDollarConvertContentProps> = ({
                 startIcon={loading ? null : <SwapIcon />} // 🔥 Added icon
                 sx={{
                     background: parseFloat(balance) === 0
-                        ? 'linear-gradient(135deg, #93c5fd 0%, #dbeafe 100%)'
-                        : 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                        ? 'linear-gradient(135deg, #5eead4 0%, #ccfbf1 100%)'
+                        : 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                     color: 'white',
                     fontSize: '0.85rem',
                     fontWeight: 600,
@@ -437,8 +437,8 @@ const BitoDollarConvertContent: React.FC<BitoDollarConvertContentProps> = ({
                     transition: 'all 0.3s ease-in-out',
                     '&:hover': {
                         background: parseFloat(balance) === 0
-                            ? 'linear-gradient(135deg, #93c5fd 0%, #dbeafe 100%)'
-                            : 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
+                            ? 'linear-gradient(135deg, #5eead4 0%, #ccfbf1 100%)'
+                            : 'linear-gradient(135deg, #115e59 0%, #0d9488 100%)',
                         transform: parseFloat(balance) === 0 ? 'none' : 'translateY(-2px)',
                         boxShadow: parseFloat(balance) === 0
                             ? 'none'
@@ -465,8 +465,8 @@ const BitoDollarConvertContent: React.FC<BitoDollarConvertContentProps> = ({
                     sx: {
                         borderRadius: isMobile ? 0 : 3,
                         background: theme.palette.mode === 'dark'
-                            ? 'linear-gradient(145deg, #1e1e1e 0%, #2d2d2d 100%)'
-                            : 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
+                            ? 'linear-gradient(145deg, #121b1a 0%, #2d2d2d 100%)'
+                            : 'linear-gradient(145deg, #ffffff 0%, #f8f6f1 100%)',
                     }
                 }}
             >
@@ -886,7 +886,7 @@ const BitoDollarConvertContent: React.FC<BitoDollarConvertContentProps> = ({
                         sx={{
                             background: !cryptoAmount || parseFloat(cryptoAmount) <= 0
                                 ? theme.palette.action.disabledBackground
-                                : 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
+                                : 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
                             color: 'white',
                             fontSize: { xs: '0.9rem', sm: '1rem' },
                             fontWeight: 700,

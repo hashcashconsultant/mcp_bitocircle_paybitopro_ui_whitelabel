@@ -5,8 +5,8 @@ export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 
 export const metadata : Metadata = {
-  title: 'Payment Invoice | BitoCircle Finance Hub',
-  description: 'View and download your BitoCircle payment invoices and transaction details.',
+  title: 'Payment Invoice | Circle Finance Hub',
+  description: 'View and download your Circle payment invoices and transaction details.',
   alternates: {
     canonical: '/finance-hub/payments/invoice',
   },

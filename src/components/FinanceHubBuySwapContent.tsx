@@ -20,7 +20,6 @@ import {
     useMediaQuery,
     Link as MuiLink,
     ThemeProvider,
-    createTheme,
     CssBaseline,
     Card,
     CardContent,
@@ -116,6 +115,7 @@ import { CRYPTOIMAGEURL, getUserBankDetails, getBitoHubUserInfo, getUserSettings
 import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
 import BitoDollarConvertContent from './BitoDollarConvertContent';
+import { createBrandTheme } from '@/lib/theme';
 
 
 const API_BASE_URL = 'https://institutional-bo.paybito.com:8443/BrokerAdminApi';
@@ -624,13 +624,13 @@ const FinanceHubBuySwapPage = () => {
     // Create theme using the external theme function
     const theme = useMemo(
         () =>
-            createTheme({
+            createBrandTheme({
                 palette: {
                     mode,
                     primary: {
-                        main: '#1e40af',
-                        light: '#42a5f5',
-                        dark: '#1e40af',
+                        main: '#0f766e',
+                        light: '#2dd4bf',
+                        dark: '#0f766e',
                         contrastText: '#ffffff',
                     },
                     secondary: {
@@ -640,8 +640,8 @@ const FinanceHubBuySwapPage = () => {
                         contrastText: '#ffffff',
                     },
                     background: {
-                        default: mode === 'light' ? '#f5f5f5' : '#121212',
-                        paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+                        default: mode === 'light' ? '#f5f3ee' : '#0b1211',
+                        paper: mode === 'light' ? '#ffffff' : '#121b1a',
                     },
                     text: {
                         primary: mode === 'light' ? '#212121' : '#ffffff',
@@ -2489,8 +2489,8 @@ const FinanceHubBuySwapPage = () => {
                                     p: 2,
                                     borderRadius: '50%',
                                     backgroundColor: theme.palette.mode === 'light'
-                                        ? 'rgba(30, 64, 175, 0.1)'
-                                        : 'rgba(66, 165, 245, 0.1)',
+                                        ? 'rgba(15, 118, 110, 0.1)'
+                                        : 'rgba(45, 212, 191, 0.1)',
                                     marginLeft: '9px',
                                     marginTop: '3px',
                                     position: 'relative',
@@ -2609,7 +2609,7 @@ const FinanceHubBuySwapPage = () => {
                                             <Box
                                                 sx={{
                                                     p: 3,
-                                                    backgroundColor: theme.palette.mode === 'light' ? 'rgba(30, 64, 175, 0.02)' : 'rgba(66, 165, 245, 0.05)',
+                                                    backgroundColor: theme.palette.mode === 'light' ? 'rgba(15, 118, 110, 0.02)' : 'rgba(45, 212, 191, 0.05)',
                                                     borderBottom: `1px solid ${theme.palette.mode === 'light' ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.08)'}`,
                                                 }}
                                             >
@@ -2642,17 +2642,17 @@ const FinanceHubBuySwapPage = () => {
                                                         variant="outlined"
                                                         startIcon={<AccountBalanceWallet />}
                                                         sx={{
-                                                            background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                            background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                             color: 'white',
                                                             fontWeight: 600,
                                                             fontSize: '0.875rem',
                                                             px: 3,
                                                             py: 1,
                                                             border: 'none',
-                                                            boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)',
+                                                            boxShadow: '0 4px 15px rgba(20, 184, 166, 0.3)',
                                                             '&:hover': {
-                                                                background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
-                                                                boxShadow: '0 6px 20px rgba(59, 130, 246, 0.4)',
+                                                                background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
+                                                                boxShadow: '0 6px 20px rgba(20, 184, 166, 0.4)',
                                                                 transform: 'translateY(-1px)',
                                                             },
                                                             transition: 'all 0.3s ease-in-out'
@@ -2791,17 +2791,17 @@ const FinanceHubBuySwapPage = () => {
                                                         variant="contained"
                                                         size="small"
                                                         sx={{
-                                                            background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                            background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                             color: 'white',
                                                             fontWeight: 600,
                                                             fontSize: '0.875rem',
                                                             px: 3,
                                                             py: 1,
                                                             border: 'none',
-                                                            boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)',
+                                                            boxShadow: '0 4px 15px rgba(20, 184, 166, 0.3)',
                                                             '&:hover': {
-                                                                background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
-                                                                boxShadow: '0 6px 20px rgba(59, 130, 246, 0.4)',
+                                                                background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
+                                                                boxShadow: '0 6px 20px rgba(20, 184, 166, 0.4)',
                                                                 transform: 'translateY(-1px)',
                                                             },
                                                             transition: 'all 0.3s ease-in-out'
@@ -3120,7 +3120,7 @@ const FinanceHubBuySwapPage = () => {
                                             <Box
                                                 sx={{
                                                     p: 3,
-                                                    backgroundColor: theme.palette.mode === 'light' ? 'rgba(30, 64, 175, 0.02)' : 'rgba(66, 165, 245, 0.05)',
+                                                    backgroundColor: theme.palette.mode === 'light' ? 'rgba(15, 118, 110, 0.02)' : 'rgba(45, 212, 191, 0.05)',
                                                     borderBottom: `1px solid ${theme.palette.mode === 'light' ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.08)'}`,
                                                 }}
                                             >
@@ -3608,7 +3608,7 @@ const FinanceHubBuySwapPage = () => {
                                                     variant="outlined"
                                                     startIcon={<TrendingUp />}
                                                     sx={{
-                                                        background: 'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
+                                                        background: 'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
                                                         color: 'white',
                                                         fontWeight: 600,
                                                         fontSize: '0.875rem',
@@ -3616,7 +3616,7 @@ const FinanceHubBuySwapPage = () => {
                                                         py: { xs: 0.8, sm: 1 },
                                                         border: 'none',
                                                         borderRadius: 2,
-                                                        boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)',
+                                                        boxShadow: '0 4px 15px rgba(20, 184, 166, 0.3)',
                                                         transition: 'all 0.3s ease-in-out',
                                                         whiteSpace: 'nowrap',
                                                         flex: { xs: '0 0 auto', lg: '0 0 auto' },
@@ -3624,8 +3624,8 @@ const FinanceHubBuySwapPage = () => {
                                                         order: { xs: 2, lg: 3 },
                                                         '&:hover': {
                                                             background:
-                                                                'linear-gradient(90deg, #1717f1 0%, #852597 50%, #d62e56 100%)',
-                                                            boxShadow: '0 6px 20px rgba(59, 130, 246, 0.4)',
+                                                                'linear-gradient(90deg, #0f766e 0%, #0f766e 50%, #d62e56 100%)',
+                                                            boxShadow: '0 6px 20px rgba(20, 184, 166, 0.4)',
                                                             transform: 'translateY(-1px)',
                                                         },
                                                     }}
@@ -3868,8 +3868,8 @@ const FinanceHubBuySwapPage = () => {
                                                                             fullWidth={isMobile}
                                                                             startIcon={<Send sx={{ fontSize: 16 }} />}
                                                                             sx={{
-                                                                                color: '#1e40af',
-                                                                                borderColor: '#1e40af',
+                                                                                color: '#0f766e',
+                                                                                borderColor: '#0f766e',
                                                                                 fontSize: '0.85rem',
                                                                                 fontWeight: 600,
                                                                                 py: 1,
@@ -3880,8 +3880,8 @@ const FinanceHubBuySwapPage = () => {
                                                                                 transition: 'all 0.2s ease-in-out',
                                                                                 '&:hover': {
                                                                                     backgroundColor: theme.palette.mode === 'light'
-                                                                                        ? 'rgba(30, 64, 175, 0.08)'
-                                                                                        : 'rgba(66, 165, 245, 0.12)',
+                                                                                        ? 'rgba(15, 118, 110, 0.08)'
+                                                                                        : 'rgba(45, 212, 191, 0.12)',
                                                                                     borderColor: '#0ea5e9',
                                                                                 },
                                                                             }}
@@ -3924,8 +3924,8 @@ const FinanceHubBuySwapPage = () => {
                                                                             fullWidth={isMobile}
                                                                             startIcon={<Send sx={{ fontSize: 16 }} />}
                                                                             sx={{
-                                                                                color: '#1e40af',
-                                                                                borderColor: '#1e40af',
+                                                                                color: '#0f766e',
+                                                                                borderColor: '#0f766e',
                                                                                 fontSize: '0.85rem',
                                                                                 fontWeight: 600,
                                                                                 py: 1,
@@ -3936,8 +3936,8 @@ const FinanceHubBuySwapPage = () => {
                                                                                 transition: 'all 0.2s ease-in-out',
                                                                                 '&:hover': {
                                                                                     backgroundColor: theme.palette.mode === 'light'
-                                                                                        ? 'rgba(30, 64, 175, 0.08)'
-                                                                                        : 'rgba(66, 165, 245, 0.12)',
+                                                                                        ? 'rgba(15, 118, 110, 0.08)'
+                                                                                        : 'rgba(45, 212, 191, 0.12)',
                                                                                     borderColor: '#0ea5e9',
                                                                                 },
                                                                             }}
@@ -4042,8 +4042,8 @@ const FinanceHubBuySwapPage = () => {
                                                                 flexShrink: 0, // ⬅️ CHANGE 4: Prevent buttons from shrinking
                                                                 '&:hover': {
                                                                     backgroundColor: transactionFilter === 'deposit' ? theme.palette.primary.dark : theme.palette.mode === 'light'
-                                                                        ? 'rgba(30, 64, 175, 0.08)'
-                                                                        : 'rgba(66, 165, 245, 0.08)',
+                                                                        ? 'rgba(15, 118, 110, 0.08)'
+                                                                        : 'rgba(45, 212, 191, 0.08)',
                                                                 }
                                                             }}
                                                         >
@@ -4068,8 +4068,8 @@ const FinanceHubBuySwapPage = () => {
                                                                 flexShrink: 0, // ⬅️ Prevent buttons from shrinking
                                                                 '&:hover': {
                                                                     backgroundColor: transactionFilter === 'send' ? theme.palette.primary.dark : theme.palette.mode === 'light'
-                                                                        ? 'rgba(30, 64, 175, 0.08)'
-                                                                        : 'rgba(66, 165, 245, 0.08)',
+                                                                        ? 'rgba(15, 118, 110, 0.08)'
+                                                                        : 'rgba(45, 212, 191, 0.08)',
                                                                 }
                                                             }}
                                                         >
@@ -4094,8 +4094,8 @@ const FinanceHubBuySwapPage = () => {
                                                                 flexShrink: 0, // ⬅️ Prevent buttons from shrinking
                                                                 '&:hover': {
                                                                     backgroundColor: transactionFilter === 'send' ? theme.palette.primary.dark : theme.palette.mode === 'light'
-                                                                        ? 'rgba(30, 64, 175, 0.08)'
-                                                                        : 'rgba(66, 165, 245, 0.08)',
+                                                                        ? 'rgba(15, 118, 110, 0.08)'
+                                                                        : 'rgba(45, 212, 191, 0.08)',
                                                                 }
                                                             }}
                                                         >
@@ -4120,8 +4120,8 @@ const FinanceHubBuySwapPage = () => {
                                                                 flexShrink: 0, // ⬅️ Prevent buttons from shrinking
                                                                 '&:hover': {
                                                                     backgroundColor: transactionFilter === 'received' ? theme.palette.primary.dark : theme.palette.mode === 'light'
-                                                                        ? 'rgba(30, 64, 175, 0.08)'
-                                                                        : 'rgba(66, 165, 245, 0.08)',
+                                                                        ? 'rgba(15, 118, 110, 0.08)'
+                                                                        : 'rgba(45, 212, 191, 0.08)',
                                                                 }
                                                             }}
                                                         >
@@ -4766,7 +4766,7 @@ const FinanceHubBuySwapPage = () => {
                                             ? (theme.palette.mode === 'light' ? '#ffffff' : theme.palette.background.paper)
                                             : (theme.palette.mode === 'light' ? 'rgba(0,0,0,0.01)' : 'rgba(255,255,255,0.01)'),
                                         '&:hover': {
-                                            backgroundColor: theme.palette.mode === 'light' ? 'rgba(30, 64, 175, 0.02)' : 'rgba(66, 165, 245, 0.02)',
+                                            backgroundColor: theme.palette.mode === 'light' ? 'rgba(15, 118, 110, 0.02)' : 'rgba(45, 212, 191, 0.02)',
                                         }
                                     }}
                                 >
@@ -4934,13 +4934,13 @@ const FinanceHubBuySwapPage = () => {
                                     fontSize: '1rem',
                                     textTransform: 'none',
                                     boxShadow: theme.palette.mode === 'light'
-                                        ? '0 8px 25px rgba(30, 64, 175, 0.35)'
-                                        : '0 8px 25px rgba(66, 165, 245, 0.35)'
+                                        ? '0 8px 25px rgba(15, 118, 110, 0.35)'
+                                        : '0 8px 25px rgba(45, 212, 191, 0.35)'
                                     ,
                                     '&:hover': {
                                         boxShadow: theme.palette.mode === 'light'
-                                            ? '0 12px 35px rgba(30, 64, 175, 0.45)'
-                                            : '0 12px 35px rgba(66, 165, 245, 0.45)'
+                                            ? '0 12px 35px rgba(15, 118, 110, 0.45)'
+                                            : '0 12px 35px rgba(45, 212, 191, 0.45)'
                                         ,
 
                                     },
@@ -5146,13 +5146,13 @@ const FinanceHubBuySwapPage = () => {
                                     fontSize: '1rem',
                                     textTransform: 'none',
                                     boxShadow: theme.palette.mode === 'light'
-                                        ? '0 8px 25px rgba(30, 64, 175, 0.35)'
-                                        : '0 8px 25px rgba(66, 165, 245, 0.35)'
+                                        ? '0 8px 25px rgba(15, 118, 110, 0.35)'
+                                        : '0 8px 25px rgba(45, 212, 191, 0.35)'
                                     ,
                                     '&:hover': {
                                         boxShadow: theme.palette.mode === 'light'
-                                            ? '0 12px 35px rgba(30, 64, 175, 0.45)'
-                                            : '0 12px 35px rgba(66, 165, 245, 0.45)'
+                                            ? '0 12px 35px rgba(15, 118, 110, 0.45)'
+                                            : '0 12px 35px rgba(45, 212, 191, 0.45)'
                                         ,
                                     },
                                     transition: 'all 0.3s ease-in-out'
@@ -5477,13 +5477,13 @@ const FinanceHubBuySwapPage = () => {
                                     fontSize: '1rem',
                                     textTransform: 'none',
                                     boxShadow: theme.palette.mode === 'light'
-                                        ? '0 8px 25px rgba(30, 64, 175, 0.35)'
-                                        : '0 8px 25px rgba(66, 165, 245, 0.35)'
+                                        ? '0 8px 25px rgba(15, 118, 110, 0.35)'
+                                        : '0 8px 25px rgba(45, 212, 191, 0.35)'
                                     ,
                                     '&:hover': {
                                         boxShadow: theme.palette.mode === 'light'
-                                            ? '0 12px 35px rgba(30, 64, 175, 0.45)'
-                                            : '0 12px 35px rgba(66, 165, 245, 0.45)'
+                                            ? '0 12px 35px rgba(15, 118, 110, 0.45)'
+                                            : '0 12px 35px rgba(45, 212, 191, 0.45)'
                                         ,
 
                                     },

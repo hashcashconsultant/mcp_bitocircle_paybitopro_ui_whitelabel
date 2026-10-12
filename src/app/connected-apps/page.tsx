@@ -4,8 +4,8 @@ import ConnectedAppsContent from '@/components/ConnectedAppsContent'
 export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 export const metadata: Metadata = {
-  title: 'BitoCircle - Connected Apps',
-  description: 'Apps you have allowed to use your BitoCircle account.',
+  title: 'Circle - Connected Apps',
+  description: 'Apps you have allowed to use your Circle account.',
   alternates: {
     canonical: '/connected-apps',
   },

@@ -1,6 +1,7 @@
 // theme/theme.ts
 'use client'
 import { createTheme, ThemeOptions, PaletteMode } from '@mui/material/styles'
+import { deepmerge } from '@mui/utils'
 // White-label brand colors — edit src/config/whitelabel.ts, not this file.
 import { WHITELABEL } from '@/config/whitelabel'
 
@@ -11,13 +12,36 @@ declare module '@mui/material/styles' {
       danger: string
     }
   }
-  
+
   interface ThemeOptions {
     status?: {
       danger?: string
     }
   }
 }
+
+const BODY_FONT = 'var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+const DISPLAY_FONT = 'var(--font-display), var(--font-body), -apple-system, "Segoe UI", sans-serif'
+
+/**
+ * For pages that build their own MUI theme (legal pages, Finance Hub, KYC): the same options, with the brand
+ * fonts and accent color applied on top so they match the rest of the app.
+ */
+export const createBrandTheme = (options: ThemeOptions) =>
+  createTheme(
+    deepmerge(options, {
+      palette: { secondary: { ...WHITELABEL.colors.secondary } },
+      typography: {
+        fontFamily: BODY_FONT,
+        h1: { fontFamily: DISPLAY_FONT },
+        h2: { fontFamily: DISPLAY_FONT },
+        h3: { fontFamily: DISPLAY_FONT },
+        h4: { fontFamily: DISPLAY_FONT },
+        h5: { fontFamily: DISPLAY_FONT },
+        h6: { fontFamily: DISPLAY_FONT },
+      },
+    } as ThemeOptions)
+  )
 
 // Create theme based on mode (light or dark)
 export const createAppTheme = (mode: PaletteMode) => {
@@ -27,56 +51,59 @@ export const createAppTheme = (mode: PaletteMode) => {
       primary: { ...WHITELABEL.colors.primary },
       secondary: { ...WHITELABEL.colors.secondary },
       background: {
-        default: mode === 'light' ? '#f5f5f5' : '#121212',
-        paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+        default: WHITELABEL.colors.surface[mode].page,
+        paper: WHITELABEL.colors.surface[mode].card,
       },
       text: {
-        primary: mode === 'light' ? '#212121' : '#ffffff',
-        secondary: mode === 'light' ? '#757575' : '#b0b0b0',
+        primary: WHITELABEL.colors.surface[mode].ink,
+        secondary: WHITELABEL.colors.surface[mode].muted,
       },
+      divider: mode === 'light' ? 'rgba(22, 32, 31, 0.1)' : 'rgba(242, 245, 244, 0.1)',
     },
     typography: {
-      fontFamily: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(','),
+      // The two font variables are set in src/app/layout.tsx (body text and headings).
+      fontFamily: BODY_FONT,
       h1: {
+        fontFamily: DISPLAY_FONT,
         fontSize: '2.5rem',
-        fontWeight: 600,
-        lineHeight: 1.2,
+        fontWeight: 700,
+        lineHeight: 1.15,
+        letterSpacing: '-0.03em',
       },
       h2: {
+        fontFamily: DISPLAY_FONT,
         fontSize: '2rem',
-        fontWeight: 600,
-        lineHeight: 1.3,
+        fontWeight: 700,
+        lineHeight: 1.2,
+        letterSpacing: '-0.025em',
       },
       h3: {
+        fontFamily: DISPLAY_FONT,
         fontSize: '1.75rem',
-        fontWeight: 600,
-        lineHeight: 1.4,
+        fontWeight: 700,
+        lineHeight: 1.25,
+        letterSpacing: '-0.02em',
       },
       h4: {
+        fontFamily: DISPLAY_FONT,
         fontSize: '1.5rem',
         fontWeight: 600,
-        lineHeight: 1.4,
+        lineHeight: 1.3,
+        letterSpacing: '-0.02em',
       },
       h5: {
+        fontFamily: DISPLAY_FONT,
         fontSize: '1.25rem',
         fontWeight: 600,
-        lineHeight: 1.5,
+        lineHeight: 1.4,
+        letterSpacing: '-0.015em',
       },
       h6: {
+        fontFamily: DISPLAY_FONT,
         fontSize: '1rem',
         fontWeight: 600,
-        lineHeight: 1.6,
+        lineHeight: 1.5,
+        letterSpacing: '-0.01em',
       },
       body1: {
         fontSize: '1rem',
@@ -88,7 +115,7 @@ export const createAppTheme = (mode: PaletteMode) => {
       },
     },
     shape: {
-      borderRadius: 8,
+      borderRadius: 12,
     },
     spacing: 8,
     components: {
@@ -96,15 +123,15 @@ export const createAppTheme = (mode: PaletteMode) => {
         styleOverrides: {
           root: {
             textTransform: 'none',
-            borderRadius: 8,
+            borderRadius: 999,
             fontWeight: 600,
             fontSize: '0.875rem',
             padding: '8px 16px',
           },
           contained: {
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            boxShadow: 'none',
             '&:hover': {
-              boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+              boxShadow: 'none',
             },
           },
         },
@@ -112,19 +139,17 @@ export const createAppTheme = (mode: PaletteMode) => {
       MuiCard: {
         styleOverrides: {
           root: {
-            boxShadow: mode === 'light' 
-              ? '0 2px 8px rgba(0,0,0,0.1)' 
-              : '0 2px 8px rgba(0,0,0,0.3)',
-            borderRadius: 12,
+            boxShadow: 'none',
+            border: `1px solid ${mode === 'light' ? 'rgba(22, 32, 31, 0.08)' : 'rgba(242, 245, 244, 0.08)'}`,
+            borderRadius: 18,
           },
         },
       },
       MuiAppBar: {
         styleOverrides: {
           root: {
-            boxShadow: mode === 'light'
-              ? '0 2px 4px rgba(0,0,0,0.1)'
-              : '0 2px 4px rgba(0,0,0,0.3)',
+            boxShadow: 'none',
+            borderBottom: `1px solid ${mode === 'light' ? 'rgba(22, 32, 31, 0.08)' : 'rgba(242, 245, 244, 0.08)'}`,
           },
         },
       },
@@ -132,7 +157,7 @@ export const createAppTheme = (mode: PaletteMode) => {
         styleOverrides: {
           root: {
             '& .MuiOutlinedInput-root': {
-              borderRadius: 8,
+              borderRadius: 12,
             },
           },
         },

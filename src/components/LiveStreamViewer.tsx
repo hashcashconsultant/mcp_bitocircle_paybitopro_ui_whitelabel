@@ -793,7 +793,7 @@ const LiveStreamViewer: React.FC<LiveStreamViewerProps> = ({
             height: { xs: '40%', md: '100%' },
             display: 'flex',
             flexDirection: 'column',
-            bgcolor: theme.palette.mode === 'dark' ? '#1a1a1a' : '#262626',
+            bgcolor: theme.palette.mode === 'dark' ? '#121b1a' : '#262626',
             borderRadius: 0
           }}
         >
@@ -843,7 +843,7 @@ const LiveStreamViewer: React.FC<LiveStreamViewerProps> = ({
                   <ListItemText
                     primary={
                       <Typography variant="body2" color="white">
-                        <strong style={{ color: '#90caf9' }}>{msg.userName}</strong>
+                        <strong style={{ color: '#5eead4' }}>{msg.userName}</strong>
                         {msg.type === 'join' ? (
                           <span style={{ color: '#4caf50', marginLeft: 4 }}>{msg.message}</span>
                         ) : (

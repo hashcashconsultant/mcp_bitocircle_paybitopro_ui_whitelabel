@@ -213,7 +213,7 @@ const PaymentDialog: React.FC<PaymentDialogProps> = ({
     if (mode === 'accept_request') {
       return 'Accept Payment Request'
     }
-    return 'BitoCircle Payment'
+    return 'Circle Payment'
   }
 
   // Get dialog subtitle based on mode
@@ -456,7 +456,7 @@ const PaymentDialog: React.FC<PaymentDialogProps> = ({
               {mode === 'accept_request'
                 ? `You are about to pay ${pendingPaymentRequest?.senderName}'s payment request. The amount will be deducted from your wallet.`
                 : activeTab === 0 
-                  ? `You are about to send BitoCircle dollars to ${recipientName}. The amount will be deducted from your wallet.`
+                  ? `You are about to send BitoDollars to ${recipientName}. The amount will be deducted from your wallet.`
                   : `${recipientName} will receive a payment request and can choose to pay you.`
               }
             </Alert>

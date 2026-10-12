@@ -17,7 +17,6 @@ import {
   useMediaQuery,
   Link as MuiLink,
   ThemeProvider,
-  createTheme,
   CssBaseline,
 } from '@mui/material';
 import {
@@ -27,7 +26,8 @@ import {
   DarkMode as DarkModeIcon,
 } from '@mui/icons-material';
 import Image from 'next/image';
-import bitoHubTextLogo from '../Assets/img/bitoHubTextLogo.png';
+import BrandLogo from '@/components/brand/BrandLogo';
+import { createBrandTheme } from '@/lib/theme';
 
 const drawerWidth = 280;
 
@@ -69,18 +69,18 @@ const EULAClient = () => {
   // Create theme based on mode
   const theme = useMemo(
     () =>
-      createTheme({
+      createBrandTheme({
         palette: {
           mode,
           primary: {
-            main: '#1e40af',
+            main: '#0f766e',
           },
           secondary: {
             main: '#dc2626',
           },
           background: {
-            default: mode === 'light' ? '#f8f9fa' : '#0a0a0a',
-            paper: mode === 'light' ? '#ffffff' : '#1a1a1a',
+            default: mode === 'light' ? '#f8f6f1' : '#080d0c',
+            paper: mode === 'light' ? '#ffffff' : '#121b1a',
           },
           text: {
             primary: mode === 'light' ? '#2c3e50' : '#e5e5e5',
@@ -178,7 +178,7 @@ const EULAClient = () => {
               borderLeft: '3px solid',
               borderLeftColor: activeSection === section.id ? 'primary.main' : 'transparent',
               background: activeSection === section.id
-                ? 'linear-gradient(135deg, #dc2626 0%, #1e40af 100%)'
+                ? 'linear-gradient(135deg, #dc2626 0%, #0f766e 100%)'
                 : 'transparent',
               transition: 'all 0.3s ease',
               mb: 0.5,
@@ -195,7 +195,7 @@ const EULAClient = () => {
                 '&:hover': {
                   bgcolor: activeSection === section.id
                     ? 'rgba(255, 255, 255, 0.1)'
-                    : mode === 'light' ? '#f8f9fa' : 'rgba(255, 255, 255, 0.05)',
+                    : mode === 'light' ? '#f8f6f1' : 'rgba(255, 255, 255, 0.05)',
                   color: activeSection === section.id ? 'white' : 'primary.main',
                   transform: 'translateX(5px)',
                 },
@@ -234,16 +234,7 @@ const EULAClient = () => {
         >
           <Toolbar>
             <MuiLink href="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <Box
-                component="img"
-                src={bitoHubTextLogo.src}
-                alt="BitoCircle Logo"
-                sx={{
-                  width: { xs: '150px', md: '200px' },
-                  height: 'auto',
-                  filter: mode === 'dark' ? 'brightness(0) invert(1)' : 'none',
-                }}
-              />
+              <Box sx={{ color: 'text.primary', display: 'flex' }}><BrandLogo size={34} /></Box>
             </MuiLink>
             
             {/* Theme Toggle Button */}
@@ -253,9 +244,9 @@ const EULAClient = () => {
                 ml: 'auto',
                 mr: isMobile ? 1 : 0,
                 color: 'primary.main',
-                bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.1)' : 'rgba(220, 38, 38, 0.1)',
+                bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.1)' : 'rgba(220, 38, 38, 0.1)',
                 '&:hover': {
-                  bgcolor: mode === 'light' ? 'rgba(30, 64, 175, 0.2)' : 'rgba(220, 38, 38, 0.2)',
+                  bgcolor: mode === 'light' ? 'rgba(15, 118, 110, 0.2)' : 'rgba(220, 38, 38, 0.2)',
                 },
               }}
             >
@@ -347,7 +338,7 @@ const EULAClient = () => {
                       transform: 'translateX(-50%)',
                       width: '80px',
                       height: '3px',
-                      background: 'linear-gradient(90deg, #1e40af, #e74c3c)',
+                      background: 'linear-gradient(90deg, #0f766e, #e74c3c)',
                       borderRadius: '2px',
                     },
                   }}

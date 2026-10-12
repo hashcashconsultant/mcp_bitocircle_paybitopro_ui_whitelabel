@@ -916,7 +916,7 @@ useEffect(() => {
       fullScreen
       PaperProps={{
         sx: {
-          bgcolor: theme.palette.mode === 'dark' ? '#000' : '#1a1a1a'
+          bgcolor: theme.palette.mode === 'dark' ? '#000' : '#121b1a'
         }
       }}
     >
@@ -1273,7 +1273,7 @@ useEffect(() => {
                 width: 350,
                 display: 'flex',
                 flexDirection: 'column',
-                bgcolor: theme.palette.mode === 'dark' ? '#1a1a1a' : '#262626',
+                bgcolor: theme.palette.mode === 'dark' ? '#121b1a' : '#262626',
                 flexShrink: 0
               }}
             >
@@ -1323,7 +1323,7 @@ useEffect(() => {
                       <ListItemText
                         primary={
                           <Typography variant="body2" color="white">
-                            <strong style={{ color: '#90caf9' }}>{msg.userName}</strong>
+                            <strong style={{ color: '#5eead4' }}>{msg.userName}</strong>
                             {msg.type === 'join' ? (
                               <span style={{ color: '#4caf50', marginLeft: 4 }}>{msg.message}</span>
                             ) : (
@@ -1459,7 +1459,7 @@ useEffect(() => {
             {/* Warning Body */}
             <Box
               sx={{
-                bgcolor: theme.palette.mode === 'dark' ? '#1e1e1e' : '#fff',
+                bgcolor: theme.palette.mode === 'dark' ? '#121b1a' : '#fff',
                 px: 2,
                 py: 2,
                 textAlign: 'center',

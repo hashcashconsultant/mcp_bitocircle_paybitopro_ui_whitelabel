@@ -6,8 +6,8 @@ import PollsPage from '@/components/PollsPage'
 export const dynamic = 'force-dynamic' // Force dynamic rendering
 
 export const metadata: Metadata = {
-  title: 'Crypto Polls | BitoCircle',
-  description: 'Participate in crypto polls, share your opinion, and see what the community thinks about the latest trends on BitoCircle.',
+  title: 'Crypto Polls | Circle',
+  description: 'Participate in crypto polls, share your opinion, and see what the community thinks about the latest trends on Circle.',
   alternates: {
     canonical: '/polls',
   },

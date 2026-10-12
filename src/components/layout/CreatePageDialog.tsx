@@ -506,7 +506,7 @@ const CreatePageDialog: React.FC<CreatePageDialogProps> = ({ open, onClose, onCr
                 border: '2px solid',
                 borderColor: formData.type === 'business' ? businessColor : 'transparent',
                 backgroundColor: formData.type === 'business' 
-                  ? theme.palette.mode === 'light' ? '#f0f8ff' : 'rgba(30, 64, 175, 0.1)'
+                  ? theme.palette.mode === 'light' ? '#f0f8ff' : 'rgba(15, 118, 110, 0.1)'
                   : theme.palette.background.paper,
                 transition: 'all 0.2s',
                 '&:hover': {
@@ -707,8 +707,8 @@ const CreatePageDialog: React.FC<CreatePageDialogProps> = ({ open, onClose, onCr
                       size="small"
                       sx={{
                         bgcolor: theme.palette.mode === 'light' 
-                          ? 'rgba(30, 64, 175, 0.08)' 
-                          : 'rgba(30, 64, 175, 0.2)',
+                          ? 'rgba(15, 118, 110, 0.08)' 
+                          : 'rgba(15, 118, 110, 0.2)',
                         borderColor: theme.palette.primary.main,
                         color: theme.palette.text.primary
                       }}
