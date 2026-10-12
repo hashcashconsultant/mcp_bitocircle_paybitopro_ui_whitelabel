@@ -19,6 +19,7 @@ const USERNAME_COOKIE_NAME = 'paybito_launch_platform_username';
 const UUID_COOKIE_NAME = 'paybito_launch_platform_uuid';
 const BROKER_ID_COOKIE_NAME = 'paybito_launch_platform_broker_id';
 const USER_ID_COOKIE_NAME = 'paybito_launch_platform_user_id';
+const LAUNCH_PLATFORM_USER_NAME_COOKIE = 'paybito_launch_platform_user_name';
 
 // ========================================
 // Environment-aware cookie configuration
@@ -159,6 +160,8 @@ export const restoreSessionFromCookies = (): boolean => {
   const hasUuid = fill('uuid', cookieUuid);
   const hasBrokerId = fill('brokerId', readCookie(BROKER_ID_COOKIE_NAME));
   const hasUserId = fill('userId', readCookie(USER_ID_COOKIE_NAME));
+  // The sign-out call needs the user name. Launch Platform stores it under its own cookie name.
+  fill('adminUserName', usernameCookie.get() || readCookie(LAUNCH_PLATFORM_USER_NAME_COOKIE));
   if (!hasValue(localStorage.getItem('pageId'))) localStorage.setItem('pageId', '0');
   return hasUuid && hasBrokerId && hasUserId;
 };
@@ -226,8 +229,19 @@ export const forceLogout = (): void => {
 
 // Full logout with API call — used by logout buttons
 export const logoutUser = async (): Promise<boolean> => {
-  const adminUserName = safeLocalStorage.getItem('adminUserName') || '';
+  const adminUserName =
+    safeLocalStorage.getItem('adminUserName') ||
+    usernameCookie.get() ||
+    readCookie(LAUNCH_PLATFORM_USER_NAME_COOKIE) ||
+    '';
   const accessToken = tokenCookie.get();
+
+  // Without a user name the server cannot end the session and answers with an error,
+  // which used to leave the visitor signed in. Sign out of this browser anyway.
+  if (!adminUserName) {
+    forceLogout();
+    return true;
+  }
 
   try {
     const response = await axios.post<{ error: { error_data: number; error_msg: string } }>(
