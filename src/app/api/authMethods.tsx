@@ -61,7 +61,7 @@ export function curlHeaders(method: AuthMethod | undefined, needsAuth: boolean):
 }
 
 export const METHOD_TITLES: Record<AuthMethod, string> = {
-  whiteLabel: 'White-label (sign-in token)',
+  whiteLabel: 'Sign-in token',
   apiKey: 'API key & secret',
   developerPortal: 'Developer Portal apps (scopes)',
 }
@@ -195,21 +195,9 @@ function WhiteLabelGuide() {
   return (
     <Stack spacing={2.5}>
       <Typography color="text.secondary">
-        For your own branded BitoCircle community: your users sign up and sign in with PayBito under your brand, and your
-        app calls the API with their sign-in token.
+        This app calls the API with the signed-in user&apos;s PayBito token.
       </Typography>
-      <Step n={1} title="Verify your domain">
-        <Typography variant="body2" color="text.secondary">
-          In BitoCircle go to <b>Settings → Community Domains</b> and add the domain your community runs on, for example{' '}
-          <code>community.example.com</code>. Add the TXT record it shows at your DNS provider and click <b>Verify</b>.
-          Browsers can use BitoCircle sign-in only from bitocircle.com and verified domains. The record is checked daily,
-          so keep it in place.
-        </Typography>
-        <Code>{`Type:  TXT
-Name:  _bitocircle.community.example.com
-Value: bitocircle-verify=<code shown in Settings>`}</Code>
-      </Step>
-      <Step n={2} title="Send the user's sign-in token on every call">
+      <Step n={1} title="Send the user's sign-in token on every call">
         <Code>{`Authorization: Bearer <user's sign-in token>
 uuid: <user's uuid>`}</Code>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>

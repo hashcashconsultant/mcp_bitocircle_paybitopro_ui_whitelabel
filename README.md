@@ -92,7 +92,7 @@ The app calls two live services (configured in `src/utils/apiHosts.ts`):
 
 | Service | Base URL | What |
 |---|---|---|
-| **Bitohub** | `https://institutional-bo.paybito.com:8443/BitohubService` | social: feeds, posts, reels, stories, messaging, channels, livestreams, profiles, notifications, API keys, OAuth, community domains |
+| **Bitohub** | `https://institutional-bo.paybito.com:8443/BitohubService` | social: feeds, posts, reels, stories, messaging, channels, livestreams, profiles, notifications, API keys, OAuth |
 | **Monetize** | `https://institutional-bo.paybito.com:8443/MonetizeService` | creator commerce: shops, products, orders, payouts, shipping, tax, fan subscriptions, gifts & badges, ad revenue, brand collabs |
 
 **Auth — three ways, all already wired.** This app uses the first; the other two are what BitoCircle's
@@ -128,8 +128,9 @@ npm start          # runs `next start -p 3043`
 
 ## Serving on your own domain
 
-Once it's live on your domain, register that domain in **Settings → Community Domains** (which calls
-the Bitohub `/domains` add + verify endpoints) so the API accepts your Origin.
+Once it's live on your domain, sign in at **bitocircle.com** and register that domain under
+**Settings → Community Domains** so the API accepts your Origin. Domains are managed only there; this
+template has no domain settings of its own.
 
 > `src/middleware.ts` carries a `bitocircle.com → www.bitocircle.com` redirect used by the mothership
 > only; it's inert on any other host, so it won't affect your domain. Remove it if you prefer.

@@ -1966,26 +1966,6 @@ const SettingsPageContent: React.FC = () => {
               }
             />
 
-            {/* Community Domains */}
-            <SettingItem
-              title="Community Domains"
-              subtitle="Run your own BitoCircle community on your own domain"
-              onClick={() => router.push('/domains')}
-              action={
-                <Button
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    textTransform: 'none',
-                    borderRadius: 2,
-                    px: 2,
-                    fontWeight: 600
-                  }}
-                >
-                  Manage Domains
-                </Button>
-              }
-            />
 
             {/* Connected Apps */}
             <SettingItem

@@ -824,7 +824,7 @@ export default function ApiClient({ adminSpec, monetizeSpec, userSpec, initialSp
           {/* Switch between the three access-method docs */}
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
             {([
-              { href: '/api', label: 'White-label (sign-in token)', method: undefined },
+              { href: '/api', label: 'Sign-in token', method: undefined },
               { href: '/api/api-key', label: 'API key & secret', method: 'apiKey' },
               { href: '/api/developer-portal', label: 'Developer Portal apps', method: 'developerPortal' },
             ] as const).map((doc) => (

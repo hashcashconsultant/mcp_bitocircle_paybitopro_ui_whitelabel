@@ -1323,7 +1323,7 @@ const { unreadMessageCount, isConnected } = useMessaging()
             Developers: API docs
           </Typography>
           {[
-            { href: '/api', label: 'White-label (sign-in token)' },
+            { href: '/api', label: 'Sign-in token' },
             { href: '/api/api-key', label: 'API key & secret' },
             { href: '/api/developer-portal', label: 'Developer Portal apps' },
           ].map((doc) => (
