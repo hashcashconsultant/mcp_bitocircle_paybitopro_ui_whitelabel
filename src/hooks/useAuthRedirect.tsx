@@ -17,6 +17,8 @@ const SECRETKEY = '4f8e1c9a7b3d22e5a6f3c4d2b8a7e1f0c9d8a2b1c4e5f6d7a8b9c0d1e2f3a
 const TOKEN_COOKIE_NAME = 'paybito_launch_platform_token';
 const USERNAME_COOKIE_NAME = 'paybito_launch_platform_username';
 const UUID_COOKIE_NAME = 'paybito_launch_platform_uuid';
+const BROKER_ID_COOKIE_NAME = 'paybito_launch_platform_broker_id';
+const USER_ID_COOKIE_NAME = 'paybito_launch_platform_user_id';
 
 // ========================================
 // Environment-aware cookie configuration
@@ -25,7 +27,20 @@ const isLocalhost =
   typeof window !== 'undefined' &&
   (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 
-const COOKIE_DOMAIN_BITOCIRCLE = isLocalhost ? '' : ' domain=.bitocircle.com;';
+const onSite = (root: string): boolean =>
+  typeof window !== 'undefined' &&
+  (window.location.hostname === root || window.location.hostname.endsWith(`.${root}`));
+
+// A browser only accepts a cookie for the site it is on, so the domain follows the host this deployment runs on:
+// shared across bitocircle.com or paybito.com subdomains (one sign-in with the Launch Platform there), and
+// this host only on any other domain.
+const COOKIE_DOMAIN_BITOCIRCLE = isLocalhost
+  ? ''
+  : onSite('bitocircle.com')
+    ? ' domain=.bitocircle.com;'
+    : onSite('paybito.com')
+      ? ' domain=.paybito.com;'
+      : '';
 const COOKIE_DOMAIN_PAYBITO = isLocalhost ? '' : ' domain=.paybito.com;';
 const COOKIE_SECURE = isLocalhost ? '' : ' Secure;';
 
@@ -103,6 +118,51 @@ export const uuidCookie = {
   },
 };
 
+const readCookie = (name: string): string | null => {
+  if (typeof document === 'undefined') return null;
+  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : null;
+};
+
+const writeCookie = (name: string, value: string, days: number = 7): void => {
+  if (typeof document === 'undefined') return;
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/;${COOKIE_DOMAIN_BITOCIRCLE}${COOKIE_SECURE} SameSite=Lax`;
+};
+
+const hasValue = (value: string | null): value is string =>
+  value !== null && value !== '' && value !== 'null' && value !== 'undefined';
+
+/**
+ * A sign-in made elsewhere on the same site (the Launch Platform on paybito.com) leaves its token, uuid, broker id
+ * and user id in shared cookies, but this app also keeps the ids in localStorage, which is empty on a first visit.
+ * Fill localStorage from those cookies so the visitor is signed in here too.
+ * Returns true when the session is complete (token, uuid, broker id and user id are all known).
+ */
+export const restoreSessionFromCookies = (): boolean => {
+  if (typeof window === 'undefined' || !isUserAuthenticated()) return false;
+
+  const cookieUuid = uuidCookie.get();
+  const storedUuid = localStorage.getItem('uuid');
+  // The cookies now belong to another account: drop what was stored for the previous one.
+  if (hasValue(cookieUuid) && hasValue(storedUuid) && cookieUuid !== storedUuid) {
+    localStorage.clear();
+  }
+
+  const fill = (key: string, cookieValue: string | null): boolean => {
+    if (hasValue(localStorage.getItem(key))) return true;
+    if (!hasValue(cookieValue)) return false;
+    localStorage.setItem(key, cookieValue);
+    return true;
+  };
+
+  const hasUuid = fill('uuid', cookieUuid);
+  const hasBrokerId = fill('brokerId', readCookie(BROKER_ID_COOKIE_NAME));
+  const hasUserId = fill('userId', readCookie(USER_ID_COOKIE_NAME));
+  if (!hasValue(localStorage.getItem('pageId'))) localStorage.setItem('pageId', '0');
+  return hasUuid && hasBrokerId && hasUserId;
+};
+
 export const safeLocalStorage = {
   getItem: (key: string): string | null => {
     if (typeof window === 'undefined') return null;
@@ -136,6 +196,8 @@ const clearAuthCookies = (): void => {
     'paybito_bitoconnect_uuid',
     TOKEN_COOKIE_NAME,
     UUID_COOKIE_NAME,
+    BROKER_ID_COOKIE_NAME,
+    USER_ID_COOKIE_NAME,
   ];
 
   const paybitoCookies = [
@@ -224,6 +286,7 @@ export const useAuthRedirect = (options: UseAuthRedirectOptions = {}): { isLoadi
 
   // Background loader for broker details (non-blocking, for public pages)
   const loadBrokerDetailsInBackground = async () => {
+    restoreSessionFromCookies();
     const storedAccessToken = tokenCookie.get();
     const storedBrokerId = safeLocalStorage.getItem('brokerId');
     const storedUserId = safeLocalStorage.getItem('userId');
@@ -357,9 +420,11 @@ export const useAuthRedirect = (options: UseAuthRedirectOptions = {}): { isLoadi
           }
           if (brokerId) {
             safeLocalStorage.setItem('brokerId', brokerId);
+            writeCookie(BROKER_ID_COOKIE_NAME, String(brokerId));
           }
           if (userId) {
             safeLocalStorage.setItem('userId', userId);
+            writeCookie(USER_ID_COOKIE_NAME, String(userId));
           }
           if (adminUserName) {
             safeLocalStorage.setItem('adminUserName', adminUserName);
@@ -415,6 +480,9 @@ export const useAuthRedirect = (options: UseAuthRedirectOptions = {}): { isLoadi
           console.error('=======================');
         }
       }
+
+      // Already signed in elsewhere on this site (Launch Platform): pick the session up from its cookies.
+      restoreSessionFromCookies();
 
       // Check current authentication status
       const currentlyAuthenticated = isUserAuthenticated();

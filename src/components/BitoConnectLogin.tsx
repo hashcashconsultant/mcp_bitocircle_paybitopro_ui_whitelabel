@@ -25,7 +25,7 @@ import {
 import Image from 'next/image';
 import BitoConnect from '../app/Assets/img/BitoConnect.png';
 import { WHITELABEL } from '@/config/whitelabel';
-import { tokenCookie } from '../hooks/useAuthRedirect';
+import { tokenCookie, restoreSessionFromCookies } from '../hooks/useAuthRedirect';
 
 // Safe localStorage helper
 const safeLocalStorage = {
@@ -46,7 +46,9 @@ const BitoConnectLogin = () => {
     const checkAuthentication = async () => {
       const storedAccessToken = tokenCookie.get();
 
-      if (!storedAccessToken) {
+      // A token alone is not a session here: the app also needs the broker id, user id and uuid. Without them
+      // the feed sends the visitor straight back to this page, so stay here and let them sign in.
+      if (!storedAccessToken || !restoreSessionFromCookies()) {
         setIsCheckingAuth(false);
         return;
       }
@@ -62,7 +64,9 @@ const BitoConnectLogin = () => {
           }
         );
 
-        if (response.ok) {
+        // This API answers 200 even when it fails, with the failure in the body.
+        const body = response.ok ? await response.json().catch(() => null) : null;
+        if (body && (!body.error || body.error.error_data === 0)) {
           // Token is valid — go to the app's feed on THIS (white-label) domain, NOT the mothership.
           window.location.href = '/feeds';
           return;
