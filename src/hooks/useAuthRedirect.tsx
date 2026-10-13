@@ -201,6 +201,8 @@ const clearAuthCookies = (): void => {
     UUID_COOKIE_NAME,
     BROKER_ID_COOKIE_NAME,
     USER_ID_COOKIE_NAME,
+    USERNAME_COOKIE_NAME,
+    LAUNCH_PLATFORM_USER_NAME_COOKIE,
   ];
 
   const paybitoCookies = [
@@ -255,15 +257,16 @@ export const logoutUser = async (): Promise<boolean> => {
       }
     );
 
-    if (response.data?.error?.error_data === 0) {
-      forceLogout();
-      return true;
+    if (response.data?.error?.error_data !== 0) {
+      console.warn('Logout API did not end the session:', response.data?.error?.error_msg);
     }
-    return false;
   } catch (error) {
     console.error('Logout API failed:', error);
-    return false;
   }
+  // Same as the Launch Platform: the sign-out call is best effort and this browser is always signed out,
+  // so a server-side failure never leaves the visitor stuck signed in.
+  forceLogout();
+  return true;
 };
 
 
