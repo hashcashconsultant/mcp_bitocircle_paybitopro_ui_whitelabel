@@ -96,7 +96,7 @@ export const getBitoHubUserInfo = async () => {
     "adminUser": localStorage.getItem('uuid'),
   }
   const response = await axios.post(
-    `https://institutional-bo.paybito.com:8443/BrokerAdminApi/bito-hub/users/getBitohubUserExchangeInfo`, payload,
+    `https://institutional-bo.paybito.com:8443/BitohubService/users/getBitohubUserExchangeInfo`, payload,
     {
       headers: {
         authorization: `bearer ${tokenCookie.get()}`
