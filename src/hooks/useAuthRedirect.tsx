@@ -148,6 +148,8 @@ export const restoreSessionFromCookies = (): boolean => {
   // The cookies now belong to another account: drop what was stored for the previous one.
   if (hasValue(cookieUuid) && hasValue(storedUuid) && cookieUuid !== storedUuid) {
     localStorage.clear();
+    // This app's own user-name cookie was written for the previous account.
+    usernameCookie.remove();
   }
 
   const fill = (key: string, cookieValue: string | null): boolean => {
@@ -161,7 +163,8 @@ export const restoreSessionFromCookies = (): boolean => {
   const hasBrokerId = fill('brokerId', readCookie(BROKER_ID_COOKIE_NAME));
   const hasUserId = fill('userId', readCookie(USER_ID_COOKIE_NAME));
   // The sign-out call needs the user name. Launch Platform stores it under its own cookie name.
-  fill('adminUserName', usernameCookie.get() || readCookie(LAUNCH_PLATFORM_USER_NAME_COOKIE));
+  // The PayBito sign-in page keeps its cookie current, so it wins over this app's own copy.
+  fill('adminUserName', readCookie(LAUNCH_PLATFORM_USER_NAME_COOKIE) || usernameCookie.get());
   if (!hasValue(localStorage.getItem('pageId'))) localStorage.setItem('pageId', '0');
   return hasUuid && hasBrokerId && hasUserId;
 };
@@ -233,8 +236,8 @@ export const forceLogout = (): void => {
 export const logoutUser = async (): Promise<boolean> => {
   const adminUserName =
     safeLocalStorage.getItem('adminUserName') ||
-    usernameCookie.get() ||
     readCookie(LAUNCH_PLATFORM_USER_NAME_COOKIE) ||
+    usernameCookie.get() ||
     '';
   const accessToken = tokenCookie.get();
 
