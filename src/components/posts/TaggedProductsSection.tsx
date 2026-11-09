@@ -46,7 +46,7 @@ const TaggedProductsSection: React.FC<TaggedProductsSectionProps> = ({
   const handleProductClick = (e: React.MouseEvent, product: TaggedProduct) => {
     e.stopPropagation()
     const userId = currentUserId || localStorage.getItem('childUserId') || localStorage.getItem('userId') || ''
-    const url = `https://www.bitocircle.com/merchandise/product/?productId=${product.productId}&shopCreatorId=${product.shopOwnerId}&userId=${userId}`
+    const url = `/merchandise/product/?productId=${product.productId}&shopCreatorId=${product.shopOwnerId}&userId=${userId}`
     window.open(url, '_blank', 'noopener,noreferrer')
   }
 

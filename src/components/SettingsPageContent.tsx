@@ -1945,48 +1945,6 @@ const SettingsPageContent: React.FC = () => {
               }
             />
 
-            {/* API Keys */}
-            <SettingItem
-              title="API Keys"
-              subtitle="Call the BitoCircle API from your own server or app"
-              onClick={() => router.push('/api-keys')}
-              action={
-                <Button
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    textTransform: 'none',
-                    borderRadius: 2,
-                    px: 2,
-                    fontWeight: 600
-                  }}
-                >
-                  Manage Keys
-                </Button>
-              }
-            />
-
-
-            {/* Connected Apps */}
-            <SettingItem
-              title="Connected Apps"
-              subtitle="App Store apps you allowed to use your account"
-              onClick={() => router.push('/connected-apps')}
-              action={
-                <Button
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    textTransform: 'none',
-                    borderRadius: 2,
-                    px: 2,
-                    fontWeight: 600
-                  }}
-                >
-                  Manage Apps
-                </Button>
-              }
-            />
           </CardContent>
         </Card>
 

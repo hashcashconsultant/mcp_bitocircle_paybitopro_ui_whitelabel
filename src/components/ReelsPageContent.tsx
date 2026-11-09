@@ -14,6 +14,7 @@ import {
   useMediaQuery,
   Alert,
   Chip,
+  Snackbar,
 } from '@mui/material'
 import {
   PlayArrow as PlayIcon,
@@ -673,6 +674,8 @@ const ReelsPageContent: React.FC = () => {
 
   const [likedReels, setLikedReels] = useState<{ [key: number]: boolean }>({})
   const [bookmarkedReels, setBookmarkedReels] = useState<{ [key: number]: boolean }>({})
+  // Server message when a save is refused (for example your own reel)
+  const [bookmarkMessage, setBookmarkMessage] = useState<string | null>(null)
   const [loadingStates, setLoadingStates] = useState<{ [key: number]: boolean }>({})
   const [followingStatus, setFollowingStatus] = useState<{ [key: number]: boolean }>({})
 
@@ -1384,14 +1387,18 @@ useEffect(() => {
         }
       )
 
-      if (response.ok) {
+      const result = await response.json().catch(() => null)
+      if (response.ok && result?.success) {
         setBookmarkedReels(prev => ({
           ...prev,
           [reelId]: !prev[reelId]
         }))
+      } else {
+        setBookmarkMessage(result?.message || 'Could not save this reel. Please try again.')
       }
     } catch (error) {
       console.error('Error bookmarking reel:', error)
+      setBookmarkMessage('Could not save this reel. Please try again.')
     }
   }
 
@@ -2078,6 +2085,16 @@ useEffect(() => {
           onPostCreated={handleShareSuccess}
         />
       )}
+      <Snackbar
+        open={Boolean(bookmarkMessage)}
+        autoHideDuration={4000}
+        onClose={() => setBookmarkMessage(null)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={() => setBookmarkMessage(null)} severity="error" sx={{ width: '100%' }}>
+          {bookmarkMessage}
+        </Alert>
+      </Snackbar>
     </Box>
   )
 }

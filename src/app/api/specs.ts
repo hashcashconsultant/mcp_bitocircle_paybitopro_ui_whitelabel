@@ -20,11 +20,32 @@ async function loadSpec(url: string, fallback: unknown, label: string) {
   }
 }
 
-/** Both module specs, used by /api, /api/api-key and /api/developer-portal. */
+type Operation = { tags?: string[] }
+type Spec = { tags?: { name: string }[]; paths?: Record<string, Record<string, Operation>> }
+
+/**
+ * API keys and Developer Portal apps belong to BitoCircle itself, not to a white-label community, so their
+ * operations (and the Ad Center read access built for them) are left out of this site's docs.
+ */
+const BITOCIRCLE_ONLY_TAGS = new Set(['API Keys', 'App Store OAuth', 'Ad Center'])
+
+function withoutBitoCircleOnly(spec: Spec | null) {
+  if (!spec?.paths) return spec
+  const paths: Record<string, Record<string, Operation>> = {}
+  for (const [path, ops] of Object.entries(spec.paths)) {
+    const kept = Object.fromEntries(
+      Object.entries(ops).filter(([, op]) => !(op?.tags ?? []).some((tag) => BITOCIRCLE_ONLY_TAGS.has(tag))),
+    )
+    if (Object.keys(kept).length > 0) paths[path] = kept
+  }
+  return { ...spec, tags: spec.tags?.filter((tag) => !BITOCIRCLE_ONLY_TAGS.has(tag.name)), paths }
+}
+
+/** Both module specs for /api, without the BitoCircle-only API key and app operations. */
 export async function loadApiSpecs() {
   const [userSpec, monetizeSpec] = await Promise.all([
     loadSpec(USER_SPEC_URL, userFallbackDocs, 'User'),
     loadSpec(MONETIZE_SPEC_URL, monetizeFallbackDocs, 'Monetize'),
   ])
-  return { userSpec, monetizeSpec }
+  return { userSpec: withoutBitoCircleOnly(userSpec), monetizeSpec: withoutBitoCircleOnly(monetizeSpec) }
 }

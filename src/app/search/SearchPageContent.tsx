@@ -144,7 +144,12 @@ const SearchPageContent: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   
   const [searchQuery, setSearchQuery] = useState(contextQuery)
-  const [selectedTab, setSelectedTab] = useState(0)
+  // ?tab=posts or ?tab=reels opens that tab (used by the navbar search when no people match)
+  const [selectedTab, setSelectedTab] = useState(() => {
+    if (typeof window === 'undefined') return 0
+    const tab = new URLSearchParams(window.location.search).get('tab')
+    return tab === 'reels' ? 2 : tab === 'posts' ? 1 : 0
+  })
   const [searchResults, setSearchResults] = useState<SearchResponse['data'] | null>(null)
   const [isSearching, setIsSearching] = useState(false)
   const [followLoading, setFollowLoading] = useState<Set<string>>(new Set())

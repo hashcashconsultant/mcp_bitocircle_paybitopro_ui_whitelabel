@@ -4272,13 +4272,19 @@ if (msg.messageId) {
   // Add this useEffect to handle direct messaging from profile
 
   // Handle direct messaging from URL parameter (/messages?userId={userId})
+  // The ?userId is handled once per visit: the effect runs again whenever the conversation list changes, and
+  // without this guard every rerun started one more conversation with the same person.
+  const handledDirectUserRef = useRef<string | null>(null)
   useEffect(() => {
     const handleDirectMessageFromUrl = async () => {
       // Skip if no userId in URL
-      if (!userIdToMessage) return
+      if (!userIdToMessage || userIdToMessage === '0') return
 
       // Wait for conversations to load first
       if (isLoadingConversations) return
+
+      if (handledDirectUserRef.current === String(userIdToMessage)) return
+      handledDirectUserRef.current = String(userIdToMessage)
 
       console.log('=== Handling userId from URL ===')
       console.log('userIdToMessage:', userIdToMessage)

@@ -821,26 +821,6 @@ export default function ApiClient({ adminSpec, monetizeSpec, userSpec, initialSp
 
           {moduleFallbackNotice}
 
-          {/* Switch between the three access-method docs */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
-            {([
-              { href: '/api', label: 'Sign-in token', method: undefined },
-              { href: '/api/api-key', label: 'API key & secret', method: 'apiKey' },
-              { href: '/api/developer-portal', label: 'Developer Portal apps', method: 'developerPortal' },
-            ] as const).map((doc) => (
-              <Chip
-                key={doc.href}
-                component="a"
-                href={doc.href}
-                clickable
-                label={doc.label}
-                color={authMethod === doc.method || (!authMethod && !doc.method) ? 'primary' : 'default'}
-                variant={authMethod === doc.method || (!authMethod && !doc.method) ? 'filled' : 'outlined'}
-                sx={{ fontWeight: 600 }}
-              />
-            ))}
-          </Box>
-
           {/* Spec Header Info Card */}
           <Card
             sx={{

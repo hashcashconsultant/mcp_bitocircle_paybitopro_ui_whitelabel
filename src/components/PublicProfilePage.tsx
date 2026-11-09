@@ -1018,7 +1018,7 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
       return shopDetails.externalCheckoutUrl
     }
 
-    return `https://www.bitocircle.com/merchandise/shop/?shopCreatorId=${userId}&userId=${currentUserId}`
+    return `/merchandise/shop/?shopCreatorId=${userId}&userId=${currentUserId}`
   }
 
   // Get viewer's profile image from localStorage or use a default
@@ -1912,7 +1912,13 @@ const PublicProfilePage: React.FC<{ userId: string; pageId: string }> = ({
     if (!requireAuth('send messages')) return
     if (!profileData) return
 
-    router.push(`/messages?userId=${userId}`)
+    // A page profile (/public/0/{pageId}) has no user in the address: message the page's owner
+    const messageUserId = userId && String(userId) !== '0' ? userId : profileData.userId
+    if (!messageUserId || String(messageUserId) === '0') {
+      showSnackbar('This profile cannot be messaged', 'error')
+      return
+    }
+    router.push(`/messages?userId=${messageUserId}`)
   }
 
   useEffect(() => {

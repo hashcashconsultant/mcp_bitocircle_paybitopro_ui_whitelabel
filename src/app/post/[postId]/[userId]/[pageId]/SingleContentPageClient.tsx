@@ -31,9 +31,14 @@ interface TaggedUser {
 interface PollOption { id: number; text: string; votes: number }
 
 interface Poll {
-  question: string; options: PollOption[]; totalVotes: number; hasVoted: boolean
+  pollId?: number; question: string; options: PollOption[]; totalVotes: number; hasVoted: boolean
   votedOptionId?: number; endTime?: string
 }
+
+// The API sends poll options as optionId, optionText and voteCount
+type ApiPollOption = Partial<PollOption> & { optionId?: number; optionText?: string; voteCount?: number }
+const mapPollOptions = (options: ApiPollOption[]): PollOption[] =>
+  options.map(opt => ({ id: opt.optionId ?? opt.id ?? 0, text: opt.optionText ?? opt.text ?? '', votes: opt.voteCount ?? opt.votes ?? 0 }))
 
 interface PostData {
   postId: number; adminUser: string | null; pageId: number; userId: number
@@ -287,7 +292,7 @@ const SingleContentPageClient = () => {
         setCommentCount(fetchedContent.commentCount)
 
         if (fetchedContent.type === 'POST' && fetchedContent.postType === 'POLL') {
-          const options = fetchedContent.poll?.options || parsePollOptions(fetchedContent.pollOptions || null)
+          const options = fetchedContent.poll?.options ? mapPollOptions(fetchedContent.poll.options) : parsePollOptions(fetchedContent.pollOptions || null)
           setPollOptions(options)
           setTotalVotes(fetchedContent.poll?.totalVotes || options.reduce((sum, opt) => sum + opt.votes, 0))
           setLocalHasVoted(fetchedContent.poll?.hasVoted || false)
@@ -568,9 +573,9 @@ const renderContentWithClickableHashtags = (text: string, router: ReturnType<typ
     setTotalVotes(prev => prev + 1)
     try {
       const userId = localStorage.getItem('childUserId') || localStorage.getItem('userId')
-      await fetch('https://institutional-bo.paybito.com:8443/BitohubService/post/votePoll', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ postId: content.id, optionId, userId })
+      await fetchWithAuth('https://institutional-bo.paybito.com:8443/BitohubService/poll/voteInPoll', {
+        method: 'POST',
+        body: JSON.stringify({ userId: Number(userId), pollId: content.poll?.pollId, optionId })
       })
     } catch (error) { console.error('Error voting:', error) }
   }

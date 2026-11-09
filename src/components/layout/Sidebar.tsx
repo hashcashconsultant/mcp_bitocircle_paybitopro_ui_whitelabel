@@ -190,12 +190,9 @@ const Sidebar: React.FC<SidebarProps> = ({ temporary = false, onClose }) => {
   }, [])
 
   // Helper functions for external links
-  const getAdvertiseHref = () => {
-    if (typeof window === 'undefined') return '/advertise'
-    const appData = localStorage.getItem('appDataRaw') || ''
-    return `http://ad-center.bitocircle.com/?app=${appData}`
-  }
-  const getMonetizeHref = () => `https://www.bitocircle.com/monetize/`
+  // The Ad Center runs on this same domain under /ad-center and reads this app's sign-in.
+  const getAdvertiseHref = () => '/ad-center/'
+  const getMonetizeHref = () => `/monetize`
   const getMarketplaceHref = () => `https://www.bitocircle.com/marketplaces/`
 
   const generateAvatarColor = (name: string): string => {

@@ -90,7 +90,7 @@ interface SearchUser {
 }
 interface SearchResponse {
   success: boolean; message: string
-  data: { users: SearchUser[]; usersTotal: number; totalResults: number; page: number; size: number }
+  data: { users: SearchUser[]; usersTotal: number; totalResults: number; page: number; size: number; posts?: unknown[]; reels?: unknown[] }
   errorCode: string | null
 }
 interface AppNotification {
@@ -149,12 +149,9 @@ const { unreadMessageCount, isConnected } = useMessaging()
   const { isAuthenticated, requireAuth, showLoginPrompt } = useAuth()
   const { userProfile } = useUserProfile()
 
-  const getAdvertiseHref = () => {
-    if (typeof window === 'undefined') return '/advertise'
-    const appData = localStorage.getItem('appDataRaw') || ''
-    return `http://ad-center.bitocircle.com/?app=${appData}`
-  }
-  const getMonetizeHref = () => `https://www.bitocircle.com/monetize/`
+  // The Ad Center runs on this same domain under /ad-center and reads this app's sign-in.
+  const getAdvertiseHref = () => '/ad-center/'
+  const getMonetizeHref = () => `/monetize`
   const getMarketplaceHref = () => `https://www.bitocircle.com/marketplaces/`
 
   const [profileMenuAnchor, setProfileMenuAnchor] = useState<null | HTMLElement>(null)
@@ -164,6 +161,8 @@ const { unreadMessageCount, isConnected } = useMessaging()
   const [isLoadingNotifications, setIsLoadingNotifications] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState<SearchUser[]>([])
+  // Posts and reels that match too (title, description, text, hashtags); shown on the search page
+  const [contentMatches, setContentMatches] = useState({ posts: 0, reels: 0 })
   const [isSearching, setIsSearching] = useState(false)
   const [showSearchResults, setShowSearchResults] = useState(false)
   const [followLoading, setFollowLoading] = useState<Set<string>>(new Set())
@@ -416,13 +415,17 @@ const { unreadMessageCount, isConnected } = useMessaging()
 ])
 
   const performSearch = async (term: string) => {
-    if (!term.trim()) { setSearchResults([]); setShowSearchResults(false); return }
+    if (!term.trim()) { setSearchResults([]); setContentMatches({ posts: 0, reels: 0 }); setShowSearchResults(false); return }
     setIsSearching(true)
     try {
       const userId = isAuthenticated ? localStorage.getItem('childUserId') || '' : '0'
-      const response = await fetchWithAuth(`https://institutional-bo.paybito.com:8443/BitohubService/feeds/search?searchTerm=${encodeURIComponent(term)}&type=USERS&page=0&size=10&userId=${userId}&userType=${localStorage.getItem('userType') || 'USER'} `)
+      const response = await fetchWithAuth(`https://institutional-bo.paybito.com:8443/BitohubService/feeds/search?searchTerm=${encodeURIComponent(term)}&type=ALL&page=0&size=10&userId=${userId}&userType=${localStorage.getItem('userType') || 'USER'} `)
       const data: SearchResponse = await response.json()
-      if (data.success && data.data.users) { setSearchResults(data.data.users); setShowSearchResults(true) }
+      if (data.success && data.data) {
+        setSearchResults(data.data.users || [])
+        setContentMatches({ posts: data.data.posts?.length || 0, reels: data.data.reels?.length || 0 })
+        setShowSearchResults(true)
+      }
     } catch (error) { console.error('Search error:', error); setSearchResults([]) }
     finally { setIsSearching(false) }
   }
@@ -573,11 +576,19 @@ const { unreadMessageCount, isConnected } = useMessaging()
     window.location.href = LOGIN_URL
   }
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = (e: React.FormEvent, tab?: 'posts' | 'reels') => {
     e.preventDefault()
     const query = searchQuery.trim()
-    if (query) { setShowSearchResults(false); setMobileSearchOpen(false); triggerSearch(query); router.push('/search') }
+    if (query) { setShowSearchResults(false); setMobileSearchOpen(false); triggerSearch(query); router.push(tab ? `/search?tab=${tab}` : '/search') }
   }
+
+  // Opens the search page on the tab that has matches when no people match
+  const contentTab = (): 'posts' | 'reels' | undefined =>
+    searchResults.length > 0 ? undefined : contentMatches.posts > 0 ? 'posts' : contentMatches.reels > 0 ? 'reels' : undefined
+  const contentLabel = [
+    contentMatches.posts > 0 ? `${contentMatches.posts}${contentMatches.posts >= 10 ? '+' : ''} post${contentMatches.posts === 1 ? '' : 's'}` : '',
+    contentMatches.reels > 0 ? `${contentMatches.reels}${contentMatches.reels >= 10 ? '+' : ''} reel${contentMatches.reels === 1 ? '' : 's'}` : '',
+  ].filter(Boolean).join(' and ')
 
   const handleUserClick = (user: SearchUser) => {
     const query = searchQuery.trim()
@@ -885,18 +896,27 @@ const { unreadMessageCount, isConnected } = useMessaging()
                     )
                   })}
                 </List>
-                {searchResults.length >= 10 && (
+                {(searchResults.length >= 10 || contentLabel) && (
                   <Box sx={{ p: 1.5, borderTop: 1, borderColor: 'divider', textAlign: 'center' }}>
                     <Button fullWidth size="small" onClick={(e) => { e.preventDefault(); handleSearch(e as React.FormEvent) }} sx={{ textTransform: 'none', fontWeight: 600 }}>
-                      See all results for &quot;{searchQuery}&quot;
+                      See all results for &quot;{searchQuery}&quot;{contentLabel ? ` (also ${contentLabel})` : ''}
                     </Button>
                   </Box>
                 )}
               </>
             ) : (
-              <Box sx={{ p: 3, textAlign: 'center' }}>
-                <Typography variant="body2" color="text.secondary">No results found for &quot;{searchQuery}&quot;</Typography>
-              </Box>
+              contentLabel ? (
+                <Box sx={{ p: 2, textAlign: 'center' }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>No people found for &quot;{searchQuery}&quot;</Typography>
+                  <Button fullWidth size="small" onClick={(e) => { e.preventDefault(); handleSearch(e as React.FormEvent, contentTab()) }} sx={{ textTransform: 'none', fontWeight: 600 }}>
+                    See {contentLabel} for &quot;{searchQuery}&quot;
+                  </Button>
+                </Box>
+              ) : (
+                <Box sx={{ p: 3, textAlign: 'center' }}>
+                  <Typography variant="body2" color="text.secondary">No results found for &quot;{searchQuery}&quot;</Typography>
+                </Box>
+              )
             )}
           </Paper>
         )}
@@ -1320,12 +1340,10 @@ const { unreadMessageCount, isConnected } = useMessaging()
           </MenuItem>
           <Divider />
           <Typography variant="caption" sx={{ px: 2, pt: 1, pb: 0.5, display: 'block', color: 'text.secondary', fontWeight: 700 }}>
-            Developers: API docs
+            Developers
           </Typography>
           {[
-            { href: '/api', label: 'Sign-in token' },
-            { href: '/api/api-key', label: 'API key & secret' },
-            { href: '/api/developer-portal', label: 'Developer Portal apps' },
+            { href: '/api', label: 'API docs' },
           ].map((doc) => (
             <MenuItem
               key={doc.href}

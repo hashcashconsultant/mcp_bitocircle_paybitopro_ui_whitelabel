@@ -2940,16 +2940,12 @@ const ProfilePageContent: React.FC = () => {
       if (!currentReel) return
 
       const response = await fetchWithAuth(
-        'https://institutional-bo.paybito.com:8443/BitohubService/reels/bookmarkReel',
+        `https://institutional-bo.paybito.com:8443/BitohubService/reels/bookmarkReel/${userId}/${reelId}`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            userId: parseInt(userId),
-            reelId: reelId
-          })
+          }
         }
       )
 
